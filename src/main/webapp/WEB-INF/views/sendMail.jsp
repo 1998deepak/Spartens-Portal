@@ -13,7 +13,7 @@
 			id="email" multiple>
 			<c:forEach items="${userList}" var="user">
 				<option value="${user.getEmail()}">${user.getFirstName()}
-					${user.getLastName()}</option>
+					${user.getLastName()} hello</option>
 
 			</c:forEach>
 		</select>
