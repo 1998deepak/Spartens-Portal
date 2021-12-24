@@ -1,0 +1,119 @@
+package com.spartenportal.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.spartenportal.bean.UserBean;
+import com.spartenportal.entity.Docs;
+import com.spartenportal.entity.User;
+import com.spartenportal.service.DocumentsService;
+import com.spartenportal.service.UserService;
+
+
+
+@RestController
+public class AdminController {
+
+	@Autowired
+	UserService userservice;
+
+	@Autowired
+	DocumentsService documentservice;
+	
+	// method to redirect to HR-dashboard
+	@RequestMapping(value = "/hrHomepage")
+	public ModelAndView adminHomePage(ModelAndView mv, Model m) {
+		return mv;
+	}
+	
+	// method to redirect to Update form
+	@RequestMapping(value = "/viewForm/{userId}")
+	public ModelAndView viewUserForm(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m) {
+		UserBean user = userservice.getById(userId);
+		List<Docs> docs = documentservice.getDocsByuserIdFk(userId);
+		m.addAttribute("user", user);
+		m.addAttribute("docs", docs);
+		mv = new ModelAndView("viewForm");
+		return mv;
+	}
+
+	// method to delete employee
+	@RequestMapping(value = "/deleteEmployee/{userId}")
+	public ModelAndView deleteEmployee(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m) throws IOException {
+		String message ="Employee Deleted Successfully";
+		 userservice.deleteById(userId);
+		List<User> userList = userservice.getUserList();
+		mv = new ModelAndView("employeeDetails");
+		mv.addObject("message1", message);
+		m.addAttribute("userList", userList);
+		return mv;
+	}
+
+	// method to redirect to Reports page
+//	@RequestMapping(value = "/reports")
+//	public ModelAndView reportsPage(ModelAndView mv, Model m) {
+//		m.addAttribute("total", userservice.countEmployee());
+//		return mv;
+//	}
+
+	// method to redirect to Add user form
+	@RequestMapping(value = "/addUserForm")
+	public ModelAndView addUserForm(ModelAndView mv, Model m) {
+		m.addAttribute("command", new User());
+		return mv;
+	}
+
+	// API to get all employee deatils
+	@RequestMapping(value = "/employeeDetails")
+	public ModelAndView employeeDetails(ModelAndView mv, Model m) {
+		String message = "List Of Users. Check For Update/Delete.";
+		List<User> userList = userservice.getUserList();
+		m.addAttribute("userList", userList);
+		mv.addObject("message", message);
+		return mv;
+	}
+	
+	// API to get all employee deatils for sending mail
+		@RequestMapping(value = "/sendMail")
+		public ModelAndView sendMail(ModelAndView mv, Model m) {
+			List<User> userList = userservice.getUserList();
+			m.addAttribute("userList", userList);
+			return mv;
+		}
+	//get User for update
+	@RequestMapping(value = "/updateForm/{userId}")
+	public ModelAndView viewUpdateScreen(@PathVariable(name = "userId") int userId,ModelAndView mv,Model m) {
+		UserBean user = userservice.getById(userId);
+		m.addAttribute("user", user);
+		
+		mv = new ModelAndView("updateForm");
+		return mv;
+	}
+	
+	// API to update user
+		@RequestMapping(value = "/updateAdminUser")
+		public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv, HttpServletRequest request)
+				throws NumberFormatException, IOException {
+			String uname = (String) request.getSession().getAttribute("uname");
+			String pass = (String) request.getSession().getAttribute("pass");
+			int id = (int) request.getSession().getAttribute("userId");
+			String message = "Data added sucessful";
+			user.setUserid(id);
+			user.setUserName(uname);
+			user.setPassword(pass);
+			userservice.updateUser(user);
+			mv = new ModelAndView("updateForm");
+			mv.addObject("message", message);
+			return mv;
+		}
+}
