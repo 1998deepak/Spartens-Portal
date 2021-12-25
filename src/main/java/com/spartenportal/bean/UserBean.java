@@ -29,7 +29,7 @@ public class UserBean {
 
 	private String presentAddress;
 
-	private Long telephone;
+	private Integer telephone;
 
 	private Long mobile;
 
@@ -466,11 +466,11 @@ public class UserBean {
 		this.presentAddress = presentAddress;
 	}
 
-	public Long getTelephone() {
+	public Integer getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(Long telephone) {
+	public void setTelephone(Integer telephone) {
 		this.telephone = telephone;
 	}
 
