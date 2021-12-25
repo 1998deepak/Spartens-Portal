@@ -161,7 +161,7 @@ public class UserMapper {
 		userBean.setIsActive(user.getIsActive());
 		userBean.setCurrentDate(user.getCurrentDate());
 		userBean.setModifyDate(user.getModifyDate());
-		
+		userBean.setClientCompanyName(user.getClientCompanyName());
 		return userBean;
 	}
 	
@@ -319,6 +319,7 @@ public class UserMapper {
 		user.setIsActive(userBean.getIsActive());
 		user.setCurrentDate(userBean.getCurrentDate());
 		user.setModifyDate(userBean.getModifyDate());
+		user.setClientCompanyName(userBean.getClientCompanyName());
 		return user; 
 	}
 }

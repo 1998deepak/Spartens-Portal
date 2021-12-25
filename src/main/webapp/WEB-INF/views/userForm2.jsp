@@ -123,18 +123,18 @@ th, td {
 										<td><input type="text" class="form-control"
 											placeholder="Enter First Name" name="firstName"
 											value="${user.getFirstName()}" pattern="[A-Za-z]{1,32}"
-											title="Enter a character ony" required="required"></td>
+											title="Enter a character ony" ></td>
 
 										<td align="right">Middle Name</td>
 										<td><input type="text" class="form-control"
 											placeholder="Enter Middle Name" name="middleName"
 											value="${user.getMiddleName()}" pattern="[A-Za-z]{1,32}"
-											title="Enter a character ony" required="required"></td>
+											title="Enter a character ony" ></td>
 										<td>Last Name</td>
 										<td><input type="text" class="form-control"
 											placeholder="Enter Last Name" name="lastName"
 											value="${user.getLastName()}" pattern="[A-Za-z]{1,32}"
-											title="Enter a character ony" required="required"></td>
+											title="Enter a character ony" ></td>
 
 									</tr>
 
@@ -142,21 +142,21 @@ th, td {
 										<td colspan="1">Date Of Birth</td>
 										<td><input type="date" name="birthDate"
 											class="form-control" style="width: 215px; height: 38px;"
-											value="${user.getBirthDate()}" required="required"></td>
+											value="${user.getBirthDate()}" ></td>
 									</tr>
 									<tr>
 										<td colspan="1">Place Of Birth
 										<td><input type="text" placeholder="Place" name="place"
 											class="form-control" value="${user.getPlace()}"
 											pattern="[A-Za-z]{1,32}" title="Enter a character ony"
-											required="required"></td>
+											></td>
 										<td align="left"></td>
 										<td></td>
 										<td align="right">Marital Status</td>
 										<td><input type="text" class="form-control"
 											name="maritalStatus" placeholder="Marital Status"
 											value="${user.getMaritalStatus()}" pattern="[A-Za-z]{1,32}"
-											title="Enter a character ony" required="required"></td>
+											title="Enter a character ony" ></td>
 									</tr>
 									<tr>
 
@@ -173,7 +173,7 @@ th, td {
 										<td>Blood Group</td>
 										<td><input type="text" class="form-control"
 											name="bloodGroup" placeholder="Blood Group"
-											value="${user.getBloodGroup()}" required="required"></td>
+											value="${user.getBloodGroup()}" ></td>
 									</tr>
 									<tr>
 
@@ -182,7 +182,7 @@ th, td {
 										<td>Present Address</td>
 										<td><input type="text" class="form-control"
 											name="presentAddress" placeholder="Present Address"
-											value="${user.getPresentAddress()}" required="required"></td>
+											value="${user.getPresentAddress()}" ></td>
 									</tr>
 									<tr>
 
@@ -198,7 +198,7 @@ th, td {
 										<td align="right">Mobile</td>
 										<td><input type="number" class="form-control" name="mobile"
 											placeholder="Mobile Number" pattern="[0-9]"
-											title="Enter only numbers" required="required"
+											title="Enter only numbers" 
 											value="${user.getMobile()}"></td>
 									</tr>
 									<tr>
@@ -209,7 +209,7 @@ th, td {
 										<td><input type="email" class="form-control" name="email"
 											placeholder="Email" value="${user.getEmail()}"
 											pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
-											required="required"></td>
+											></td>
 									</tr>
 									<tr>
 
@@ -218,7 +218,7 @@ th, td {
 										<td>Permanent Address</td>
 										<td><input type="text" class="form-control"
 											name="permanentAddress" placeholder="Permanent Address"
-											value="${user.getPresentAddress()}" required="required">
+											value="${user.getPresentAddress()}" >
 											</textarea></td>
 									</tr>
 									<tr>
@@ -276,7 +276,7 @@ th, td {
 										<td><input type="number" name="adharNumber"
 											value="${user.getAdharNumber()}" class="form-control"
 											pattern="[0-9]{4}[0-9]{4}[0-9]{4}"
-											title="Enter Valid Adhar Number" required="required"></td>
+											title="Enter Valid Adhar Number" ></td>
 										<td>PAN No</td>
 										<td><input type="text" name="panNumber"
 											value="${user.getPanNumber()}" class="form-control"
@@ -305,35 +305,35 @@ th, td {
 											<td><input type="text" name="holderName"
 												value="${user.getHolderName()}" class="form-control"
 												pattern="[A-Za-z]{1,32}" title="Enter a full name"
-												required="required"></td>
+												></td>
 										</tr>
 										<tr>
 											<td>Bank Name</td>
 											<td><input type="text" name="bankName"
 												value="${user.getBankName()}" class="form-control"
 												pattern="[A-Za-z]{1,32}" title="Enter a character ony"
-												required="required"></td>
+												></td>
 										</tr>
 										<tr>
 											<td>Bank Account No</td>
 											<td><input type="number" name="accountNumber"
 												value="${user.getAccountNumber()}" class="form-control"
 												pattern="[0-9]{9, 18}" title="Enter only Number"
-												required="required"></td>
+												></td>
 										</tr>
 										<tr>
 											<td>Bank Branch Name</td>
 											<td><input type="text" name="branchName"
 												value="${user.getBranchName()}" class="form-control"
 												pattern="[A-Za-z]{1,32}" title="Enter only character"
-												required="required"></td>
+												></td>
 										</tr>
 										<tr>
 											<td>IFSC Code</td>
 											<td><input type="text" name="ifscCode"
 												value="${user.getIfscCode()}" class="form-control"
 												pattern="[A-Z]{4}0[A-Z0-9][6}]" title="Enter valid IFSC"
-												required="required"></td>
+												></td>
 										</tr>
 										<tr>
 											<td colspan="4">If you have your PF Account Number & UAN
@@ -385,7 +385,7 @@ th, td {
 												<td><input type="text" name="fatherName"
 													value="${user.getFatherName()}" class="form-control"
 													pattern="[A-Za-z]{1,32}" title="Enter a character ony"
-													required="required"></td>
+													></td>
 												<td><input type="text" name="fatherContactNumber"
 													value="${user.getFatherContactNumber()}"
 													class="form-control" pattern="[0-9]{10}"></td>
@@ -401,7 +401,7 @@ th, td {
 												<td><input type="text" name="motherName"
 													value="${user.getMotherName()}" class="form-control"
 													pattern="[A-Za-z]{1,32}" title="Enter a character ony"
-													required="required"></td>
+													></td>
 												<td><input type="text" name="motherContactNumber"
 													value="${user.getMotherContactNumber()}"
 													class="form-control" pattern="[0-9]{10}"></td>
@@ -513,21 +513,21 @@ th, td {
 													<td>S.S.C.</td>
 													<td><input type="number" name="periodFrom"
 														placeholder="From" value="${user.getPeriodFrom()}"
-														title="required" required="required"
+														title="required" 
 														style="margin-bottom: 10px; width: 58%"> <input
 														type="number" name="periodTo" placeholder="To"
 														value="${user.getPeriodTo()}" title="required"
-														required="required"
+														
 														style="margin-bottom: 10px; width: 58%"></td>
 													<td><input type="text" name="degreeOrDiploma"
 														value="${user.getDegreeOrDiploma()}" title="required"
-														required="required"></td>
+														></td>
 													<td><input type="text" name="specialization"
 														value="${user.getSpecialization()}"></td>
 													<td><input type="number" name="percentage"
 														value="${user.getPercentage()}"
 														pattern="[0-9]{2}.[0-9]{2}%"
-														title="Please fill like'60.54'" required="required"></td>
+														title="Please fill like'60.54'" ></td>
 													<td><input type="text" name="classOrDiv"
 														value="${user.getClassOrDiv()}" pattern="[A-Za-z]{1,32}"></td>
 
@@ -539,22 +539,22 @@ th, td {
 													<td>H.S.C.</td>
 													<td><input type="number" name="hscPeriodFrom"
 														placeholder="From" value="${user.getHscPeriodFrom()}"
-														title="required" required="required"
+														title="required" 
 														style="margin-bottom: 10px; width: 58%"> <input
 														type="number" name="hscPeriodTo" placeholder="To"
 														value="${user.getPeriodTo()}" title="required"
-														required="required"
+														
 														style="margin-bottom: 10px; width: 58%"></td>
 													<td><input type="text" name="hscDegreeOrDiploma"
 														value="${user.getHscDegreeOrDiploma()}" title="required"
-														required="required"></td>
+														></td>
 													<td><input type="text" name="hscSpecialization"
 														value="${user.getHscSpecialization()}" title="required"
-														required="required"></td>
+														></td>
 													<td><input type="number" name="hscPercentage"
 														value="${user.getHscPercentage()}"
 														pattern="[0-9]{2}.[0-9]{2}%"
-														title="Please fill like'60.54'" required="required"></td>
+														title="Please fill like'60.54'" ></td>
 													<td><input type="text" name="hscclassOrDiv"
 														value="${user.getHscclassOrDiv()}"
 														pattern="[A-Za-z]{1,32}"></td>
@@ -568,22 +568,22 @@ th, td {
 													<td><input type="number" name="degreePeriodFrom"
 														placeholder="From"
 														value="${user.getDegreePeriodFrom()} title="
-														required" required="required"
+														required" 
 														style="margin-bottom: 10px; width: 58%"> <input
 														type="number" name="degreePeriodTo" placeholder="To"
 														value="${user.getDegreePeriodTo()}" title="required"
-														required="required"
+														
 														style="margin-bottom: 10px; width: 58%"></td>
 													<td><input type="text" name="degreeDegreeOrDiploma"
 														value="${user.getDegreeDegreeOrDiploma()}"
-														title="required" required="required"></td>
+														title="required" ></td>
 													<td><input type="text" name="degreeSpecialization"
 														value="${user.getDegreeSpecialization()}" title="required"
-														required="required"></td>
+														></td>
 													<td><input type="number" name="degreePercentage"
 														value="${user.getDegreePercentage()}"
 														pattern="[0-9]{2}.[0-9]{2}%"
-														title="Please fill like'60.54'" required="required"></td>
+														title="Please fill like'60.54'" ></td>
 													<td><input type="text" name="degreeClassOrDiv"
 														value="${user.getDegreeClassOrDiv()}"
 														pattern="[A-Za-z]{1,32}"></td>
@@ -613,7 +613,7 @@ th, td {
 														<td><input type="text" name="programingLanguages"
 															value="${user.getProgramingLanguages()}"
 															pattern="[A-Za-z]{1,120}" title="Enter a character ony"
-															required="required"></td>
+															></td>
 													</tr>
 													<tr>
 														<td>Application(s) Software / Packages</td>
@@ -657,7 +657,7 @@ th, td {
 															<td><input type="text" name="futureStudy"
 																value="${user.getFutureStudy()}"
 																pattern="[A-Za-z]{1,120}" title="Please Fill"
-																required="required"></td>
+																></td>
 														</tr>
 														<tr>
 															<td>State your career objectives for the next three
@@ -665,7 +665,7 @@ th, td {
 															<td><input type="text" name="careerObjective"
 																value="${user.getCareerObjective()}"
 																pattern="[A-Za-z]{1,120}" title="Please Fill"
-																required="required"></td>
+																></td>
 														</tr>
 
 
@@ -799,7 +799,7 @@ th, td {
 																	<td><input type="text" name="experience"
 																		value="${user.getExperience()}"
 																		pattern="[A-Za-z0-9]{1,120}" title="Please fill"
-																		required="required"></td>
+																		></td>
 																	<td>Relevant Experience</td>
 																	<td><input type="text" name="relevantExperience"
 																		value="${user.getRelevantExperience()}"
@@ -904,14 +904,14 @@ th, td {
 																<td>Joining Time required</td>
 																<td><input type="date" name="joinTime"
 																	value="${user.getJoinTime()}" pattern="[0-9]{1,32}"
-																	title="Please fill" required="required"
+																	title="Please fill" 
 																	style="width: 196px;"></td>
 															</tr>
 															<tr>
 																<td>Do you need Relocation? Yes / No(if eligible)</td>
 																<td><input type="text" name="relocation"
 																	value="${user.getRelocation()}"
-																	pattern="[A-Za-z]{1,32}" required="required"></td>
+																	pattern="[A-Za-z]{1,32}" ></td>
 															</tr>
 
 														</table>
@@ -1013,7 +1013,7 @@ th, td {
 															<td>Hobbies & Interests</td>
 															<td><textarea rows="3" cols="25" name="hobbies"
 																	value="${user.getHobbies()}" pattern="[A-Za-z]{1,120}"
-																	title="Please Fill" required="required"></textarea></td>
+																	title="Please Fill" ></textarea></td>
 														</tr>
 													</table>
 												</div>
@@ -1054,7 +1054,7 @@ th, td {
 														<td>Nationality</td>
 														<td><input type="text" name="nationality"
 															value="${user.getNationality()}" pattern="[A-Za-z]{1,32}"
-															title="Please Fill" required="required"></td>
+															title="Please Fill" ></td>
 														<td>ECNR Status</td>
 														<td><input type="text" name="statusECNR"
 															value="${user.getStatusECNR()}"
@@ -1074,7 +1074,8 @@ th, td {
 													<tr>
 														<td>Place and Date of Application</td>
 														<td><input type="date" name="app_Date"
-															value="${user.getApp_Date()}" pattern="[0-9]{1,32}" style="width: 100%"></td>
+											class="form-control" style="width: 215px; height: 38px;"
+											value="${user.getApp_Date()}" ></td>
 														<td><input type="text" name="app_Place"
 															placeholder="Place" value="${user.getApp_Place()}"
 															pattern="[A-Za-z]{1,32}"></td>

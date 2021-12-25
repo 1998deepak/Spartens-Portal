@@ -23,12 +23,6 @@ public class UserController {
 	@Autowired
 	UserService userservice;
 
-	// method default mapping to redirect to login page
-	@RequestMapping(value = "/")
-	public ModelAndView viewHomePage(ModelAndView mv) {
-		mv = new ModelAndView("userLogin");
-		return mv;
-	}
 
 	@RequestMapping(value = "/userForm2")
 	public ModelAndView viewuserform(ModelAndView mv, Model m) {
@@ -147,11 +141,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/updateUser")
-	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv)
+	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv,HttpServletRequest request)
 			throws NumberFormatException, IOException {
-		String message = "Data added sucessful";
+		int userId = (int) request.getSession().getAttribute("userId");
+		UserBean userBean = userservice.getById(userId);
+		System.out.println(user);
 		userservice.updateUser(user);
-		mv.addObject("message", message);
 		return mv;
 	}
 }

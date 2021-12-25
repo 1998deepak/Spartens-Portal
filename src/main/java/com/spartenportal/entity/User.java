@@ -1,14 +1,10 @@
 package com.spartenportal.entity;
 import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /*
@@ -486,7 +482,7 @@ public class User{
 	private String app_Place;
 	
 	@Column(name = "app_Date")
-	private String app_Date;
+	private Date app_Date;
 
 	@Column(name = "travelledCountries")
 	private String travelledCountries;
@@ -506,11 +502,20 @@ public class User{
 	@Column(name = "modifyDate")
 	private Date modifyDate;
 	
-	
+	@Column(name = "clientCompanyName")
+	private String clientCompanyName;
 	
 
 	public Integer getUserid() {
 		return userid;
+	}
+
+	public String getClientCompanyName() {
+		return clientCompanyName;
+	}
+
+	public void setClientCompanyName(String clientCompanyName) {
+		this.clientCompanyName = clientCompanyName;
 	}
 
 	public void setUserid(Integer userid) {
@@ -1653,11 +1658,11 @@ public class User{
 		this.app_Place = app_Place;
 	}
 
-	public String getApp_Date() {
+	public Date getApp_Date() {
 		return app_Date;
 	}
 
-	public void setApp_Date(String app_Date) {
+	public void setApp_Date(Date app_Date) {
 		this.app_Date = app_Date;
 	}
 
@@ -1708,8 +1713,4 @@ public class User{
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-
-
-	
-	
 }

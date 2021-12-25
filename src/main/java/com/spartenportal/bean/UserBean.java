@@ -342,7 +342,7 @@ public class UserBean {
 
 	private String app_Place;
 
-	private String app_Date;
+	private Date app_Date;
 
 	private String travelledCountries;
 
@@ -356,10 +356,23 @@ public class UserBean {
 
 	private Date modifyDate;
 
+	private String clientCompanyName;
+	
 	// getters and setters
 	public Integer getUserid() {
 		return userid;
 	}
+
+	
+	public String getClientCompanyName() {
+		return clientCompanyName;
+	}
+
+
+	public void setClientCompanyName(String clientCompanyName) {
+		this.clientCompanyName = clientCompanyName;
+	}
+
 
 	public void setUserid(Integer userid) {
 		this.userid = userid;
@@ -1501,11 +1514,11 @@ public class UserBean {
 		this.app_Place = app_Place;
 	}
 
-	public String getApp_Date() {
+	public Date getApp_Date() {
 		return app_Date;
 	}
 
-	public void setApp_Date(String app_Date) {
+	public void setApp_Date(Date app_Date) {
 		this.app_Date = app_Date;
 	}
 
