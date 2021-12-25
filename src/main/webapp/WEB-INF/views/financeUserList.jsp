@@ -20,7 +20,6 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -38,10 +37,21 @@ body{
     <div>
 		<jsp:include page="./components/financeNavbar.jsp" />
 	</div>
-	<div style="position: absolute; left: 150px; top: 250px;">
+	<div  style="padding:5%;padding-top:13%">
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" style="background-color: rgb(255, 255, 255);"
                 cellspacing="0" width="100%">
                 <thead style="background-color: white;">
+                   <tr>
+                                        <th class="th-sm">Id
+                                        </th>
+                                        <th class="th-sm">Name
+                                        </th>
+                                        <th class="th-sm">Email
+                                        </th>
+
+                                         <th class="th-sm">Operation
+                                        </th>
+                    </tr>
                     <tr>
                         <th class="th-sm">Id
                         </th>
@@ -59,7 +69,7 @@ body{
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
-                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
 
@@ -67,21 +77,21 @@ body{
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
-                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
-                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
-                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
                         </td>
                     </tr>
                 </tbody>
