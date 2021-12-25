@@ -39,6 +39,10 @@ public class UserController {
 	public ModelAndView viewFinanceUserList(ModelAndView mv, Model m) {
 		return mv;
 	}
+	@RequestMapping(value = "/financeUserInfo")
+	public ModelAndView viewFinanceUserInfo(ModelAndView mv, Model m) {
+		return mv;
+	}
 
 	// method to check login details
 	@PostMapping(value = "/checklogin")
