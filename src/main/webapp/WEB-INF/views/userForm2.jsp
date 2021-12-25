@@ -189,10 +189,9 @@ th, td {
 									</tr>
 									<tr>
 										<td>Tel(R)</td>
-										<td><input type="number" name="telephone"
-											class="form-control" placeholder="Telephone Number" value="
-											${user.getTelephone()}" pattern="[0-9]"
-											title="Enter only numbers"></td>
+										<td><input type="text" name="permanentTelephone"
+											class="form-control" placeholder="Permanent Telephone Number"
+											value="${user.getTelephone() }"></td>
 										<td></td>
 										<td></td>
 										<td align="right">Mobile</td>

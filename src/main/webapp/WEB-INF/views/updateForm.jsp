@@ -132,7 +132,7 @@ th, td {
 										<td colspan="1">Date Of Birth</td>
 										<td><input type="date" name="birthDate"
 											class="form-control" style="width: 215px; height: 38px;"
-											${user.getBirthDate()}" ></td>
+											value="${user.getBirthDate()}" ></td>
 									</tr>
 									<tr>
 										<td colspan="1">Place Of Birth
@@ -179,8 +179,8 @@ th, td {
 									</tr>
 									<tr>
 										<td>Tel(R)</td>
-										<td><input type="number" name="telephone"
-											class="form-control" placeholder="Telephone Number" value="${user.getTelephone()}" pattern="[0-9]"
+										<td><input type="text" name="telephone"
+											class="form-control" placeholder="Telephone Number" value="${user.getTelephone()}"
 											title="Enter only numbers"></td>
 										<td></td>
 										<td></td>
