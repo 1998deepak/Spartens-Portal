@@ -60,7 +60,7 @@ public class User{
 	private String presentAddress;
 	
 	@Column(name = "telephone")
-	private Long telephone;
+	private Integer telephone;
 	
 	@Column(name = "mobile")
 	private Long mobile;
@@ -620,11 +620,11 @@ public class User{
 		this.presentAddress = presentAddress;
 	}
 
-	public Long getTelephone() {
+	public Integer getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(Long telephone) {
+	public void setTelephone(Integer telephone) {
 		this.telephone = telephone;
 	}
 
