@@ -112,7 +112,7 @@ button:hover {
 					<td>${user.getMobile()}</td>
 					<td>
 					</td>
-					<td ><a href="viewForm/${user.getUserid()}"><button style="background-color: blue;"><span class="glyphicon glyphicon-eye-open"></span></button></a>&nbsp&nbsp
+					<td ><a href="/viewForm/${user.getUserid()}"><button style="background-color: blue;"><span class="glyphicon glyphicon-eye-open"></span></button></a>&nbsp&nbsp
 					<a href="/updateForm/${user.getUserid()}"><button style="background-color: orange;"><span class="glyphicon glyphicon-pencil" ></span></button></a>&nbsp&nbsp
 					<a href="/deleteEmployee/${user.getUserid()}"><button style="background-color: red;"><span class="glyphicon glyphicon-trash"></span></button></a></td>
 				</tr>

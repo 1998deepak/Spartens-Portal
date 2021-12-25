@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import com.spartenportal.bean.UserBean;
 import com.spartenportal.entity.User;
+import com.spartenportal.mapper.UserMapper;
 import com.spartenportal.service.UserService;
 
 @RestController
@@ -23,7 +24,9 @@ public class UserController {
 	@Autowired
 	UserService userservice;
 
-
+	@Autowired
+	private UserMapper userMapper;
+	
 	@RequestMapping(value = "/userForm2")
 	public ModelAndView viewuserform(ModelAndView mv, Model m) {
 		return mv;
@@ -43,8 +46,6 @@ public class UserController {
 				mv.addObject("message", message);
 			} else if ((user.getUserName().equals(username)) && (user.getPassword().equals(password))) {
 				HttpSession session = request.getSession();
-				session.setAttribute("uname", user.getUserName());
-				session.setAttribute("pass", user.getPassword());
 				session.setAttribute("userId", user.getUserid());
 				session.setAttribute("firstName", user.getFirstName());
 				message = "Login Sucessfull!";
@@ -78,6 +79,7 @@ public class UserController {
 		return mv;
 	}
 
+	// api to show user dashboard
 	@RequestMapping(value = "/userDashboard")
 	public ModelAndView viewMainScreen(ModelAndView mv) {
 		String message = "Welcome User!";
@@ -92,21 +94,6 @@ public class UserController {
 		return mv;
 	}
 
-//	// method to show userForm
-//	@RequestMapping(value = "/documentsForm")
-//	public ModelAndView documentsForm(ModelAndView mv, Model m) {
-//		System.out.println("in user api");
-//		m.addAttribute("command", new Documents());
-//		return mv;
-//	}
-
-	// method to show userModel
-	@RequestMapping(value = "/model")
-	public ModelAndView userModel(ModelAndView mv, Model m) {
-		System.out.println("in user api");
-
-		return mv;
-	}
 
 	// method to create user
 	@RequestMapping(value = "/saveUser")
@@ -140,13 +127,19 @@ public class UserController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/updateUser")
+	//API to update user
+	@PostMapping(value = "/updateUser")
 	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv,HttpServletRequest request)
 			throws NumberFormatException, IOException {
 		int userId = (int) request.getSession().getAttribute("userId");
-		UserBean userBean = userservice.getById(userId);
-		System.out.println(user);
+		
+		UserBean user2 = userservice.getById(userId);
+		User user3 = userMapper.mapToEntity(user2);
+		user.setUserName(user3.getUserName());
+		user.setPassword(user3.getPassword());
+		user.setUserid(userId);
 		userservice.updateUser(user);
+		mv = new ModelAndView("userForm2");
 		return mv;
 	}
 }

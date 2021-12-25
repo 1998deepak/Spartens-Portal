@@ -19,7 +19,7 @@ public class UserBean {
 
 	private String place;
 
-	private String birthDate;
+	private Date birthDate;
 
 	private String maritalStatus;
 
@@ -188,7 +188,7 @@ public class UserBean {
 
 	private String cert_Version;
 
-	private String cert_Date;
+	private Date cert_Date;
 
 	// Career Objective//
 
@@ -287,7 +287,7 @@ public class UserBean {
 
 	private Integer expectedCTC;
 
-	private String joinTime;
+	private Date joinTime;
 
 	private String relocation;
 
@@ -304,7 +304,7 @@ public class UserBean {
 
 	private String employerDesignation1;
 
-	private String lastSalary1;
+	private Float lastSalary1;
 
 	// Employer 2//
 
@@ -318,7 +318,7 @@ public class UserBean {
 
 	private String employerDesignation2;
 
-	private String lastSalary2;
+	private Float lastSalary2;
 
 	private String hobbies;
 
@@ -328,9 +328,9 @@ public class UserBean {
 
 	private String issuePlace;
 
-	private String issueDate;
+	private Date issueDate;
 
-	private String expiryDate;
+	private Date expiryDate;
 
 	private String nationality;
 
@@ -426,11 +426,11 @@ public class UserBean {
 		this.place = place;
 	}
 
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -986,11 +986,11 @@ public class UserBean {
 		this.cert_Version = cert_Version;
 	}
 
-	public String getCert_Date() {
+	public Date getCert_Date() {
 		return cert_Date;
 	}
 
-	public void setCert_Date(String cert_Date) {
+	public void setCert_Date(Date cert_Date) {
 		this.cert_Date = cert_Date;
 	}
 
@@ -1322,11 +1322,11 @@ public class UserBean {
 		this.expectedCTC = expectedCTC;
 	}
 
-	public String getJoinTime() {
+	public Date getJoinTime() {
 		return joinTime;
 	}
 
-	public void setJoinTime(String joinTime) {
+	public void setJoinTime(Date joinTime) {
 		this.joinTime = joinTime;
 	}
 
@@ -1378,11 +1378,11 @@ public class UserBean {
 		this.employerDesignation1 = employerDesignation1;
 	}
 
-	public String getLastSalary1() {
+	public Float getLastSalary1() {
 		return lastSalary1;
 	}
 
-	public void setLastSalary1(String lastSalary1) {
+	public void setLastSalary1(Float lastSalary1) {
 		this.lastSalary1 = lastSalary1;
 	}
 
@@ -1426,11 +1426,11 @@ public class UserBean {
 		this.employerDesignation2 = employerDesignation2;
 	}
 
-	public String getLastSalary2() {
+	public Float getLastSalary2() {
 		return lastSalary2;
 	}
 
-	public void setLastSalary2(String lastSalary2) {
+	public void setLastSalary2(Float lastSalary2) {
 		this.lastSalary2 = lastSalary2;
 	}
 
@@ -1458,19 +1458,19 @@ public class UserBean {
 		this.issuePlace = issuePlace;
 	}
 
-	public String getIssueDate() {
+	public Date getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(String issueDate) {
+	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
 
-	public String getExpiryDate() {
+	public Date getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(String expiryDate) {
+	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 

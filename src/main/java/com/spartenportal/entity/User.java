@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /*
  * Bean class for User
  * author Mahesh
@@ -41,8 +43,9 @@ public class User{
 	@Column(name = "place")
 	private String place;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "birthDate")
-	private String birthDate;
+	private Date birthDate;
 	
 	@Column(name = "maritalStatus")
 	private String maritalStatus;
@@ -267,8 +270,9 @@ public class User{
 	@Column(name = "cert_Version")
 	private String cert_Version;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "cert_Date")
-	private String cert_Date;
+	private Date cert_Date;
 
 	// Career Objective//
 	@Column(name = "futureStudy")
@@ -402,8 +406,9 @@ public class User{
 	@Column(name = "expectedCTC")
 	private Integer expectedCTC;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "joinTime")
-	private String joinTime;
+	private Date joinTime;
 	
 	@Column(name = "relocation")
 	private String relocation;
@@ -427,7 +432,7 @@ public class User{
 	private String employerDesignation1;
 	
 	@Column(name = "lastSalary1")
-	private String lastSalary1;
+	private Float lastSalary1;
 
 	// Employer 2//
 	
@@ -447,7 +452,7 @@ public class User{
 	private String employerDesignation2;
 	
 	@Column(name = "lastSalary2")
-	private String lastSalary2;
+	private Float lastSalary2;
 
 	@Column(name = "hobbies")
 	private String hobbies;
@@ -460,11 +465,13 @@ public class User{
 	@Column(name = "issuePlace")
 	private String issuePlace;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "issueDate")
-	private String issueDate;
+	private Date issueDate;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "expiryDate")
-	private String expiryDate;
+	private Date expiryDate;
 	
 	@Column(name = "nationality")
 	private String nationality;
@@ -481,6 +488,7 @@ public class User{
 	@Column(name = "app_Place")
 	private String app_Place;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "app_Date")
 	private Date app_Date;
 
@@ -496,9 +504,11 @@ public class User{
 	@Column(name = "isActive")
 	private Boolean isActive;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "currentDate")
 	private Date currentDate;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "modifyDate")
 	private Date modifyDate;
 	
@@ -570,11 +580,11 @@ public class User{
 		this.place = place;
 	}
 
-	public String getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(String birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -1130,11 +1140,11 @@ public class User{
 		this.cert_Version = cert_Version;
 	}
 
-	public String getCert_Date() {
+	public Date getCert_Date() {
 		return cert_Date;
 	}
 
-	public void setCert_Date(String cert_Date) {
+	public void setCert_Date(Date cert_Date) {
 		this.cert_Date = cert_Date;
 	}
 
@@ -1466,11 +1476,11 @@ public class User{
 		this.expectedCTC = expectedCTC;
 	}
 
-	public String getJoinTime() {
+	public Date getJoinTime() {
 		return joinTime;
 	}
 
-	public void setJoinTime(String joinTime) {
+	public void setJoinTime(Date joinTime) {
 		this.joinTime = joinTime;
 	}
 
@@ -1522,11 +1532,11 @@ public class User{
 		this.employerDesignation1 = employerDesignation1;
 	}
 
-	public String getLastSalary1() {
+	public Float getLastSalary1() {
 		return lastSalary1;
 	}
 
-	public void setLastSalary1(String lastSalary1) {
+	public void setLastSalary1(Float lastSalary1) {
 		this.lastSalary1 = lastSalary1;
 	}
 
@@ -1570,11 +1580,11 @@ public class User{
 		this.employerDesignation2 = employerDesignation2;
 	}
 
-	public String getLastSalary2() {
+	public Float getLastSalary2() {
 		return lastSalary2;
 	}
 
-	public void setLastSalary2(String lastSalary2) {
+	public void setLastSalary2(Float lastSalary2) {
 		this.lastSalary2 = lastSalary2;
 	}
 
@@ -1602,19 +1612,19 @@ public class User{
 		this.issuePlace = issuePlace;
 	}
 
-	public String getIssueDate() {
+	public Date getIssueDate() {
 		return issueDate;
 	}
 
-	public void setIssueDate(String issueDate) {
+	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
 
-	public String getExpiryDate() {
+	public Date getExpiryDate() {
 		return expiryDate;
 	}
 
-	public void setExpiryDate(String expiryDate) {
+	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
 
@@ -1713,4 +1723,65 @@ public class User{
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", userName=" + userName + ", password=" + password + ", lastName=" + lastName
+				+ ", firstName=" + firstName + ", middleName=" + middleName + ", place=" + place + ", birthDate="
+				+ birthDate + ", maritalStatus=" + maritalStatus + ", gender=" + gender + ", bloodGroup=" + bloodGroup
+				+ ", presentAddress=" + presentAddress + ", telephone=" + telephone + ", mobile=" + mobile + ", email="
+				+ email + ", permanentAddress=" + permanentAddress + ", permanentTelephone=" + permanentTelephone
+				+ ", relativeName=" + relativeName + ", relativePosition=" + relativePosition
+				+ ", relativesRelationship=" + relativesRelationship + ", adharNumber=" + adharNumber + ", panNumber="
+				+ panNumber + ", holderName=" + holderName + ", bankName=" + bankName + ", accountNumber="
+				+ accountNumber + ", branchName=" + branchName + ", ifscCode=" + ifscCode + ", pfAccountNumber="
+				+ pfAccountNumber + ", uanNumber=" + uanNumber + ", fatherName=" + fatherName + ", fatherContactNumber="
+				+ fatherContactNumber + ", fatherEducation=" + fatherEducation + ", fatherOccupation="
+				+ fatherOccupation + ", motherName=" + motherName + ", motherContactNumber=" + motherContactNumber
+				+ ", motherEducation=" + motherEducation + ", motherOccupation=" + motherOccupation + ", wOrHName="
+				+ wOrHName + ", wOrHContactNumber=" + wOrHContactNumber + ", wOrHEducation=" + wOrHEducation
+				+ ", wOrHOccupation=" + wOrHOccupation + ", childrenName=" + childrenName + ", childrenContactNumber="
+				+ childrenContactNumber + ", childrenEducation=" + childrenEducation + ", childrenOccupation="
+				+ childrenOccupation + ", brotherName=" + brotherName + ", brotherContactNumber=" + brotherContactNumber
+				+ ", brotherEducation=" + brotherEducation + ", brotherOccupation=" + brotherOccupation
+				+ ", sisterName=" + sisterName + ", sisterNumber=" + sisterNumber + ", sisterEducation="
+				+ sisterEducation + ", sisterOccupation=" + sisterOccupation + ", schoolName=" + schoolName
+				+ ", periodFrom=" + periodFrom + ", periodTo=" + periodTo + ", degreeOrDiploma=" + degreeOrDiploma
+				+ ", specialization=" + specialization + ", percentage=" + percentage + ", classOrDiv=" + classOrDiv
+				+ ", collageName=" + collageName + ", hscPeriodFrom=" + hscPeriodFrom + ", hscPeriodTo=" + hscPeriodTo
+				+ ", hscDegreeOrDiploma=" + hscDegreeOrDiploma + ", hscSpecialization=" + hscSpecialization
+				+ ", hscPercentage=" + hscPercentage + ", hscclassOrDiv=" + hscclassOrDiv + ", universityName="
+				+ universityName + ", degreePeriodFrom=" + degreePeriodFrom + ", degreePeriodTo=" + degreePeriodTo
+				+ ", degreeDegreeOrDiploma=" + degreeDegreeOrDiploma + ", degreeSpecialization=" + degreeSpecialization
+				+ ", degreePercentage=" + degreePercentage + ", degreeClassOrDiv=" + degreeClassOrDiv
+				+ ", programingLanguages=" + programingLanguages + ", applicationSoftware=" + applicationSoftware
+				+ ", cert_Version=" + cert_Version + ", cert_Date=" + cert_Date + ", futureStudy=" + futureStudy
+				+ ", careerObjective=" + careerObjective + ", m_Read=" + m_Read + ", m_Write=" + m_Write + ", m_Speak="
+				+ m_Speak + ", m_Comprehend=" + m_Comprehend + ", m_MotherTongue=" + m_MotherTongue + ", h_Read="
+				+ h_Read + ", h_Write=" + h_Write + ", h_Speak=" + h_Speak + ", h_Comprehend=" + h_Comprehend
+				+ ", h_MotherTongue=" + h_MotherTongue + ", e_Read=" + e_Read + ", e_Write=" + e_Write + ", e_Speak="
+				+ e_Speak + ", e_Comprehend=" + e_Comprehend + ", e_MotherTongue=" + e_MotherTongue + ", otherLanguage="
+				+ otherLanguage + ", o_Read=" + o_Read + ", o_Write=" + o_Write + ", o_Speak=" + o_Speak
+				+ ", o_Comprehend=" + o_Comprehend + ", o_MotherTongue=" + o_MotherTongue + ", tech_Skill1="
+				+ tech_Skill1 + ", tech_Skill2=" + tech_Skill2 + ", otherSkill1=" + otherSkill1 + ", experience="
+				+ experience + ", relevantExperience=" + relevantExperience + ", employer=" + employer
+				+ ", businessType=" + businessType + ", emp_Address=" + emp_Address + ", reson_Change=" + reson_Change
+				+ ", serviceFrom=" + serviceFrom + ", serviceTo=" + serviceTo + ", drawnCTC=" + drawnCTC
+				+ ", emp_phone=" + emp_phone + ", designation=" + designation + ", seniorName=" + seniorName
+				+ ", seniorDesignation=" + seniorDesignation + ", currentCTC=" + currentCTC + ", expectedCTC="
+				+ expectedCTC + ", joinTime=" + joinTime + ", relocation=" + relocation + ", employerName1="
+				+ employerName1 + ", employerAddress1=" + employerAddress1 + ", employerFrom1=" + employerFrom1
+				+ ", employerTo1=" + employerTo1 + ", employerDesignation1=" + employerDesignation1 + ", lastSalary1="
+				+ lastSalary1 + ", employerName2=" + employerName2 + ", employerAddress2=" + employerAddress2
+				+ ", employerFrom2=" + employerFrom2 + ", employerTo2=" + employerTo2 + ", employerDesignation2="
+				+ employerDesignation2 + ", lastSalary2=" + lastSalary2 + ", hobbies=" + hobbies + ", passportNo="
+				+ passportNo + ", issuePlace=" + issuePlace + ", issueDate=" + issueDate + ", expiryDate=" + expiryDate
+				+ ", nationality=" + nationality + ", statusECNR=" + statusECNR + ", panNo=" + panNo + ", notPassport="
+				+ notPassport + ", app_Place=" + app_Place + ", app_Date=" + app_Date + ", travelledCountries="
+				+ travelledCountries + ", refuseVisa=" + refuseVisa + ", validVisa=" + validVisa + ", isActive="
+				+ isActive + ", currentDate=" + currentDate + ", modifyDate=" + modifyDate + ", clientCompanyName="
+				+ clientCompanyName + "]";
+	}
+	
+	
 }

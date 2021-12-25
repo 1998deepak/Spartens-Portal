@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -112,10 +113,11 @@ public class AdminController {
 
 	// get User for update
 	@RequestMapping(value = "/updateForm/{userId}")
-	public ModelAndView viewUpdateScreen(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m) {
+	public ModelAndView viewUpdateScreen(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m,HttpServletRequest request) {
 		UserBean user = userservice.getById(userId);
+		HttpSession session = request.getSession();
+		session.setAttribute("updateUserId", userId);
 		m.addAttribute("user", user);
-
 		mv = new ModelAndView("updateForm");
 		return mv;
 	}
@@ -124,8 +126,13 @@ public class AdminController {
 	@RequestMapping(value = "/updateAdminUser")
 	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv, HttpServletRequest request)
 			throws NumberFormatException, IOException {
-		int id = (int) request.getSession().getAttribute("userId");
-		String message = "Data added sucessful";
+		int updateUserId = (int) request.getSession().getAttribute("updateUserId");
+		String message = "Data Updated sucessful";
+		UserBean user2 = userservice.getById(updateUserId);
+		User user3 = userMapper.mapToEntity(user2);
+		user.setUserName(user3.getUserName());
+		user.setPassword(user3.getPassword());
+		user.setUserid(updateUserId);
 		userservice.updateUser(user);
 		mv = new ModelAndView("updateForm");
 		mv.addObject("message", message);
