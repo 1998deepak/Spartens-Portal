@@ -53,6 +53,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public ResponseEntity<?> saveUser(User user) {
+		user.setCurrentDate(new Date());
+		user.setModifyDate(new Date());
 		userRepo.save(user);
 		return new ResponseEntity<>("success",HttpStatus.OK);	
 	}
@@ -60,6 +62,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public ResponseEntity<?> updateUser(User user) {
+		user.setModifyDate(new Date());
 		userRepo.saveAndFlush(user);
 		return new ResponseEntity<>("success",HttpStatus.OK);
 	}

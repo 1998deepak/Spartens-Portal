@@ -26,15 +26,22 @@ public class UserController {
 
 	@Autowired
 	private UserMapper userMapper;
-	
+
 	@RequestMapping(value = "/userForm2")
 	public ModelAndView viewuserform(ModelAndView mv, Model m) {
 		return mv;
 	}
+	
+	@RequestMapping(value = "/AttendanceSheet")
+	public ModelAndView viewAttendanceSheet(ModelAndView mv, Model m) {
+		return mv;
+	}
+	
 	@RequestMapping(value = "/financePanel")
 	public ModelAndView viewFinancePanel(ModelAndView mv, Model m) {
 		return mv;
 	}
+
 	@RequestMapping(value = "/financeUserList")
 	public ModelAndView viewFinanceUserList(ModelAndView mv, Model m) {
 		return mv;
@@ -56,6 +63,7 @@ public class UserController {
 				HttpSession session = request.getSession();
 				session.setAttribute("userId", user.getUserid());
 				session.setAttribute("firstName", user.getFirstName());
+				session.setAttribute("companyName", user.getClientCompanyName());
 				message = "Login Sucessfull!";
 				mv = new ModelAndView("userDashboard");
 				m.addAttribute(session);
@@ -102,7 +110,6 @@ public class UserController {
 		return mv;
 	}
 
-
 	// method to create user
 	@RequestMapping(value = "/saveUser")
 	public ModelAndView registerStudent(ModelAndView mv, @ModelAttribute("user") User user) throws Exception {
@@ -135,12 +142,12 @@ public class UserController {
 		return mv;
 	}
 
-	//API to update user
+	// API to update user
 	@PostMapping(value = "/updateUser")
-	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv,HttpServletRequest request)
+	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv, HttpServletRequest request)
 			throws NumberFormatException, IOException {
 		int userId = (int) request.getSession().getAttribute("userId");
-		
+
 		UserBean user2 = userservice.getById(userId);
 		User user3 = userMapper.mapToEntity(user2);
 		user.setUserName(user3.getUserName());

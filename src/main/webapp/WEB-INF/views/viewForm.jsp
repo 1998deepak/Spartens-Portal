@@ -172,7 +172,7 @@ h1 {
 							${user.getPresentAddress()}</td>
 					</tr>
 					<tr align="left">
-						<td><label>Tel(R) :</label></td>
+						<td><label>Tel(R) :</label> ${user.getTelephone() }</td>
 						<td><label>Mobile :</label> ${user.getMobile()}</td>
 						<td><label>Email-ID :</label> ${user.getEmail()}</td>
 					</tr>

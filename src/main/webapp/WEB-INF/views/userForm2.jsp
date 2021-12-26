@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Employment Form</title>
-<link rel="icon" href="./images/Krios-icon-header.png"
+<link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -189,9 +189,9 @@ th, td {
 									</tr>
 									<tr>
 										<td>Tel(R)</td>
-										<td><input type="text" name="permanentTelephone"
-											class="form-control" placeholder="Permanent Telephone Number"
-											value="${user.getTelephone() }"></td>
+										<td><input type="text" name="telephone"
+											class="form-control" placeholder="Telephone Number" value="${user.getTelephone()}"
+											title="Enter only numbers"></td>
 										<td></td>
 										<td></td>
 										<td align="right">Mobile</td>
