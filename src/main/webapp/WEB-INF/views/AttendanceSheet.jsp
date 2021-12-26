@@ -92,7 +92,7 @@ th, td {
 		style="position: absolute; left: 76px; top: 55px; padding-top: 6px; padding-bottom: 6px;"
 		id="mydiv">
 		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp;
-			UPLOAD ATTENDANCE SHEET</font>
+			UPLOAD ATTENDANCE SHEET upload</font>
 	</div>
 </body>
 </html>
