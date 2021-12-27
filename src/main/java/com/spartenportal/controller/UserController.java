@@ -1,6 +1,8 @@
 package com.spartenportal.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,12 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.spartenportal.bean.RolesBean;
 import com.spartenportal.bean.UserBean;
+import com.spartenportal.entity.Roles;
 import com.spartenportal.entity.User;
 import com.spartenportal.mapper.UserMapper;
+import com.spartenportal.service.RoleService;
 import com.spartenportal.service.UserService;
 
 @RestController
@@ -26,15 +33,25 @@ public class UserController {
 
 	@Autowired
 	private UserMapper userMapper;
+
+	@Autowired
+	RoleService roleService;
 	
 	@RequestMapping(value = "/userForm2")
 	public ModelAndView viewuserform(ModelAndView mv, Model m) {
 		return mv;
 	}
+	
+	@RequestMapping(value = "/AttendanceSheet")
+	public ModelAndView viewAttendanceSheet(ModelAndView mv, Model m) {
+		return mv;
+	}
+	
 	@RequestMapping(value = "/financePanel")
 	public ModelAndView viewFinancePanel(ModelAndView mv, Model m) {
 		return mv;
 	}
+
 	@RequestMapping(value = "/financeUserList")
 	public ModelAndView viewFinanceUserList(ModelAndView mv, Model m) {
 		return mv;
@@ -44,49 +61,95 @@ public class UserController {
 		return mv;
 	}
 
-	// method to check login details
+	// method default mapping to redirect to login page
+		@RequestMapping(value = "/", method = RequestMethod.GET)
+		public ModelAndView viewHomePage(ModelAndView mv, Model m) {
+			List<RolesBean> roles = new ArrayList<>();
+			roles = roleService.fetchRoleList();
+			m.addAttribute("roles", roles);
+			mv = new ModelAndView("userLogin");
+			return mv;
+
+		}
+		
 	@PostMapping(value = "/checklogin")
 	public ModelAndView loginUser(@RequestParam(name = "username") String username,
-			@RequestParam(name = "password") String password, @RequestParam(name = "role") String role, ModelAndView mv,
+			@RequestParam(name = "password") String password, @ModelAttribute("roles") RolesBean roles, ModelAndView mv,
 			Model m, HttpServletRequest request) {
-		if (role.equals("employee")) {
-			User user = userservice.findByUserNameAndPassword(username, password);
-			String message;
-			if (user == null) {
-				message = "Login failed! Incorrect Username OR Password";
-				mv = new ModelAndView("userLogin");
-				mv.addObject("message", message);
-			} else if ((user.getUserName().equals(username)) && (user.getPassword().equals(password))) {
-				HttpSession session = request.getSession();
-				session.setAttribute("userId", user.getUserid());
-				session.setAttribute("firstName", user.getFirstName());
-				message = "Login Sucessfull!";
-				mv = new ModelAndView("userDashboard");
-				m.addAttribute(session);
+		HttpSession session = request.getSession();
+		String message = "";
+		User user = userservice.findByUserNameAndPassword(username, password);
+		if (user != null) {
+			String roleName = roles.getRoleName();
+			Roles role = roleService.findByRoleName(roleName);
+			int match = userservice.checkAuthority(user.getUserid(), role.getRoleId());
+			if (match > 0) {
+				if (roleName.equals("Admin")) {
+					//System.out.println(match);
+					session.setAttribute("userId", user.getUserid());
+					session.setAttribute("firstName", user.getFirstName());
+					message = "Login Sucessfull!";
+					mv = new ModelAndView("hrHomepage");
+					m.addAttribute(session);
+
+				} else if (roleName.equals("Finance")) {
+
+					session.setAttribute("userId", user.getUserid());
+					session.setAttribute("firstName", user.getFirstName());
+					message = "Login Sucessfull!";
+					mv = new ModelAndView("financePanel");
+					m.addAttribute(session);
+
+				}
+				
+					  else if (roleName.equals("Employee")) {
+					  
+					  session.setAttribute("userId", user.getUserid());
+					  session.setAttribute("firstName", user.getFirstName()); 
+					  session.setAttribute("companyName", user.getClientCompanyName());
+					  message = "Login Sucessfull!"; 
+					  mv = new ModelAndView("userDashboard");
+					  m.addAttribute(session);
+					  
+					  
+					  }
+					 
+
+			}  else
+				if (roleName.equals("Employee")) {
+				 session.setAttribute("userId", user.getUserid());
+				 session.setAttribute("firstName", user.getFirstName()); 
+				 session.setAttribute("companyName", user.getClientCompanyName());
+				 message ="Login Sucessfull!"; 
+				 mv = new ModelAndView("userDashboard");
+				  m.addAttribute(session);
+
 			}
-		} else if (role.equals("admin")) {
-			User user = userservice.findByUserNameAndPassword(username, password);
-			String message;
-			if ((user.getUserName() == null) && (user.getPassword() == null)) {
-				message = "Login failed! Incorrect UserName OR Password";
+
+			else {
+				message = "Login Failed";
+				viewHomePage(mv, m);
 				mv = new ModelAndView("userLogin");
-				mv.addObject("message", message);
-			} else if ((user.getUserName().equals(username)) && (user.getPassword().equals(password))) {
-				HttpSession session = request.getSession();
-				session.setAttribute("userId", user.getUserid());
-				session.setAttribute("firstName", user.getFirstName());
-				message = "Login Sucessfull!";
-				mv = new ModelAndView("hrHomepage");
-				m.addAttribute(session);
 			}
+
 		}
+
+		else {
+			message = "Login Failed";
+			viewHomePage(mv, m);
+			mv = new ModelAndView("userLogin");
+		}
+		m.addAttribute("message", message);
+
 		return mv;
 	}
-
 	// API to logout from sessions
 	@RequestMapping(value = "/logout")
-	public ModelAndView logout(ModelAndView mv, HttpServletRequest request) {
+	public ModelAndView logout(ModelAndView mv,Model m, HttpServletRequest request) {
 		request.getSession().invalidate();
+		List<RolesBean> roles = new ArrayList<>();
+		roles = roleService.fetchRoleList();
+		m.addAttribute("roles", roles);
 		mv = new ModelAndView("userLogin");
 		return mv;
 	}
@@ -106,12 +169,12 @@ public class UserController {
 		return mv;
 	}
 
-
-	// method to create user
 	@RequestMapping(value = "/saveUser")
-	public ModelAndView registerStudent(ModelAndView mv, @ModelAttribute("user") User user) throws Exception {
+	public ModelAndView registerStudent(ModelAndView mv, @ModelAttribute("user") User user,
+			@ModelAttribute("rolesBean") RolesBean rolesBean) throws Exception {
 		System.out.println("in save user api");
-		userservice.saveUser(user);
+		rolesBean.setRoleName("Employee");
+		userservice.saveUser(user, rolesBean);
 		String message = "Hello " + user.getFirstName() + " " + user.getLastName()
 				+ ",  \n\nWelcome to Krios Info Solutions Pvt Ltd, Pune  !!\r\n"
 				+ "\nCongratulations on being part of our dynamic team!  The entire office welcomes you and we hope to have a long and successful journey together. \r\n"
@@ -139,12 +202,12 @@ public class UserController {
 		return mv;
 	}
 
-	//API to update user
+	// API to update user
 	@PostMapping(value = "/updateUser")
-	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv,HttpServletRequest request)
+	public ModelAndView updateUser(@ModelAttribute("user") User user, ModelAndView mv, HttpServletRequest request)
 			throws NumberFormatException, IOException {
 		int userId = (int) request.getSession().getAttribute("userId");
-		
+
 		UserBean user2 = userservice.getById(userId);
 		User user3 = userMapper.mapToEntity(user2);
 		user.setUserName(user3.getUserName());

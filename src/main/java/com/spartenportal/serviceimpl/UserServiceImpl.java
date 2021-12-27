@@ -12,9 +12,14 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import com.spartenportal.bean.RolesBean;
 import com.spartenportal.bean.UserBean;
+import com.spartenportal.entity.Roles;
 import com.spartenportal.entity.User;
+import com.spartenportal.mapper.RolesMapper;
 import com.spartenportal.mapper.UserMapper;
+import com.spartenportal.repository.RolesRepository;
 import com.spartenportal.repository.UserRepository;
 import com.spartenportal.service.UserService;
 
@@ -29,6 +34,12 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
+	
+	@Autowired
+	RolesMapper rolesMapper;
+	
+	@Autowired
+	RolesRepository rolesRepository;
 	
 	@Override
 	public User findByUserNameAndPassword(String userName, String password) {
@@ -52,7 +63,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public ResponseEntity<?> saveUser(User user) {
+	public ResponseEntity<?> saveUser(User user , RolesBean roleBean) {
+		Roles roles = rolesMapper.mapToEntity(roleBean);		
+		List<Roles> role = rolesRepository.findByName(roles.getRoleName());
+		user.setRoles(role);
 		userRepo.save(user);
 		return new ResponseEntity<>("success",HttpStatus.OK);	
 	}
@@ -60,6 +74,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public ResponseEntity<?> updateUser(User user) {
+		user.setModifyDate(new Date());
 		userRepo.saveAndFlush(user);
 		return new ResponseEntity<>("success",HttpStatus.OK);
 	}
@@ -102,5 +117,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void deleteById(int id) {
 		userRepo.deleteById(id);		
+	}
+	
+	@Override
+	public int checkAuthority(int userId, int roleId) {
+		// TODO Auto-generated method stub
+		int res;
+		Optional<Integer> data = userRepo.checkAuthority(userId, roleId);
+		if(data.isPresent()) {
+			res = 1;
+		}else
+			res = 0;
+		return res;
 	}
 }

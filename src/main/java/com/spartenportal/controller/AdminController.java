@@ -1,6 +1,7 @@
 package com.spartenportal.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -16,14 +17,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spartenportal.bean.RolesBean;
 import com.spartenportal.bean.UserBean;
 import com.spartenportal.entity.Docs;
 import com.spartenportal.entity.User;
 import com.spartenportal.mapper.UserMapper;
 import com.spartenportal.service.DocumentsService;
+import com.spartenportal.service.RoleService;
 import com.spartenportal.service.UserService;
 
 @RestController
@@ -39,16 +43,12 @@ public class AdminController {
 	private JavaMailSender javaMailSender;
 
 	@Autowired
+	RoleService roleService;
+	
+	@Autowired
 	private UserMapper userMapper;
 	
-	// method default mapping to redirect to login page
-	@RequestMapping(value = "/")
-	public ModelAndView viewHomePage(ModelAndView mv) {
-		mv = new ModelAndView("userLogin");
-		sendAutoMail();
-		return mv;
-	}
-
+	
 	// method to redirect to HR-dashboard
 	@RequestMapping(value = "/hrHomepage")
 	public ModelAndView adminHomePage(ModelAndView mv, Model m) {

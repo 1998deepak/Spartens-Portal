@@ -1,6 +1,9 @@
 package com.spartenportal.bean;
 
 import java.util.Date;
+import java.util.List;
+
+import com.spartenportal.entity.Roles;
 
 public class UserBean {
 	private Integer userid;
@@ -358,12 +361,24 @@ public class UserBean {
 
 	private String clientCompanyName;
 	
+	private List<Roles> roles;
+	
 	// getters and setters
 	public Integer getUserid() {
 		return userid;
 	}
 
 	
+	public List<Roles> getRoles() {
+		return roles;
+	}
+
+
+	public void setRoles(List<Roles> roles) {
+		this.roles = roles;
+	}
+
+
 	public String getClientCompanyName() {
 		return clientCompanyName;
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 
+import com.spartenportal.bean.RolesBean;
 import com.spartenportal.bean.UserBean;
 import com.spartenportal.entity.User;
 
@@ -13,7 +14,7 @@ public interface UserService {
 	
 	public User findByUserNameAndPassword(String userName, String password);
 
-	public ResponseEntity<?> saveUser(User user);
+	public ResponseEntity<?> saveUser(User user,RolesBean roleBean);
 
 	public ResponseEntity<?> updateUser(User user);
 
@@ -28,4 +29,6 @@ public interface UserService {
 	public void deleteById(int id);
 
 	public void sendEmail(String to, String body, String topic);
+	
+	public int checkAuthority(int userId , int roleId);
 }

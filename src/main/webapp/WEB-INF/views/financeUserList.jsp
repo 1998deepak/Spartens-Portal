@@ -41,6 +41,7 @@ body{
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" style="background-color: rgb(255, 255, 255);"
                 cellspacing="0" width="100%">
                 <thead style="background-color: white;">
+
                 <tr style="background-color: white;">
                    <div class="row-md-12">
                         <div class="col-sm-3 wrap-input100 validate-input m-b-16" style="padding:3px">
@@ -80,7 +81,6 @@ body{
 
                     </div>
                   </tr>
-
                    <tr>
                                         <th class="th-sm">Id
                                         </th>
@@ -92,34 +92,87 @@ body{
                                          <th class="th-sm">Operation
                                         </th>
                     </tr>
+
+
+                    
+
+	<div style="position: absolute; left: 150px; top: 250px;">
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" style="background-color: rgb(255, 255, 255);"
+                cellspacing="0" width="100%">
+                <thead style="background-color: white;">
+
+                    <tr>
+                        <th class="th-sm">Id
+                        </th>
+                        <th class="th-sm">Name
+                        </th>
+                        <th class="th-sm">Email
+                        </th>
+
+                         <th class="th-sm">Operation
+                        </th>
+                    </tr>
+
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
+
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button name="editbtn" class="btn col align-items-center" ><i   class="fa fa-eye"></i></button>
+
+
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+
+
                         </td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
+
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+
+
                         </td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
+
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+
+
                         </td>
                     </tr>
                     <tr>
                         <td>1</td>
                         <td>Ganesh Chavan</td>
                         <td>chavanganesh806@gmail.com</td>
+
                         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+
+                        <td><button name="editbtn" class="btn col"><i class="fa fa-eye"></i></button>
+
+                        <td><button name="editbtn" class="btn col"><i class="fas fa-eye"></i></button>
+
+
                         </td>
                     </tr>
                      <tr>

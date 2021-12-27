@@ -1,26 +1,45 @@
 package com.spartenportal.entity;
 
-import java.util.Objects;
-
-/* Bean class for Roles
- * author : vidya
- * Date : 24/11/2021
- * version : 1.0
+/**
+ * Entity Class for Roles
+ * 
+ * @author Sejal Shelke
+ * @date 23/11/2021
+ * @version 1.0
+ * 
  */
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "roles")
 public class Roles {
 
-	// roles class variables
+	@Id
+	@Column(name = "roleId")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer roleId;
 	
-	private int roleId;
+	@Column(name = "roleName")
 	private String roleName;
+	
+	@ManyToMany(targetEntity = User.class ,mappedBy = "roles" , cascade = CascadeType.ALL)
+	private List<User> users;
 
-	// getters and setters
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 
@@ -32,38 +51,13 @@ public class Roles {
 		this.roleName = roleName;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(roleId, roleName);
+	public List<User> getUsers() {
+		return users;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Roles other = (Roles) obj;
-		return roleId == other.roleId && Objects.equals(roleName, other.roleName);
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
-
-	@Override
-	public String toString() {
-		return "Roles [roleId=" + roleId + ", roleName=" + roleName + "]";
-	}
-
-	// parameterize constructor
-	public Roles(int roleId, String roleName) {
-		super();
-		this.roleId = roleId;
-		this.roleName = roleName;
-	}
-
-	// default constructor
-	public Roles() {
-
-	}
-
+	
+	
 }

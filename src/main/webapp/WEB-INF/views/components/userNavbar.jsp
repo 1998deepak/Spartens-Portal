@@ -36,7 +36,7 @@ body {
 }
 </style>
 <body>	
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<div class="navbar">
 	<div style="position: absolute;left: 5px; top: -17px;">
   <a href="#"><img src="../images/Krios-icon-bg.png" height="70px" width="120px"></a></div>
@@ -56,13 +56,14 @@ body {
           <i class="fa fa-folder-open"></i>
           Documents
         </a>
-      </li>
-     <!--<li >
-        <a href="#">
-          <i class="fa fa-vcard"></i>
-          Raise Ticket
+        <c:set var = "cname" scope="session" value = "${companyName}"/>
+      <c:if test = "${not empty cname}">
+        <a href="/AttendanceSheet">
+         <span class="glyphicon glyphicon-file"></span>
+          Attendance Sheet
         </a>
-      </li>-->
+        </c:if>
+      </li>
   </ul>
   </div>
       <div style="position: absolute; left: 1100px; top: 7px;">
@@ -71,12 +72,7 @@ body {
          ${firstName}
         </a>
         <a class="dropdown-item" href="/logout"><span class="glyphicon glyphicon-log-out"></span>&nbspLogout</a>
-        <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/logout">Logout</a>
-          <a class="dropdown-item" href="#">About</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Contact-Us</a>
-        </div> -->
+
       </div>
   </div>
 

@@ -1,10 +1,16 @@
 package com.spartenportal.entity;
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -515,9 +521,22 @@ public class User{
 	@Column(name = "clientCompanyName")
 	private String clientCompanyName;
 	
-
+	@ManyToMany(targetEntity = Roles.class , cascade = CascadeType.ALL)
+	@JoinTable(name = "userRole" ,
+			   joinColumns = @JoinColumn (name = "usersId" , referencedColumnName = "userid") ,
+			   inverseJoinColumns = @JoinColumn(name = "roleId" , referencedColumnName = "roleId"))
+	private List<Roles> roles;
+	
 	public Integer getUserid() {
 		return userid;
+	}
+
+	public List<Roles> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Roles> roles) {
+		this.roles = roles;
 	}
 
 	public String getClientCompanyName() {
