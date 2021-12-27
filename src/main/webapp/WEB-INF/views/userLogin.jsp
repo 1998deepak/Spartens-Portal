@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!--  jsp page for user login
  * author : Deepak
  * Date : 23/11/2021
@@ -87,6 +88,7 @@ function myFunction() {
 </script>
 
 <body>
+
 	<div align="center" class="title"
 		style="position: absolute; left: 400px; top: 300px;">
 		<font size="45px" color="white"><b>Welcome to Krios Portal</b></font>
@@ -100,9 +102,11 @@ function myFunction() {
 					<br>
 					<br>
 					<div class="wrap-input100 validate-input m-b-16">
-						<select class="input100" name="role">
-							<option value="admin">Admin</option>
-							<option value="employee">Employee</option>
+						<select class="input100" name="roleName">
+							<option value="" selected="true" disabled="disabled">...</option>
+							<c:forEach items="${roles}" var="roles">
+								<option value="${roles.roleName}">${roles.roleName}</option>
+							</c:forEach>
 						</select><span class="focus-input100"></span>
 					</div>
 

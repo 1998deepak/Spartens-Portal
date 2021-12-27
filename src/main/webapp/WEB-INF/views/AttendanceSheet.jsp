@@ -146,11 +146,11 @@ button:hover {
 				<tbody>
 					<tr>
 						<th scope="row">1</th>
-						<td colspan="2">Upload Image</td>
+						<td colspan="2">January</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only image, png type)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
@@ -158,11 +158,11 @@ button:hover {
 
 					<tr>
 						<th scope="row">2</th>
-						<td colspan="2">Upload SSC Certficate</td>
+						<td colspan="2">February</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
@@ -170,57 +170,55 @@ button:hover {
 
 					<tr>
 						<th scope="row">3</th>
-						<td colspan="2">Upload HSC Certficate</td>
+						<td colspan="2">March</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">4</th>
-						<td colspan="2">Upload Diploma / Degree Certficate</td>
+						<td colspan="2">April</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">5</th>
-						<td colspan="2">Upload Adhar Card</td>
+						<td colspan="2">May</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type and scan copy
-									both side)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">6</th>
-						<td colspan="2">Upload Pan Card</td>
+						<td colspan="2">June</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type and scan copy)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">7</th>
-						<td colspan="2">Upload Experience Letter</td>
+						<td colspan="2">July</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type. If you have
-									experience)</p></td>
+								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
@@ -228,35 +226,33 @@ button:hover {
 					<tr>
 
 						<th scope="row">8</th>
-						<td colspan="2">Upload Relieving Letter</td>
+						<td colspan="2">August</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type.(if
-									applicable))</p></td>
+								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">9</th>
-						<td colspan="2">Upload Address proof</td>
+						<td colspan="2">September</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type.( Light bill/
-									adhar card / other any))</p></td>
+								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">10</th>
-						<td colspan="2">Upload Bank Passbook / Cancel cheque</td>
+						<td colspan="2">October</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type)</p></td>
+								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
@@ -265,24 +261,22 @@ button:hover {
 
 					<tr>
 						<th scope="row">11</th>
-						<td colspan="2">Upload Salary Slip of previous organisation</td>
+						<td colspan="2">November</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type. (if
-									applicable))</p></td>
+								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
 
 					<tr>
 						<th scope="row">12</th>
-						<td colspan="2">Upload Passport Copy</td>
+						<td colspan="2">December</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
 								action="/uploadFiles" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
-								<p style="color: red;">(upload only .pdf type. (Front and
-									back page))</p></td>
+								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
 							</form></td>
 					</tr>
