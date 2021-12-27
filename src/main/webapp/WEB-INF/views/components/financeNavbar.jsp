@@ -52,7 +52,7 @@ body {
           <span class="glyphicon glyphicon-list-alt"></span>
           Employee
         </a>
-        <a href="/doc">
+        <a href="/financeUserInfo">
           <i class="fa fa-folder-open"></i>
           Attendance
         </a>
