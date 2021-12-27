@@ -75,13 +75,6 @@ public class AdminController {
 		return mv;
 	}
 
-	// method to redirect to Reports page
-//	@RequestMapping(value = "/reports")
-//	public ModelAndView reportsPage(ModelAndView mv, Model m) {
-//		m.addAttribute("total", userservice.countEmployee());
-//		return mv;
-//	}
-
 	// method to redirect to Add user form
 	@RequestMapping(value = "/addUserForm")
 	public ModelAndView addUserForm(ModelAndView mv, Model m) {
@@ -96,14 +89,6 @@ public class AdminController {
 		List<User> userList = userservice.getUserList();
 		m.addAttribute("userList", userList);
 		mv.addObject("message", message);
-		return mv;
-	}
-
-	// API to get all employee deatils for sending mail
-	@RequestMapping(value = "/sendMail")
-	public ModelAndView sendMail(ModelAndView mv, Model m) {
-		List<User> userList = userservice.getUserList();
-		m.addAttribute("userList", userList);
 		return mv;
 	}
 
@@ -134,17 +119,4 @@ public class AdminController {
 		mv.addObject("message", message);
 		return mv;
 	}
-
-	// API to update Client Company name
-	@RequestMapping(value = "/UpdateCompanyName/{userId}/{clientCompanyName}")
-	public ModelAndView UpdateCompanyName(@PathVariable(name = "userId") int userId,
-			@PathVariable(name = "clientCompanyName") String clientCompanyName, ModelAndView mv, Model m) {
-		UserBean userBean = userservice.getById(userId);
-		User user =userMapper.mapToEntity(userBean);
-		user.setClientCompanyName(clientCompanyName);
-		userservice.updateUser(user);
-		return mv;
-	}
-
-	
 } 

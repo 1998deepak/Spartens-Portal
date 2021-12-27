@@ -3,28 +3,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>User-Dashboard</title>
-<link rel="icon" href="./images/Krios-icon-header.png" type="image/icon type">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- Morris Chart Styles-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
+<title>User-Info</title>
+<link rel="icon" href="../images/Krios-icon-header.png" type="image/icon type">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- Bootstrap Styles-->
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+<!-- FontAwesome Styles-->
+<link href="assets/css/font-awesome.css" rel="stylesheet" />
+<!-- Morris Chart Styles-->
+<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+<!-- Custom Styles-->
+<link href="assets/css/custom-styles.css" rel="stylesheet" />
+<!-- Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
 body {
@@ -37,22 +40,55 @@ table {
 }
 
 #mydiv {
-	width: 1189px;
+	width: 700px;
+	height:300px;
 	padding: 10px;
 	border: 0.5px;
 	-webkit-box-shadow: 0 30px 60px 0;
 	margin: 20px;
 	-webkit-border-radius: 10px 10px 10px 10px;
-	border-radius: 10px 10px 10px 10px;
+	border-radius: 4px 4px 4px 4px;
 	background: #fff;
 	padding: 30px;
 	position: relative;
 	padding: 0px;
 	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-	text-align: left;
+	
 }
-
+#mydiv2 {
+	width: 336px;
+	height:300px;
+	padding: 10px;
+	border: 0.5px;
+	-webkit-box-shadow: 0 30px 60px 0;
+	margin: 20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 4px 4px 4px 4px;
+	background: #fff;
+	padding: 30px;
+	position: relative;
+	padding: 0px;
+	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	
+}
+#mydiv3 {
+	width: 1048px;
+	padding: 10px;
+	border: 0.5px;
+	-webkit-box-shadow: 0 30px 60px 0;
+	margin: 20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 4px 4px 4px 4px;
+	background: #fff;
+	padding: 30px;
+	position: relative;
+	padding: 0px;
+	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	
+}
 button {
 	background-color: #34AB53;
 	color: white;
@@ -69,11 +105,13 @@ button:hover {
 
 table, th, td {
 	border: 1px;
+	
 }
 
-th, td {
+tr,th, td {
 	padding: 7px;
-	text-align: left;
+	padding-bottom: 15px;
+	padding-top: 15px;
 }
 
 .panel-group .panel+.panel {
@@ -84,84 +122,44 @@ th, td {
  <div>
 		<jsp:include page="./components/financeNavbar.jsp" />
 	</div>
-	<div style="position: absolute; left: 10%; top: 20%;">
-	 <div class="row gutters-sm " >
-                <div class="col-md-4 mb-3" >
-                  <div class="card" style="margin: 4%;padding-top:180px;padding-left:180px;padding-right:90% ">
-                    <div class="card-body" >
-                      <div class="d-flex flex-column align-items-center text-center">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="30%" >
-                        <div class="mt-3">
-                          <h4>Ganesh Chavan </h4>
-                           <p class="text-secondary mb-1">chavanganes806@gmail.com</p>
-                           <button class="btn btn-primary" >Client Employee</button>
-                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-8 " >
-                    <div class="card mb-3" style="margin-left: 52%;border-radius: 2px;margin-right:-490px" >
-                      <div class="card-header" style="padding: 2%;background-color: #2196F3;font-size: medium;color: white;">
-                        <b style="float:left">Report</b>
-                          <div  class="col-sm-3"  style="padding:1px;margin-right:6%;float:right" >
+	<div style="position: absolute; left: 169px; top: 60px; padding-top: 6px;padding-bottom: 6px;" id="mydiv3">
+			<font color="black" style="font-family: sans-serif;font-size: 15px; ">&nbsp&nbsp EMPLOYEE PROFILE</font>
+			
+	</div>
+	<div id="mydiv2" style="position: absolute; left: 169px; top: 99px; padding-top: 6px;padding-bottom: 6px;">
+	<div  align="center">
+  <img class="card-img-top" src="../images/men_avatar.png" alt="Card image cap" height="60%" width="60%">
+  <div class="card-body">
+    <h5 class="card-title"><b>${user.getLastName()} ${user.getLastName()}</b></h5>
+    <p class="card-text"></p>
+    <a href="#" class="btn btn-primary">View Profile</a>
+  </div>
+</div>
+</div>
+                <div style="position: absolute; left: 512px; top: 92px; padding-top: 6px;padding-bottom: 6px;">
+                   
+                     <table  id="mydiv" class="table table-hover">
+                     <tr style="background-color:#2196F3"><td > <font color="white" size="4px"><b>Report</b></font></td>
+                          <td align="right">
                              <input style="border-radius:5px;color:black" type="month" id="start" name="start" min="2021-12" value="2021-12">
-                         </div>
-                      </div>
-                      <div class="card-body">
-
-                        <div class="row">
-                          <div class="col-sm-3">
-                            <h6 class="mb-0">Full Name</h6>
+                         </td></tr>
+                      
+                          <tr>
+                        
+                        <tr><th>Email</th>
+                          <td>  ${user.getEmail()}
+                          </td></tr>
+                        <tr><th>User Name</th>
+                             <td>${user.getUserName()}
+                          </td></tr>
+                          <tr>
+                            <th>Client Company Name</th>
+                          <td>
+                             ${user.getClientCompanyName()}
+                          </td>
+                          </tr>
+                        <tr><th>File Uploaded</th>
+                           <td> Download</td></tr></table>
                           </div>
-                          <div class="col-sm-9 text-secondary">
-                              Ganesh Chavan
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                          <div class="col-sm-3">
-                            <h6 class="mb-0">Email</h6>
-                          </div>
-                          <div class="col-sm-9 text-secondary">
-
-                            chavanganes806@gmail.com
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                          <div class="col-sm-3">
-                            <h6 class="mb-0">User Id</h6>
-                          </div>
-                          <div class="col-sm-9 text-secondary">
-                              chavanganes806
-                          </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                          <div class="col-sm-3">
-                            <h6 class="mb-0">File Uploaded</h6>
-                          </div>
-                          <div class="col-sm-9 text-secondary">
-                            3 Hours
-                          </div>
-                        </div>
-
-
-                      </div>
-                    </div>
-
-
-
-                  </div>
-           </div>
-	</div>
-
-<footer>
-	<div style="position: absolute; left: 500px; bottom: 10px;">
-	<h4><jsp:include page="./components/footer.jsp" /></h4>
-	</div>
-	</footer>
-</body>
-
+                        
 </html>

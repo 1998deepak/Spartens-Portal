@@ -50,25 +50,6 @@ public class UserController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/AttendanceSheet")
-	public ModelAndView viewAttendanceSheet(ModelAndView mv, Model m) {
-		return mv;
-	}
-
-	@RequestMapping(value = "/financePanel")
-	public ModelAndView viewFinancePanel(ModelAndView mv, Model m) {
-		return mv;
-	}
-
-	@RequestMapping(value = "/financeUserList")
-	public ModelAndView viewFinanceUserList(ModelAndView mv, Model m) {
-		return mv;
-	}
-
-	@RequestMapping(value = "/financeUserInfo")
-	public ModelAndView viewFinanceUserInfo(ModelAndView mv, Model m) {
-		return mv;
-	}
 
 	// method default mapping to redirect to login page
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -162,7 +143,7 @@ public class UserController {
 			}
 
 			else {
-				message = "Login Failed";
+				message = "Credential Failed";
 				viewHomePage(mv, m);
 				mv = new ModelAndView("userLogin");
 			}
@@ -170,7 +151,7 @@ public class UserController {
 		}
 
 		else {
-			message = "Login Failed";
+			message = "Credential Failed";
 			viewHomePage(mv, m);
 			mv = new ModelAndView("userLogin");
 		}

@@ -2,6 +2,7 @@ package com.spartenportal.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "attendanceSheet")
 public class AttendanceSheet {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +23,7 @@ public class AttendanceSheet {
 	
 	private String sheetType;
 
-	private Date currentDate;
+	private Date uploadDate;
 	
 	private Date modifyDate;
 	
@@ -27,7 +31,7 @@ public class AttendanceSheet {
 	private byte[] sheet;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="userid")
+	@JoinColumn(name="useridFK")
 	private User user;
 
 	public Integer getSheetId() {
@@ -54,12 +58,12 @@ public class AttendanceSheet {
 		this.sheetType = sheetType;
 	}
 
-	public Date getCurrentDate() {
-		return currentDate;
+	public Date getUploadDate() {
+		return uploadDate;
 	}
 
-	public void setCurrentDate(Date currentDate) {
-		this.currentDate = currentDate;
+	public void setUploadDate(Date uploadDate) {
+		this.uploadDate = uploadDate;
 	}
 
 	public Date getModifyDate() {
