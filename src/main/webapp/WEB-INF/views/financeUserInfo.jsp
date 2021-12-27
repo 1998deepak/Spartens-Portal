@@ -27,21 +27,64 @@
 
 </head>
 <style>
-body{
-	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./images/userdashboard.jpg");
-	background-size: cover;
-	margin:0;
-	padding:0;
-	width:100%;
-	 background-repeat: no-repeat;
-	height:100vh;
+body {
+	background-color: #E8E8E8;
+}
+
+table {
+	padding-left: 0.5px;
+	padding-right: 0.5px;
+}
+
+#mydiv {
+	width: 1189px;
+	padding: 10px;
+	border: 0.5px;
+	-webkit-box-shadow: 0 30px 60px 0;
+	margin: 20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	background: #fff;
+	padding: 30px;
+	position: relative;
+	padding: 0px;
+	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	text-align: left;
+}
+
+button {
+	background-color: #34AB53;
+	color: white;
+	padding: 7px 12px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+table, th, td {
+	border: 1px;
+}
+
+th, td {
+	padding: 7px;
+	text-align: left;
+}
+
+.panel-group .panel+.panel {
+	margin-top: -2px;
 }
 </style>
 <body>
-<div>
+ <div>
 		<jsp:include page="./components/financeNavbar.jsp" />
 	</div>
-	<div style="position: absolute; left: 10%; top: 20%;>
+	<div style="position: absolute; left: 10%; top: 20%;">
 	 <div class="row gutters-sm " >
                 <div class="col-md-4 mb-3" >
                   <div class="card" style="margin: 4%;padding-top:180px;padding-left:180px;padding-right:90% ">

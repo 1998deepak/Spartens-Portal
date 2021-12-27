@@ -2,12 +2,17 @@ package com.spartenportal.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,17 +41,20 @@ public class UserController {
 
 	@Autowired
 	RoleService roleService;
-	
+
+	@Autowired
+	private JavaMailSender javaMailSender;
+
 	@RequestMapping(value = "/userForm2")
 	public ModelAndView viewuserform(ModelAndView mv, Model m) {
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/AttendanceSheet")
 	public ModelAndView viewAttendanceSheet(ModelAndView mv, Model m) {
 		return mv;
 	}
-	
+
 	@RequestMapping(value = "/financePanel")
 	public ModelAndView viewFinancePanel(ModelAndView mv, Model m) {
 		return mv;
@@ -56,22 +64,52 @@ public class UserController {
 	public ModelAndView viewFinanceUserList(ModelAndView mv, Model m) {
 		return mv;
 	}
+
 	@RequestMapping(value = "/financeUserInfo")
 	public ModelAndView viewFinanceUserInfo(ModelAndView mv, Model m) {
 		return mv;
 	}
 
 	// method default mapping to redirect to login page
-		@RequestMapping(value = "/", method = RequestMethod.GET)
-		public ModelAndView viewHomePage(ModelAndView mv, Model m) {
-			List<RolesBean> roles = new ArrayList<>();
-			roles = roleService.fetchRoleList();
-			m.addAttribute("roles", roles);
-			mv = new ModelAndView("userLogin");
-			return mv;
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView viewHomePage(ModelAndView mv, Model m) {
+		List<RolesBean> roles = new ArrayList<>();
+		roles = roleService.fetchRoleList();
+		m.addAttribute("roles", roles);
+		mv = new ModelAndView("userLogin");
+		sendAutoMail();
+		return mv;
 
+	}
+
+	// API to send Auto Mail to all employee working on client side
+	@RequestMapping(value = "/sendAutoMail")
+	public ResponseEntity<?> sendAutoMail() {
+		List<User> users = userservice.getUserList();
+		Calendar cal = Calendar.getInstance();
+		int lastDayOfMonth = cal.getActualMaximum(Calendar.DATE);
+		int todaysDate = cal.get(Calendar.DAY_OF_MONTH);
+		// replace lastDayOfMonth with todays date (eg : 24 ) for testing
+		if (lastDayOfMonth == todaysDate) {
+			for (User user : users) {
+				if (user.getClientCompanyName() != null) {
+					String mailTo = user.getEmail();
+					SimpleMailMessage msg = new SimpleMailMessage();
+					msg.setTo(mailTo);
+					msg.setSubject("Remainder from Krios ISPL");
+					msg.setText("Dear " + user.getFirstName() + " , \n" + "\nJust an Testing Mail \n" + "\nShare your "
+							+ user.getClientCompanyName() + " attendance with us.\n"
+							+ "\nRegarding any concerns feel free to contact us on 9999999999\r\n"
+							+ "\n\nThanks & Regards," + "\n Finance HR Team");
+					javaMailSender.send(msg);
+				} else {
+					continue;
+				}
+			}
 		}
-		
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+
 	@PostMapping(value = "/checklogin")
 	public ModelAndView loginUser(@RequestParam(name = "username") String username,
 			@RequestParam(name = "password") String password, @ModelAttribute("roles") RolesBean roles, ModelAndView mv,
@@ -85,7 +123,7 @@ public class UserController {
 			int match = userservice.checkAuthority(user.getUserid(), role.getRoleId());
 			if (match > 0) {
 				if (roleName.equals("Admin")) {
-					//System.out.println(match);
+					// System.out.println(match);
 					session.setAttribute("userId", user.getUserid());
 					session.setAttribute("firstName", user.getFirstName());
 					message = "Login Sucessfull!";
@@ -101,28 +139,25 @@ public class UserController {
 					m.addAttribute(session);
 
 				}
-				
-					  else if (roleName.equals("Employee")) {
-					  
-					  session.setAttribute("userId", user.getUserid());
-					  session.setAttribute("firstName", user.getFirstName()); 
-					  session.setAttribute("companyName", user.getClientCompanyName());
-					  message = "Login Sucessfull!"; 
-					  mv = new ModelAndView("userDashboard");
-					  m.addAttribute(session);
-					  
-					  
-					  }
-					 
 
-			}  else
-				if (roleName.equals("Employee")) {
-				 session.setAttribute("userId", user.getUserid());
-				 session.setAttribute("firstName", user.getFirstName()); 
-				 session.setAttribute("companyName", user.getClientCompanyName());
-				 message ="Login Sucessfull!"; 
-				 mv = new ModelAndView("userDashboard");
-				  m.addAttribute(session);
+				else if (roleName.equals("Employee")) {
+
+					session.setAttribute("userId", user.getUserid());
+					session.setAttribute("firstName", user.getFirstName());
+					session.setAttribute("companyName", user.getClientCompanyName());
+					message = "Login Sucessfull!";
+					mv = new ModelAndView("userDashboard");
+					m.addAttribute(session);
+
+				}
+
+			} else if (roleName.equals("Employee")) {
+				session.setAttribute("userId", user.getUserid());
+				session.setAttribute("firstName", user.getFirstName());
+				session.setAttribute("companyName", user.getClientCompanyName());
+				message = "Login Sucessfull!";
+				mv = new ModelAndView("userDashboard");
+				m.addAttribute(session);
 
 			}
 
@@ -143,9 +178,10 @@ public class UserController {
 
 		return mv;
 	}
+
 	// API to logout from sessions
 	@RequestMapping(value = "/logout")
-	public ModelAndView logout(ModelAndView mv,Model m, HttpServletRequest request) {
+	public ModelAndView logout(ModelAndView mv, Model m, HttpServletRequest request) {
 		request.getSession().invalidate();
 		List<RolesBean> roles = new ArrayList<>();
 		roles = roleService.fetchRoleList();

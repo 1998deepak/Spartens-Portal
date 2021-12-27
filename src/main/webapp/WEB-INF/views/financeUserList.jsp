@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>User-Dashboard</title>
-<link rel="icon" href="./images/Krios-icon-header.png" type="image/icon type">
+<link rel="icon" href="../images/Krios-icon-header.png" type="image/icon type">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,13 +23,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
-body{
-	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("./images/userdashboard.jpg");
-	background-size: cover;
-	margin:0;
-	padding:0;
-	width:100%;
-	height:100vh;
+body {
+	background-color: #E8E8E8;
+}
+
+table {
+	padding-left: 0.5px;
+	padding-right: 0.5px;
+}
+
+#mydiv {
+	width: 1189px;
+	padding: 10px;
+	border: 0.5px;
+	-webkit-box-shadow: 0 30px 60px 0;
+	margin: 20px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	background: #fff;
+	padding: 30px;
+	position: relative;
+	padding: 0px;
+	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	text-align: left;
+}
+
+button {
+	background-color: #34AB53;
+	color: white;
+	padding: 7px 12px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
+table, th, td {
+	border: 1px;
+}
+
+th, td {
+	padding: 7px;
+	text-align: left;
+}
+
+.panel-group .panel+.panel {
+	margin-top: -2px;
 }
 </style>
 <body>
@@ -45,7 +89,7 @@ body{
                 <tr style="background-color: white;">
                    <div class="row-md-12">
                         <div class="col-sm-3 wrap-input100 validate-input m-b-16" style="padding:3px">
-                            <b style="color:white;">Show&nbsp;&nbsp;</b>
+                            <b >Show&nbsp;&nbsp;</b>
                         	<select class="input100" style="padding:7px;border-radius:5px;" name="role">
                         		<option value="five">5</option>
                         		<option value="ten">10</option>
@@ -54,12 +98,12 @@ body{
                         		<option value="twentyfive">25</option>
                         	</select>
                         	<span class="focus-input100"></span>
-                        	 <b style="color:white;">&nbsp;&nbsp;&nbsp;Entries</b>
+                        	 <b >&nbsp;&nbsp;&nbsp;Entries</b>
                         </div>
 
                         <div  class=" col-sm-3 wrap-input100 validate-input m-b-16" style="padding:3px;margin-left:3%" >
-                             <i class="fa fa-filter" style="color:white;font-size:25px"></i>
-                            <b style="color:white;">   Status  &nbsp;&nbsp;</b>
+                             <i class="fa fa-filter" style="font-size:25px"></i>
+                            <b >   Status  &nbsp;&nbsp;</b>
                         	<select class="input100" style="padding:7px;border-radius:5px;" name="role">
 
                         		<option value="any">Any</option>
@@ -70,8 +114,8 @@ body{
                         	<span class="focus-input100"></span>
                          </div>
                          <div  class="col-sm-3"  style="padding:3px;" >
-                            <i class="fa fa-calendar" style="color:white;font-size:25px"></i>
-                             <b style="color:white;">   Date  &nbsp;&nbsp;</b>
+                            <i class="fa fa-calendar" style="font-size:25px"></i>
+                             <b >   Date  &nbsp;&nbsp;</b>
                             <input style="border-radius:5px;" type="month" id="start" name="start" min="2021-12" value="2021-12">
                          </div>
                          <div class="col input-group mb-3" style="padding:3px;">

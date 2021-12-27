@@ -17,11 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.spartenportal.bean.RolesBean;
+
 import com.spartenportal.bean.UserBean;
 import com.spartenportal.entity.Docs;
 import com.spartenportal.entity.User;
@@ -38,9 +37,6 @@ public class AdminController {
 
 	@Autowired
 	DocumentsService documentservice;
-
-	@Autowired
-	private JavaMailSender javaMailSender;
 
 	@Autowired
 	RoleService roleService;
@@ -150,34 +146,5 @@ public class AdminController {
 		return mv;
 	}
 
-	// API to send Auto Mail to all employee working on client side
-	@RequestMapping(value = "/sendAutoMail")
-	public ResponseEntity<?> sendAutoMail(){
-		List<User> users = userservice.getUserList();
-		Calendar cal = Calendar.getInstance();
-	    int lastDayOfMonth = cal.getActualMaximum(Calendar.DATE);
-	    int todaysDate = cal.get(Calendar.DAY_OF_MONTH);
-	    // replace lastDayOfMonth with todays date (eg : 24 ) for testing
-	    if(lastDayOfMonth == todaysDate) {
-	    	for(User user : users) {
-	    		if(user.getClientCompanyName() != null) {
-	    			String mailTo = user.getEmail();
-	    			SimpleMailMessage msg = new SimpleMailMessage();
-	    	        msg.setTo(mailTo);
-	    	        msg.setSubject("Remainder from Krios ISPL");
-	    	        msg.setText("Dear "+user.getFirstName()+" , \n"
-	    	        		+ "\nJust an Testing Mail \n"
-	    	        		+ "\nShare your "+user.getClientCompanyName()+" attendance with us.\n"
-	    	        		+ "\nRegarding any concerns feel free to contact us on 9999999999\r\n"
-	    	        		+ "\n\nThanks & Regards,"
-	    	        		+ "\n Finance HR Team");
-	    	        javaMailSender.send(msg);
-	    		}
-	    		else {
-	    			continue;
-	    		}
-	    	}
-	    }
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+	
 } 
