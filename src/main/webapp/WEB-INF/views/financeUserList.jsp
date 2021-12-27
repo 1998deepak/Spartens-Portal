@@ -140,8 +140,7 @@ tr.header {
 				<c:forEach items="${userList}" var="user">
 					<tr>
 						<th>${user.getUserid()}</th>
-						<td>${user.getFirstName()}${user.getMiddleName()}
-							${user.getLastName()}</td>
+						<td>${user.getFirstName()} ${user.getMiddleName()} ${user.getLastName()}</td>
 						<td>${user.getEmail()}</td>
 
 						<td align="center"><a

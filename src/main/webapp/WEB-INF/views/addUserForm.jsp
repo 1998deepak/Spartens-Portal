@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>Add Employee</title>
-<link rel="icon" href="./images/Krios-icon-header.png" type="image/icon type">
+<link rel="icon" href="../images/Krios-icon-header.png" type="image/icon type">
     <!-- Bootstrap Styles-->
     	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -25,7 +25,7 @@ background-color: #E8E8E8;
 	-webkit-box-shadow: 0 30px 60px 0;
 	margin: 20px;
 	-webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 4px 4px 4px 4px;
   background: #fff;
   padding: 30px;
   position: relative;

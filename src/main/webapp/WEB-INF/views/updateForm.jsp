@@ -42,7 +42,7 @@ background-color: #E8E8E8;
 	-webkit-box-shadow: 0 30px 60px 0;
 	margin: 20px;
 	-webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 4px 4px 4px 4px;;
   background: #fff;
   padding: 30px;
   position: relative;
