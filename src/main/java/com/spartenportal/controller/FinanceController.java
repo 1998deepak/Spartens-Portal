@@ -24,11 +24,7 @@ public class FinanceController {
 	public ModelAndView employeeDetails(ModelAndView mv, Model m) {
 		String message = "List Of Users. Check For Update/Delete.";
 		List<User> userList = userservice.getUserList();
-//		List<User> userList2 = null ;
-//		for (User user : userList) {
-//			if(user.getClientCompanyName() != null)
-//				userList2.add(user);
-//		}
+
 		m.addAttribute("userList", userList);
 		mv.addObject("message", message);
 		return mv;
