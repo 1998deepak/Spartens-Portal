@@ -71,7 +71,7 @@ public class UserController {
 		int lastDayOfMonth = cal.getActualMaximum(Calendar.DATE);
 		int todaysDate = cal.get(Calendar.DAY_OF_MONTH);
 		// replace lastDayOfMonth with todays date (eg : 24 ) for testing
-		if (28 == todaysDate) {
+		if (lastDayOfMonth == todaysDate) {
 			for (User user : users) {
 				if (user.getClientCompanyName() != null) {
 					String mailTo = user.getEmail();

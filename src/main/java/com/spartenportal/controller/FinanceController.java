@@ -1,5 +1,5 @@
 package com.spartenportal.controller;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,17 @@ public class FinanceController {
 
 	// API to get all employee deatils
 	@RequestMapping(value = "/financeUserList")
-	public ModelAndView employeeDetails(ModelAndView mv, Model m) {
+	public ModelAndView financeUserList(ModelAndView mv, Model m) {
 		String message = "List Of Users. Check For Update/Delete.";
 		List<User> userList = userservice.getUserList();
-
-		m.addAttribute("userList", userList);
+		List<User> financeuserList = new ArrayList<User>();
+		for (User user : userList) {
+			if(user.getClientCompanyName() != null)
+			{
+				financeuserList.add(user);
+			}
+		}
+		m.addAttribute("userList", financeuserList);
 		mv.addObject("message", message);
 		return mv;
 	}
