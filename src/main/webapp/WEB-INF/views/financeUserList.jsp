@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>User-Dashboard</title>
+<title>Finance-Dashboard</title>
 <link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />

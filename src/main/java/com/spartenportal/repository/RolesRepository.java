@@ -16,7 +16,6 @@ import org.springframework.stereotype.Repository;
 
 
 import com.spartenportal.entity.Roles;
-import com.spartenportal.entity.User;
 
 
 @Repository

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spartenportal.bean.UserBean;
-import com.spartenportal.entity.Docs;
 import com.spartenportal.entity.User;
 import com.spartenportal.service.UserService;
 
@@ -25,6 +24,11 @@ public class FinanceController {
 	public ModelAndView employeeDetails(ModelAndView mv, Model m) {
 		String message = "List Of Users. Check For Update/Delete.";
 		List<User> userList = userservice.getUserList();
+//		List<User> userList2 = null ;
+//		for (User user : userList) {
+//			if(user.getClientCompanyName() != null)
+//				userList2.add(user);
+//		}
 		m.addAttribute("userList", userList);
 		mv.addObject("message", message);
 		return mv;

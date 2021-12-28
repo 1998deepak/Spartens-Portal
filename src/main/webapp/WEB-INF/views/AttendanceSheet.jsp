@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<title>Documents</title>
+<title>Attendance</title>
 <link rel="icon" href="./images/Krios-icon-header.png"
 	type="image/icon type">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />

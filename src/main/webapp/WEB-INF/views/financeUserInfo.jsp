@@ -141,7 +141,7 @@ tr,th, td {
                      <table  id="mydiv" class="table table-hover">
                      <tr style="background-color:#2196F3"><td > <font color="white" size="4px"><b>Report</b></font></td>
                           <td align="right">
-                             <input style="border-radius:5px;color:black" type="month" id="start" name="start" min="2021-12" value="2021-12">
+                             <input style="border-radius:5px;color:black" type="month" id="start" name="start" value="2021-12">
                          </td></tr>
                       
                           <tr>

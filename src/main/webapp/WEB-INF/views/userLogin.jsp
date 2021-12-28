@@ -103,7 +103,7 @@ function myFunction() {
 					<br>
 					<div class="wrap-input100 validate-input m-b-16">
 						<select class="input100" name="roleName">
-							<option value="" selected="true" disabled="disabled">...</option>
+							<option value="" selected="true" disabled="disabled">Login As</option>
 							<c:forEach items="${roles}" var="roles">
 								<option value="${roles.roleName}">${roles.roleName}</option>
 							</c:forEach>
