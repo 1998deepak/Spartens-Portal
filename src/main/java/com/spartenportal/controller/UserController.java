@@ -67,27 +67,7 @@ public class UserController {
 	@RequestMapping(value = "/sendAutoMail")
 	public ResponseEntity<?> sendAutoMail() {
 		List<User> users = userservice.getUserList();
-		Calendar cal = Calendar.getInstance();
-		int lastDayOfMonth = cal.getActualMaximum(Calendar.DATE);
-		int todaysDate = cal.get(Calendar.DAY_OF_MONTH);
-		// replace lastDayOfMonth with todays date (eg : 24 ) for testing
-		if (lastDayOfMonth == todaysDate) {
-			for (User user : users) {
-				if (user.getClientCompanyName() != null) {
-					String mailTo = user.getEmail();
-					SimpleMailMessage msg = new SimpleMailMessage();
-					msg.setTo(mailTo);
-					msg.setSubject("Remainder from Krios ISPL");
-					msg.setText("Dear " + user.getFirstName() + " , \n" + "\nJust an Testing Mail \n" + "\nShare your "
-							+ user.getClientCompanyName() + " attendance with us.\n"
-							+ "\nRegarding any concerns feel free to contact us on 9999999999\r\n"
-							+ "\n\nThanks & Regards," + "\n Finance HR Team");
-					javaMailSender.send(msg);
-				} else {
-					continue;
-				}
-			}
-		}
+		userservice.sendAutoMailFinance(users);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 

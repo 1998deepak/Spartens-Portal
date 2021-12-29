@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <title>Attendance</title>
-<link rel="icon" href="./images/Krios-icon-header.png"
+<link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -98,7 +98,7 @@ button:hover {
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 									<div class="modal-header" align="left">
-										<h4 class="modal-title" id="exampleModalLabel">DOCUMENTS</h4>
+										<h4 class="modal-title" id="exampleModalLabel">ATTENDANCE SHEET</h4>
 										<button type="button" class="close" data-dismiss="modal"
 											aria-label="Close">
 											<span aria-hidden="true">&times;</span>
@@ -113,17 +113,19 @@ button:hover {
 														style="border-top: 1px solid white; background-color: #36C5F0;">
 														<th>Id</th>
 														<th>Name</th>
+														<th>Upload Date</th>
 														<th>Download Link</th>
 														<th>Action</th>
 													</tr>
 												</thead>
 												<tbody>
-													<c:forEach items="" var="doc">
+													<c:forEach items="${sheets}" var="sheet">
 														<tr class="table-danger">
-															<td></td>
-															<td></td>
-															<td><a href="/downloadFile/">Download</a></td>
-															<td><a href="/deleteDoc/"><span class="glyphicon glyphicon-trash" style="color: red"></span></a></td>
+															<td>${sheet.getSheetId()}</td>
+															<td>${sheet.getSheetName()}</td>
+															<td>${sheet.getUploadDate()}</td>
+															<td><a href="/downloadSheet/${sheet.getSheetId()}">Download</a></td>
+															<td><a href="/deleteSheet/${sheet.getSheetId()}"><span class="glyphicon glyphicon-trash" style="color: red"></span></a></td>
 														</tr>
 													</c:forEach>
 												</tbody>
@@ -138,7 +140,7 @@ button:hover {
 								</div>
 							</div>
 						</div>
-					</td></tr></div>
+					</td></tr>
 			</table>
 		</div>
 		<div style="position: absolute; left: 70px; top: 108px;">
@@ -148,7 +150,7 @@ button:hover {
 						<th scope="row">1</th>
 						<td colspan="2">January</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -160,7 +162,7 @@ button:hover {
 						<th scope="row">2</th>
 						<td colspan="2">February</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -172,7 +174,7 @@ button:hover {
 						<th scope="row">3</th>
 						<td colspan="2">March</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -183,7 +185,7 @@ button:hover {
 						<th scope="row">4</th>
 						<td colspan="2">April</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -194,7 +196,7 @@ button:hover {
 						<th scope="row">5</th>
 						<td colspan="2">May</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -205,7 +207,7 @@ button:hover {
 						<th scope="row">6</th>
 						<td colspan="2">June</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -216,7 +218,7 @@ button:hover {
 						<th scope="row">7</th>
 						<td colspan="2">July</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, 	xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -228,7 +230,7 @@ button:hover {
 						<th scope="row">8</th>
 						<td colspan="2">August</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -239,7 +241,7 @@ button:hover {
 						<th scope="row">9</th>
 						<td colspan="2">September</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -250,7 +252,7 @@ button:hover {
 						<th scope="row">10</th>
 						<td colspan="2">October</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -263,7 +265,7 @@ button:hover {
 						<th scope="row">11</th>
 						<td colspan="2">November</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>
@@ -274,7 +276,7 @@ button:hover {
 						<th scope="row">12</th>
 						<td colspan="2">December</td>
 						<td><form id="uploadFiles" name="uploadFiles" method="post"
-								action="/uploadFiles" encType="multipart/form-data">
+								action="/uploadSheet" encType="multipart/form-data">
 								<input type="file" name="files" multiple required />
 								<p style="color: red;">(upload only Excel, xlsx type)</p></td>
 						<td><button type="submit">Upload</button>

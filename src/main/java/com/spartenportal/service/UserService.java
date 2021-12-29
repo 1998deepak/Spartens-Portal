@@ -30,5 +30,7 @@ public interface UserService {
 
 	public void sendEmail(String to, String body, String topic);
 	
+	public void sendAutoMailFinance(List<User> users);
+	
 	public int checkAuthority(int userId , int roleId);
 }

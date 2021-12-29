@@ -4,10 +4,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>User-Info</title>
-<link rel="icon" href="../images/Krios-icon-header.png" type="image/icon type">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="./images/Krios-icon-header.png"
+	type="image/icon type">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <!-- Bootstrap Styles-->
@@ -109,9 +108,7 @@ table, th, td {
 }
 
 tr,th, td {
-	padding: 7px;
-	padding-bottom: 15px;
-	padding-top: 15px;
+	
 }
 
 .panel-group .panel+.panel {
@@ -130,9 +127,9 @@ tr,th, td {
 	<div  align="center">
   <img class="card-img-top" src="../images/men_avatar.png" alt="Card image cap" height="60%" width="60%">
   <div class="card-body">
-    <h5 class="card-title"><b>${user.getLastName()} ${user.getLastName()}</b></h5>
+    <h5 class="card-title"><b>${user.getFirstName()} ${user.getLastName()}</b></h5>
     <p class="card-text"></p>
-    <a href="#" class="btn btn-primary">View Profile</a>
+   
   </div>
 </div>
 </div>
@@ -158,8 +155,69 @@ tr,th, td {
                              ${user.getClientCompanyName()}
                           </td>
                           </tr>
-                        <tr><th>File Uploaded</th>
-                           <td> Download</td></tr></table>
+                        <tr><th>Uploaded Sheets</th>
+                           <td align="left">
+			<table>
+				<tr>
+					<td></td>
+					<td align="left">
+						<!-- Button trigger modal -->
+
+						<div><button type="button" data-toggle="modal"
+							data-target="#exampleModal"
+							style="background-color: #42B5F4;">
+							View Sheets</button></div><!-- Modal -->
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							role="dialog" aria-labelledby="exampleModalLabel"
+							aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header" align="left">
+										<h4 class="modal-title" id="exampleModalLabel">ATTENDANCE SHEET</h4>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+										<div>
+											<table class="table table-hover">
+												<thead>
+													<tr class="table-active"
+														style="border-top: 1px solid white; background-color: #36C5F0;">
+														<th>Id</th>
+														<th>Name</th>
+														<th>Upload Date</th>
+														<th>Download Link</th>
+														<th>Action</th>
+													</tr>
+												</thead>
+												<tbody>
+													<c:forEach items="${sheets}" var="sheet">
+														<tr class="table-danger">
+															<td>${sheet.getSheetId()}</td>
+															<td>${sheet.getSheetName()}</td>
+															<td>${sheet.getUploadDate()}</td>
+															<td><a href="/downloadSheet/${sheet.getSheetId()}">Download</a></td>
+															<td><a href="/deleteSheet/${sheet.getSheetId()}"><span class="glyphicon glyphicon-trash" style="color: red"></span></a></td>
+														</tr>
+													</c:forEach>
+												</tbody>
+											</table>
+										</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											style="background-color: red;" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td></tr>
+			</table>
+		</td></tr></table>
                           </div>
                         
 </html>

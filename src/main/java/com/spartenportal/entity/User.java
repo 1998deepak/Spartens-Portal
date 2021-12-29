@@ -279,6 +279,7 @@ public class User{
 	@Column(name = "cert_Version")
 	private String cert_Version;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "cert_Date")
 	private Date cert_Date;
@@ -415,6 +416,7 @@ public class User{
 	@Column(name = "expectedCTC")
 	private Integer expectedCTC;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "joinTime")
 	private Date joinTime;
@@ -474,10 +476,12 @@ public class User{
 	@Column(name = "issuePlace")
 	private String issuePlace;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "issueDate")
 	private Date issueDate;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "expiryDate")
 	private Date expiryDate;
@@ -497,6 +501,7 @@ public class User{
 	@Column(name = "app_Place")
 	private String app_Place;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "app_Date")
 	private Date app_Date;
@@ -513,10 +518,12 @@ public class User{
 	@Column(name = "isActive")
 	private Boolean isActive;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "currentDate")
 	private Date currentDate;
 	
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "modifyDate")
 	private Date modifyDate;

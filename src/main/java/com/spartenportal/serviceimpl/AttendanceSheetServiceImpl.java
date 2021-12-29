@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spartenportal.bean.AttendanceSheetBean;
@@ -13,7 +14,7 @@ import com.spartenportal.entity.User;
 import com.spartenportal.mapper.AttendanceSheetMapper;
 import com.spartenportal.repository.AttendanceSheetRepository;
 import com.spartenportal.service.AttendanceSheetService;
-
+@Service
 public class AttendanceSheetServiceImpl implements AttendanceSheetService{
 
 	@Autowired

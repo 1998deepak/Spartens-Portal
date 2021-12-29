@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "attendanceSheet")
@@ -23,8 +25,10 @@ public class AttendanceSheet {
 	
 	private String sheetType;
 
+	@Temporal(TemporalType.DATE)
 	private Date uploadDate;
 	
+	@Temporal(TemporalType.DATE)
 	private Date modifyDate;
 	
 	@Lob

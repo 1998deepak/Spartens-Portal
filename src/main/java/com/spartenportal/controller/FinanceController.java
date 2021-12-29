@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spartenportal.bean.UserBean;
+import com.spartenportal.entity.AttendanceSheet;
 import com.spartenportal.entity.User;
+import com.spartenportal.service.AttendanceSheetService;
 import com.spartenportal.service.UserService;
 
 @RestController
@@ -18,6 +20,10 @@ public class FinanceController {
 
 	@Autowired
 	UserService userservice;
+	
+	@Autowired
+	AttendanceSheetService attendanceSheetService;
+
 
 	// API to get all employee deatils
 	@RequestMapping(value = "/financeUserList")
@@ -36,10 +42,6 @@ public class FinanceController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/AttendanceSheet")
-	public ModelAndView viewAttendanceSheet(ModelAndView mv, Model m) {
-		return mv;
-	}
 
 	@RequestMapping(value = "/financePanel")
 	public ModelAndView viewFinancePanel(ModelAndView mv, Model m) {
@@ -52,6 +54,8 @@ public class FinanceController {
 //		List<Docs> docs = documentservice.getDocsByuserIdFk(userId);
 		m.addAttribute("user", user);
 //		m.addAttribute("docs", docs);
+		List<AttendanceSheet> sheets = attendanceSheetService.getSheetByuserIdFk(userId);
+		m.addAttribute("sheets", sheets);
 		mv = new ModelAndView("financeUserInfo");
 		return mv;
 	}
