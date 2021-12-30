@@ -15,4 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	@Query(value = "SELECT * FROM  userRole WHERE usersId= :usersId AND roleId= :roleId", nativeQuery = true)
 	public Optional<Integer> checkAuthority(@Param("usersId") Integer usersId,@Param("roleId") Integer roleId);
+	
+	@Query(value="SELECT * FROM  user WHERE email= :email ", nativeQuery = true)
+	public User getUserByUserEmail(@Param("email") String email);
 }

@@ -363,12 +363,23 @@ public class UserBean {
 	
 	private List<Roles> roles;
 	
+	private String roleName;
+	
 	// getters and setters
 	public Integer getUserid() {
 		return userid;
 	}
-
 	
+	public String getRoleName() {
+		return roleName;
+	}
+
+
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+
+
 	public List<Roles> getRoles() {
 		return roles;
 	}

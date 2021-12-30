@@ -120,14 +120,17 @@ tr.header {
 						</div>
 					</td>
 					<td align="center">
-					<div class="col input-group mb-3" style="padding:3px;">
-					<input type="text" id="myInput" onkeyup="myFunction()"
-			placeholder="Search for names.." title="Type in a name" style="width: 215px; height: 38px;" >
-					</div></td>
+						<div class="col input-group mb-3" style="padding: 3px;">
+							<input type="text" id="myInput" onkeyup="myFunction()"
+								placeholder="Search for names.." title="Type in a name"
+								style="width: 215px; height: 38px;">
+						</div>
+					</td>
 				</tr>
 		</table>
-		
-		<table class="table table-hover" style="background-color: white; size: 14px;" id="myTable">
+
+		<table class="table table-hover"
+			style="background-color: white; size: 14px;" id="myTable">
 			<thead>
 				<tr class="header">
 					<th style="font-weight: bold;">#</th>
@@ -139,8 +142,11 @@ tr.header {
 			<tbody>
 				<c:forEach items="${userList}" var="user">
 					<tr>
-						<th>${user.getUserid()}</th>
-						<td>${user.getFirstName()} ${user.getMiddleName()} ${user.getLastName()}</td>
+
+						<th><c:set var="count" value="${count + 1}" scope="page" />
+							<c:out value="${count}" /></th>
+						<td>${user.getFirstName()}${user.getMiddleName()}
+							${user.getLastName()}</td>
 						<td>${user.getEmail()}</td>
 
 						<td align="center"><a
@@ -152,7 +158,7 @@ tr.header {
 				</c:forEach>
 			</tbody>
 		</table>
-		
+
 		<nav aria-label="Page navigation" style="float: right">
 			<ul class="pagination">
 				<li class="page-item"><a class="page-link" href="#"
@@ -170,25 +176,25 @@ tr.header {
 		</nav>
 	</div>
 
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+	<script>
+		function myFunction() {
+			var input, filter, table, tr, td, i, txtValue;
+			input = document.getElementById("myInput");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("myTable");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[0];
+				if (td) {
+					txtValue = td.textContent || td.innerText;
+					if (txtValue.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
 </body>
 </html>

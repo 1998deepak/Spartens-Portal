@@ -1,8 +1,12 @@
 package com.spartenportal.mapper;
 
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
+
 import com.spartenportal.bean.UserBean;
+import com.spartenportal.entity.Roles;
 import com.spartenportal.entity.User;
 
 @Component
@@ -162,6 +166,7 @@ public class UserMapper {
 		userBean.setCurrentDate(user.getCurrentDate());
 		userBean.setModifyDate(user.getModifyDate());
 		userBean.setClientCompanyName(user.getClientCompanyName());
+		userBean.setRoleName(getRole(user).getRoleName());	
 		return userBean;
 	}
 	
@@ -321,5 +326,14 @@ public class UserMapper {
 		user.setModifyDate(userBean.getModifyDate());
 		user.setClientCompanyName(userBean.getClientCompanyName());
 		return user; 
+	}
+	
+	public Roles getRole(User users) {
+		List<Roles> role = users.getRoles();
+		Roles roles = new Roles();
+		for(Roles r :role) {
+			roles.setRoleName(r.getRoleName());	
+		}
+		return roles;
 	}
 }

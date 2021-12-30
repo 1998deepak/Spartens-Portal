@@ -32,7 +32,7 @@ public class Roles {
 	@Column(name = "roleName")
 	private String roleName;
 	
-	@ManyToMany(targetEntity = User.class ,mappedBy = "roles" , cascade = CascadeType.ALL)
+	@ManyToMany(targetEntity = User.class ,mappedBy = "roles" , cascade = CascadeType.MERGE)
 	private List<User> users;
 
 	public Integer getRoleId() {

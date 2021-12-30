@@ -105,7 +105,9 @@ function myFunction() {
 						<select class="input100" name="roleName">
 							<option value="" selected="true" disabled="disabled">Login As</option>
 							<c:forEach items="${roles}" var="roles">
+							<c:if test="${roles.roleName ne 'Super Admin'}">		
 								<option value="${roles.roleName}">${roles.roleName}</option>
+							</c:if>
 							</c:forEach>
 						</select><span class="focus-input100"></span>
 					</div>
@@ -122,7 +124,7 @@ function myFunction() {
 							placeholder="Password" id="myInput"> <span class="focus-input100"></span>
 					</div><br>
 					<div style="position: absolute; left: 80px;">
-					<input type="checkbox" onclick="myFunction()"> Show Password
+					<input type="checkbox" onclick="myFunction()"> Show Password&nbsp;&nbsp; <a href="/forgotemailform"> Forgot Password?</a>
 					</div>
 					<br><br>
 					<div class="container-login100-form-btn">

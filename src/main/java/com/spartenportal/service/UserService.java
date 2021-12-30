@@ -33,4 +33,6 @@ public interface UserService {
 	public void sendAutoMailFinance(List<User> users);
 	
 	public int checkAuthority(int userId , int roleId);
+	
+	public boolean resetPasswordEamil(String subject,String message,String to);
 }
