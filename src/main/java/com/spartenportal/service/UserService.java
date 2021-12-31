@@ -35,4 +35,6 @@ public interface UserService {
 	public int checkAuthority(int userId , int roleId);
 	
 	public boolean resetPasswordEamil(String subject,String message,String to);
+	
+	public void sendIntimateMail(String to, String body, String topic);
 }

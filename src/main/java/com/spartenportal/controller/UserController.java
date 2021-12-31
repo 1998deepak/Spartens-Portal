@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -318,4 +319,84 @@ public class UserController {
 		return mv;
 
 	}
+	
+	// API to send Remainder to HR regarding of information of employee's who will complete 3 months in company
+		@GetMapping(value="/remainderMailForThreeMonths")
+		public ResponseEntity<?> remainderMailForThreeMonths() {
+			List<User> users = userservice.getUserList();
+			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			Calendar calender = Calendar.getInstance();
+			Date date = new Date();
+			String todaysDate = dateFormat.format(date);
+			for(User user : users) {
+				Date empJoiningDate = user.getJoinTime();
+				//String joiningDate = dateFormat.format(empJoiningDate);
+				
+				calender.setTime(empJoiningDate);
+				calender.add(Calendar.MONTH, 3);
+				Date threeMonthsCompletionDate = calender.getTime();
+				String threeMonthAnniversary = dateFormat.format(threeMonthsCompletionDate);
+				
+				calender.setTime(threeMonthsCompletionDate);
+				calender.add(Calendar.DAY_OF_YEAR, -14);
+				Date remainderDate = calender.getTime();
+				String remainderDateToHr = dateFormat.format(remainderDate);
+				
+				if(todaysDate.equals(remainderDateToHr)) {
+					String subject = "Reaminder for Three Month Completion ..!";
+					String message = "<html>"
+							+ "One of our Kriosian "
+							+ "<br><b>"+user.getFirstName()+" "+user.getLastName()+"</b> will successfully complete"
+									+ " Three Months after Two weeks ."
+									+ "<br> Three Month Anniversay on <b>"+threeMonthAnniversary+"</b>"
+							+ "</html>";
+					String to = "sejalshelke4783@gmail.com";	 // replace this mail Id with HR's mail ID
+					userservice.sendIntimateMail(to, message,  subject);
+				}else {
+					continue;
+				}
+			}
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+		
+		
+		
+		// API to send Remainder to HR regarding of information of employee's who will complete 6 months in company
+			@GetMapping(value="/remainderMailForSixMonths")
+			public ResponseEntity<?> remainderMailForSixMonths() {
+				List<User> users = userservice.getUserList();
+				DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+				Calendar calender = Calendar.getInstance();
+				Date date = new Date();
+				String todaysDate = dateFormat.format(date);
+				for(User user : users) {
+					Date empJoiningDate = user.getJoinTime();
+					//String joiningDate = dateFormat.format(empJoiningDate);
+					
+					calender.setTime(empJoiningDate);
+					calender.add(Calendar.MONTH, 6);
+					Date sixMonthsCompletionDate = calender.getTime();
+					String sixMonthAnniversary = dateFormat.format(sixMonthsCompletionDate);
+					
+					calender.setTime(sixMonthsCompletionDate);
+					calender.add(Calendar.DAY_OF_YEAR, -14);
+					Date remainderDate = calender.getTime();
+					String remainderDateToHr = dateFormat.format(remainderDate);
+					
+					if(todaysDate.equals(remainderDateToHr)) {
+						String subject = "Reaminder for Six Month Completion ..!";
+						String message = "<html>"
+								+ "One of our Kriosian "
+								+ "<br><b>"+user.getFirstName()+" "+user.getLastName()+"</b> will successfully complete"
+										+ " Six Months after Two Weeks ."
+										+ "<br> Six Month Anniversary on <b>"+sixMonthAnniversary+"</b>"
+								+ "</html>";
+						String to = "sejalshelke4783@gmail.com";  // replace this mail Id with HR's mail ID
+						userservice.sendIntimateMail(to, message,  subject);
+					}else {
+						continue;
+					}
+				}
+				return new ResponseEntity<>(HttpStatus.OK);
+			}
 }
