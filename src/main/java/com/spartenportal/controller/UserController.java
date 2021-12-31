@@ -241,13 +241,9 @@ public class UserController {
 	@PostMapping("/send-otp")
 	public ModelAndView sendOTP(@RequestParam("email") String email, HttpSession sessionOTP, ModelAndView mv, Model m) {
 
-		System.out.println("Email:" + email);
-
 		// genrating otp of 4 digit
 
 		int otp = random.nextInt(999999);
-		System.out.println("OTP:" + otp);
-
 		// write code for send otp to email
 		String subject = "OTP From Krios Info Solutions Pvt Ltd, Pune ";
 		String message = "" + "<div style='border:1px solid #e2e2e2;padding:20px'>" + "<h1>" + "OTP is :" + "<b>" + otp
@@ -315,6 +311,9 @@ public class UserController {
 		user.setPassword(newpassword);
 		this.userRepo.save(user);
 		m.addAttribute("message", "Change password succesfully..!!");
+		List<RolesBean> roles = new ArrayList<>();
+		roles = roleService.fetchRoleList();
+		m.addAttribute("roles", roles);
 		mv = new ModelAndView("userLogin");
 		return mv;
 

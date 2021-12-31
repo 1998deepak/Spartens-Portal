@@ -11,6 +11,8 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <meta charset="ISO-8859-1">
 <title>Forgot Password</title>
+<link rel="icon" href="../images/Krios-icon-header.png"
+	type="image/icon type">
 </head>
 <style>
 .form-gap {
@@ -20,6 +22,20 @@
 body {
 	background-color: #E8E8E8;
 }
+button {
+	background-color: #42B5F4;
+	color: white;
+	padding: 7px 12px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
+}
+
+button:hover {
+	opacity: 0.8;
+}
+
 </style>
 <body>
 <div class="form-gap"></div>
@@ -44,7 +60,7 @@ body {
                         </div>
                       </div>
                       <div class="form-group">
-                        <input name="recover-submit" class="btn btn-lg btn-primary btn-block" value="Reset Password" type="submit">
+                        <button name="recover-submit" value="Reset Password" type="submit">Reset Password</button>
                       </div>
                       
                       <input type="hidden" class="hide" name="token" id="token" value=""> 

@@ -9,6 +9,8 @@ public class AttendanceSheetBean {
 	
 	private String sheetType;
 
+	private String sheetOf;
+	
 	private Date uploadDate;
 	
 	private Date modifyDate;
@@ -23,6 +25,14 @@ public class AttendanceSheetBean {
 
 	public void setSheetId(Integer sheetId) {
 		this.sheetId = sheetId;
+	}
+
+	public String getSheetOf() {
+		return sheetOf;
+	}
+
+	public void setSheetOf(String sheetOf) {
+		this.sheetOf = sheetOf;
 	}
 
 	public String getSheetName() {

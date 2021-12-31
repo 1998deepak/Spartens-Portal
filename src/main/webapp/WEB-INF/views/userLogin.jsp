@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
 <title>User Login</title>
-<link rel="icon" href="./images/Krios-icon-header.png"
+<link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 <meta charset="UTF-8">
 <link
@@ -132,8 +132,7 @@ ${wrongmessage}
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178"
 					action="checklogin" method="post">
 					<span class="login100-form-title">LOGIN</span> 
-					<br>
-					<br>
+					
 					<div class="wrap-input100 validate-input m-b-16">
 						<select class="input100" name="roleName">
 							<option value="" selected="true" disabled="disabled">Login As</option>
@@ -157,7 +156,7 @@ ${wrongmessage}
 							placeholder="Password" id="myInput"> <span class="focus-input100"></span>
 					</div><br>
 					<div style="position: absolute; left: 80px;">
-					<input type="checkbox" onclick="myFunction()"> Show Password&nbsp;&nbsp; <a href="/forgotemailform"> Forgot Password?</a>
+					<input type="checkbox" onclick="myFunction()"> Show Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgotemailform"> Forgot Password?</a>
 					</div>
 					<br><br>
 					<div class="container-login100-form-btn">

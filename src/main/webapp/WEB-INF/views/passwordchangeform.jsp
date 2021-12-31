@@ -5,6 +5,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Change Password form</title>
+<link rel="icon" href="../images/Krios-icon-header.png"
+	type="image/icon type">
 </head>
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
@@ -24,7 +26,21 @@
 body {
 	background-color: #E8E8E8;
 }
+
+button {
+	background-color: #42B5F4;
+	color: white;
+	padding: 7px 12px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px 10px 10px 10px;
 }
+
+button:hover {
+	opacity: 0.8;
+}
+
 </style>
 <body>
 	<div class="form-gap"></div>
@@ -47,15 +63,14 @@ body {
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><span
-												class="glyphicon glyphicon-lock"></span></span> <input type="text"
+												class="glyphicon glyphicon-lock"></span></span> <input type="password"
 												name="newpassword" class="form-control"
 												placeholder="Enter New Password  Here" required autofocus />
 										</div>
 									</div>
 									<div class="form-group">
-										<input name="recover-submit"
-											class="btn btn-lg btn-primary btn-block"
-											value="Change Password" type="submit">
+										<button name="recover-submit"
+											value="Change Password" type="submit">Change Password</button>
 									</div>
 
 									<input type="hidden" class="hide" name="token" id="token"

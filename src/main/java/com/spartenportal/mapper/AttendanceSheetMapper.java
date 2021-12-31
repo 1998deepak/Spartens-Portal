@@ -18,6 +18,7 @@ public class AttendanceSheetMapper {
 		AttendanceSheetBean.setSheetName(sheet.getSheetName());
 		AttendanceSheetBean.setSheetType(sheet.getSheetType());
 		AttendanceSheetBean.setSheet(sheet.getSheet());
+		AttendanceSheetBean.setSheetOf(sheet.getSheetOf());
 		AttendanceSheetBean.setUploadDate(sheet.getUploadDate());
 		AttendanceSheetBean.setModifyDate(sheet.getModifyDate());
 		AttendanceSheetBean.setUseridFK(sheet.getUser().getUserid());
@@ -29,6 +30,7 @@ public class AttendanceSheetMapper {
 		sheet.setSheetId(AttendanceSheetBean.getSheetId());
 		sheet.setSheetName(AttendanceSheetBean.getSheetName());
 		sheet.setSheetType(AttendanceSheetBean.getSheetType());
+		sheet.setSheetOf(AttendanceSheetBean.getSheetOf());
 		sheet.setSheet(AttendanceSheetBean.getSheet());
 		sheet.setUploadDate(AttendanceSheetBean.getUploadDate());
 		sheet.setModifyDate(AttendanceSheetBean.getModifyDate());

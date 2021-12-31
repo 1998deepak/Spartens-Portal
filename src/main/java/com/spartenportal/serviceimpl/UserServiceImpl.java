@@ -115,7 +115,7 @@ public class UserServiceImpl implements UserService {
 			// from email
 			m.setFrom(from);
 			for (int i = 0; i < cc.length; i++) {
-				m.addRecipients(Message.RecipientType.TO, cc[i]);
+				m.addRecipients(Message.RecipientType.CC, cc[i]);
 			}
 			// adding recipient to message
 			m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));

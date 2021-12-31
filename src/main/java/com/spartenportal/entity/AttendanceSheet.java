@@ -25,6 +25,8 @@ public class AttendanceSheet {
 	
 	private String sheetType;
 
+	private String sheetOf;
+	
 	@Temporal(TemporalType.DATE)
 	private Date uploadDate;
 	
@@ -41,6 +43,15 @@ public class AttendanceSheet {
 	public Integer getSheetId() {
 		return sheetId;
 	}
+
+	public String getSheetOf() {
+		return sheetOf;
+	}
+
+	public void setSheetOf(String sheetOf) {
+		this.sheetOf = sheetOf;
+	}
+
 
 	public void setSheetId(Integer sheetId) {
 		this.sheetId = sheetId;

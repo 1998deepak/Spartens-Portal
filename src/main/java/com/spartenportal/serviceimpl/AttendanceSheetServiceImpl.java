@@ -1,5 +1,8 @@
 package com.spartenportal.serviceimpl;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -47,6 +50,17 @@ public class AttendanceSheetServiceImpl implements AttendanceSheetService{
 			attendanceSheetBean.setSheetType(file.getContentType());
 			attendanceSheetBean.setSheet(file.getBytes());
 			attendanceSheetBean.setUploadDate(new Date());
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
+			String date = formatter.format(attendanceSheetBean.getUploadDate());
+			LocalDate currentDate = LocalDate.parse(date);
+
+			// Get month from date
+			Month month = currentDate.getMonth();
+
+			// Get year from date
+			int year = currentDate.getYear();
+			String sheetOf = month+" "+year;
+			attendanceSheetBean.setSheetOf(sheetOf);
 			attendanceSheetBean.setModifyDate(new Date());
 			AttendanceSheet sheet = attendanceSheetMapper.mapToEntity(attendanceSheetBean, user);
 			return attendanceSheetRepository.save(sheet);

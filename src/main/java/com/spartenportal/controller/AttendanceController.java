@@ -55,11 +55,11 @@ public class AttendanceController {
 		for (MultipartFile file : files) {
 			attendanceSheetService.saveFile(file, attendanceSheetBean, user);
 		}
-		List<AttendanceSheet> sheets = attendanceSheetService.getSheetByuserIdFk(userIdfk);
+		List<AttendanceSheet> sheets = attendanceSheetService.getSheetByuserIdFk(userIdfk);	
+		m.addAttribute("sheets", sheets);
 		String message = "Document uploaded Sucesfully";
 		mv = new ModelAndView("AttendanceSheet");
 		mv.addObject("message", message);
-		m.addAttribute("sheets", sheets);
 		return mv;
 	}
 

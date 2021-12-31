@@ -201,6 +201,7 @@ tr, th, td {
 																style="border-top: 1px solid white; background-color: #36C5F0;">
 																<th>Id</th>
 																<th>Name</th>
+																<th>Sheet-Of</th>
 																<th>Upload Date</th>
 																<th>Download Link</th>
 																<th>Action</th>
@@ -212,6 +213,7 @@ tr, th, td {
 																	<td><c:set var="count" value="${count + 1}"
 																			scope="page" /> <c:out value="${count}" /></td>
 																	<td>${sheet.getSheetName()}</td>
+																	<td>${sheet.getSheetOf()}</td>
 																	<td>${sheet.getUploadDate()}</td>
 																	<td><a href="/downloadSheet/${sheet.getSheetId()}">Download</a></td>
 																	<td><a href="/deleteSheet/${sheet.getSheetId()}"><span
