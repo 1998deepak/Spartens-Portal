@@ -76,4 +76,14 @@ public class AttendanceSheetServiceImpl implements AttendanceSheetService{
 		attendanceSheetRepository.deleteById(sheetId);
 	}
 
+	@Override
+	public List<AttendanceSheet> sortAttendanceSheet(String monthAndYear) {
+		String str[] = monthAndYear.split("-");
+		int month = Integer.parseInt(str[1]);
+		String monthName = Month.of(month).name();
+		String date = monthName+" "+str[0];
+		List<AttendanceSheet> attendanceSheets = attendanceSheetRepository.getAttendanceSheetByDate(date);
+		return attendanceSheets;
+	}
+
 }

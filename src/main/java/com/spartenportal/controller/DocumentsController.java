@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.spartenportal.bean.DocsBean;
 import com.spartenportal.entity.Docs;
 import com.spartenportal.entity.User;
+import com.spartenportal.repository.DocRepository;
 import com.spartenportal.service.DocumentsService;
 import com.spartenportal.service.UserService;
 
@@ -41,6 +42,9 @@ public class DocumentsController {
 	
 	@Autowired
 	UserService userservice;
+	
+	@Autowired
+	DocRepository docrepo;
 	
 	//API get all documents and send to documents form
 	@GetMapping("/doc")
@@ -77,7 +81,7 @@ public class DocumentsController {
 		}
 	
 	// API to download files that exist in database
-	@GetMapping("/downloadFile/{fileId}")
+	@GetMapping(value="/downloadFile/{fileId}",produces = MediaType.ALL_VALUE)
 	public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable Integer fileId){
 		Docs doc = documentservice.getFile(fileId).get();
 		return ResponseEntity.ok()

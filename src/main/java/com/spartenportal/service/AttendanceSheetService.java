@@ -23,4 +23,6 @@ public interface AttendanceSheetService {
 	public AttendanceSheet saveFile(MultipartFile file, AttendanceSheetBean attendanceSheetBean, User user);
 
 	public void deleteAttendanceSheet(int docId);
+	
+	public List<AttendanceSheet> sortAttendanceSheet(String monthAndYear);
 }

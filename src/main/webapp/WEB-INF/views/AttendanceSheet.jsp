@@ -65,7 +65,6 @@ button:hover {
 	padding: 0px;
 	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-	text-align: left;
 }
 </style>
 <body>
@@ -159,12 +158,12 @@ button:hover {
 			<tbody>
 				<tr>
 					<th scope="row">1</th>
-					<td colspan="2">January</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">January</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
