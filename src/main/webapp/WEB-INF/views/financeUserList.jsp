@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Calendar" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -88,7 +89,9 @@ tr.header {
 			EMPLOYEE PROFILES</font>
 
 	</div>
+
 	<div id="mydiv" style="position: absolute; left: 70px; top: 97px;">
+	<form action="sortUserList" method="post">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -105,18 +108,22 @@ tr.header {
 					<td align="center"><i class="fa fa-filter"
 						style="font-size: 25px"></i> Status &nbsp;&nbsp; <select
 						class="input100" style="padding: 7px; border-radius: 5px;"
-						name="role">
+						name="uploadStatus">
 
 							<option value="any">Any</option>
 							<option value="pending">Pending</option>
 							<option value="completed">Completed</option>
-							<option value="inprogress">Inprogress</option>
 					</select> <span class="focus-input100"></span></td>
 					<td align="center">
 						<div>
 							<i class="fa fa-calendar" style="font-size: 25px"></i> Date
 							&nbsp;&nbsp; <input style="border-radius: 5px;" type="month"
-								id="start" name="start" min="2021-12" value="2021-12">
+								id="start" name="uploadDate"  value="${todaysDate}">
+						</div>
+					</td>
+					<td align="center">
+						<div>
+							<button> Get User List </button>
 						</div>
 					</td>
 					<td align="center">
@@ -127,8 +134,19 @@ tr.header {
 						</div>
 					</td>
 				</tr>
+				<tr>
+					<td align="center">Total Employees : &nbsp;&nbsp; 
+						${userCount}
+					</td>
+					<td align="center">Attendance Shared By : &nbsp;&nbsp; 
+						${completedCount}
+					</td>
+					<td align="center">Attendance Pending of : &nbsp;&nbsp; 
+						${pendingCount}
+					</td>
+				</tr>
 		</table>
-
+		</form>
 		<table class="table table-hover"
 			style="background-color: white; size: 14px;" id="myTable">
 			<thead>
@@ -145,7 +163,7 @@ tr.header {
 
 						<th><c:set var="count" value="${count + 1}" scope="page" />
 							<c:out value="${count}" /></th>
-						<td>${user.getFirstName()}${user.getMiddleName()}
+						<td>${user.getFirstName()} ${user.getMiddleName()}
 							${user.getLastName()}</td>
 						<td>${user.getEmail()}</td>
 
@@ -159,7 +177,7 @@ tr.header {
 			</tbody>
 		</table>
 
-		<nav aria-label="Page navigation" style="float: right">
+		<!--  <nav aria-label="Page navigation" style="float: right">
 			<ul class="pagination">
 				<li class="page-item"><a class="page-link" href="#"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
@@ -173,7 +191,7 @@ tr.header {
 						class="sr-only">Next</span>
 				</a></li>
 			</ul>
-		</nav>
+		</nav>-->
 	</div>
 
 	<script>

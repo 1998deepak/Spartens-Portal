@@ -15,4 +15,7 @@ import com.spartenportal.entity.AttendanceSheet;
 public interface AttendanceSheetRepository extends JpaRepository<AttendanceSheet, Integer> {
 	@Query(value = "select * from attendanceSheet where useridFK= :useridFK", nativeQuery = true)
 	List<AttendanceSheet> getAttendanceSheetByuserId(@Param("useridFK") int useridFK);
+	
+	@Query(value = "select * from attendanceSheet where sheetOf= :date", nativeQuery = true)
+	List<AttendanceSheet> getAttendanceSheetByDate(@Param("date") String date);
 }
