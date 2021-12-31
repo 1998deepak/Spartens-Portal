@@ -11,6 +11,17 @@
 <link rel="icon" href="./images/Krios-icon-header.png"
 	type="image/icon type">
 <meta charset="UTF-8">
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
 
@@ -85,10 +96,32 @@ function myFunction() {
     x.type = "password";
   }
 }
+$(function () {
+    TriggerAlertClose();
+});
+
+function TriggerAlertClose() {
+    window.setTimeout(function () {
+        $(".alert").fadeTo(1000, 0).slideUp(1000, function () {
+            $(this).remove();
+        });
+    }, 5000);
+}
 </script>
 
 <body>
-
+<c:set var = "message" scope="page" value = "${message}"/>
+      <c:if test = "${not empty message}">
+<div class="alert alert-success" role="alert" style="width: 300px">
+${message}
+</div>
+</c:if>
+<c:set var = "wrongmessage" scope="page" value = "${wrongmessage}"/>
+      <c:if test = "${not empty wrongmessage}">
+<div class="alert alert-danger" role="alert" style="width: 300px">
+${wrongmessage}
+</div>
+</c:if>
 	<div align="center" class="title"
 		style="position: absolute; left: 400px; top: 300px;">
 		<font size="45px" color="white"><b>Welcome to Krios Portal</b></font>
@@ -98,7 +131,7 @@ function myFunction() {
 			<div class="wrap-login100">
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178"
 					action="checklogin" method="post">
-					<span class="login100-form-title">LOGIN</span> <font color="red">${message}</font>
+					<span class="login100-form-title">LOGIN</span> 
 					<br>
 					<br>
 					<div class="wrap-input100 validate-input m-b-16">

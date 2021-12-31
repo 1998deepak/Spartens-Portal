@@ -49,9 +49,9 @@ public class UserController {
 
 	@Autowired
 	UserRepository userRepo;
-	
-	Random random=new Random(1000);
-	
+
+	Random random = new Random(1000);
+
 	@RequestMapping(value = "/userForm2")
 	public ModelAndView viewuserform(ModelAndView mv, Model m) {
 		return mv;
@@ -82,10 +82,12 @@ public class UserController {
 			@RequestParam(name = "password") String password, @ModelAttribute("roles") RolesBean roles, ModelAndView mv,
 			Model m, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		String message = "";
+		String wrongmessage = "";
+		String sucessmessage = "";
 		User user = userservice.findByUserNameAndPassword(username, password);
-		UserBean userBean = userMapper.mapToBean(user);
+		
 		if (user != null) {
+			UserBean userBean = userMapper.mapToBean(user);
 			String roleName = roles.getRoleName();
 			Roles role = roleService.findByRoleName(roleName);
 			int match = userservice.checkAuthority(user.getUserid(), role.getRoleId());
@@ -93,20 +95,23 @@ public class UserController {
 				if (roleName.equals("Admin")) {
 					session.setAttribute("userId", user.getUserid());
 					session.setAttribute("firstName", user.getFirstName());
-					message = "Login Sucessfull!";
+					sucessmessage = "Login Sucessfull!";
+					m.addAttribute("sucessmessage", sucessmessage);
 					mv = new ModelAndView("hrHomepage");
 					m.addAttribute(session);
 				} else if (roleName.equals("Finance")) {
 					session.setAttribute("userId", user.getUserid());
 					session.setAttribute("firstName", user.getFirstName());
-					message = "Login Sucessfull!";
+					sucessmessage = "Login Sucessfull!";
+					m.addAttribute("sucessmessage", sucessmessage);
 					mv = new ModelAndView("financePanel");
 					m.addAttribute(session);
 				} else if (roleName.equals("Employee")) {
 					session.setAttribute("userId", user.getUserid());
 					session.setAttribute("firstName", user.getFirstName());
 					session.setAttribute("companyName", user.getClientCompanyName());
-					message = "Login Sucessfull!";
+					sucessmessage = "Login Sucessfull!";
+					m.addAttribute("sucessmessage", sucessmessage);
 					mv = new ModelAndView("userDashboard");
 					m.addAttribute(session);
 				}
@@ -114,20 +119,24 @@ public class UserController {
 				session.setAttribute("userId", user.getUserid());
 				session.setAttribute("firstName", user.getFirstName());
 				session.setAttribute("companyName", user.getClientCompanyName());
-				message = "Login Sucessfull!";
+				sucessmessage = "Login Sucessfull!";
+				m.addAttribute("sucessmessage", sucessmessage);
 				mv = new ModelAndView("userDashboard");
 				m.addAttribute(session);
 			} else {
-				message = "Credential Failed";
+				wrongmessage = "Credential Failed";
+				m.addAttribute("wrongmessage", wrongmessage);
 				viewHomePage(mv, m);
 				mv = new ModelAndView("userLogin");
 			}
 		} else {
-			message = "Credential Failed";
+			wrongmessage = "Credential Failed";
+//			session.setAttribute("wrongmessage", wrongmessage);
+			m.addAttribute("wrongmessage", wrongmessage);
 			viewHomePage(mv, m);
 			mv = new ModelAndView("userLogin");
 		}
-		m.addAttribute("message", message);
+		
 		return mv;
 	}
 
@@ -205,129 +214,109 @@ public class UserController {
 		mv = new ModelAndView("userForm2");
 		return mv;
 	}
-	
+
 	@GetMapping("/export")
-    public void exportToExcel(HttpServletResponse response) throws IOException {
-        response.setContentType("application/octet-stream");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        String currentDateTime = dateFormatter.format(new Date());
-         
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
-        response.setHeader(headerKey, headerValue);
-         
-        List<User> listUsers = userservice.getUserList();
-         
-        ExcelExporter excelExporter = new ExcelExporter(listUsers);
-         
-        excelExporter.export(response);    
-    }
-	
-	//email id from open handler
-		@RequestMapping("/forgotemailform")
-		public ModelAndView openEmailForm(ModelAndView mv){
+	public void exportToExcel(HttpServletResponse response) throws IOException {
+		response.setContentType("application/octet-stream");
+		DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+		String currentDateTime = dateFormatter.format(new Date());
+
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
+		response.setHeader(headerKey, headerValue);
+
+		List<User> listUsers = userservice.getUserList();
+
+		ExcelExporter excelExporter = new ExcelExporter(listUsers);
+
+		excelExporter.export(response);
+	}
+
+	// email id from open handler
+	@RequestMapping("/forgotemailform")
+	public ModelAndView openEmailForm(ModelAndView mv) {
+		return mv;
+	}
+
+	@PostMapping("/send-otp")
+	public ModelAndView sendOTP(@RequestParam("email") String email, HttpSession sessionOTP, ModelAndView mv, Model m) {
+
+		System.out.println("Email:" + email);
+
+		// genrating otp of 4 digit
+
+		int otp = random.nextInt(999999);
+		System.out.println("OTP:" + otp);
+
+		// write code for send otp to email
+		String subject = "OTP From Krios Info Solutions Pvt Ltd, Pune ";
+		String message = "" + "<div style='border:1px solid #e2e2e2;padding:20px'>" + "<h1>" + "OTP is :" + "<b>" + otp
+				+ "</b>" + "</h1>" + "</div>";
+		String to = email;
+
+		User user = this.userRepo.getUserByUserEmail(email);
+		if (user == null) {
+			// send error message
+			m.addAttribute("message2", "User Does Not Exits with this email..!!");
+			mv = new ModelAndView("forgotemailform");
 			return mv;
-			
-		}
-		
-		
-		@PostMapping("/send-otp")
-		public ModelAndView sendOTP(@RequestParam("email") String email,HttpSession session,ModelAndView mv,Model m){
-			
-			System.out.println("Email:"+email);
-			
-			//genrating otp of 4 digit 
-			 
-			 
-			 	int otp=random.nextInt(999999);
-			 	System.out.println("OTP:"+otp);
-			 	
-				//write code for send otp to email
-			 	String subject="OTP From Krios Info Solutions Pvt Ltd, Pune ";
-			 	String message=""
-			 			+ "<div style='border:1px solid #e2e2e2;padding:20px'>"
-			 			+ "<h1>"
-			 			+ "OTP is :"
-			 			+ "<b>"+otp
-			 			+ "</b>"
-			 			+ "</h1>"
-			 			+ "</div>";
-			 	String to=email;
-			 	
-			 	User user=this.userRepo.getUserByUserEmail(email);
-				if(user==null)
-				{
-					// send error message
-					session.setAttribute("message2", "User Does Not Exits with this email..!!");
-					mv = new ModelAndView("forgotemailform");
-			 		return mv;
-				}else
-				{
-					boolean flag=this.userservice.resetPasswordEamil(subject, message, to);
-				 	
-				 	if(flag)
-				 	{
-				 		session.setAttribute("myotp", otp);
-				 		session.setAttribute("email", email);
-				 		mv = new ModelAndView("verifyotp");
-				 		return mv;
-				 	}else
-				 	{
-				 		session.setAttribute("message1", "Check your Email id");
-				 		mv = new ModelAndView("forgotemailform");
-				 		return mv;
-				 	}
-					
-				}		
-		}
-		
-		//verify otp
-		@PostMapping("/verify-otp")
-		public ModelAndView verifyOtp(@RequestParam("otp") int otp,HttpSession session,ModelAndView mv,Model m) {
-			
-			int myOtp=(Integer) session.getAttribute("myotp");
-			String email=(String) session.getAttribute("email");
-			if(myOtp==otp)
-			{
-				// Password change form
-				
-				User user=this.userRepo.getUserByUserEmail(email);
-				if(user==null)
-				{
-					// send error message
-					session.setAttribute("message2", "User Does Not Exits with this email..!!");
-					mv = new ModelAndView("forgotemailform");
-			 		return mv;
-				}else
-				{
-					//send change password form
-				}
-				mv = new ModelAndView("passwordchangeform");
-		 		return mv;
-			}
-			else
-			{
-				
-				session.setAttribute("message1", "YOU Have Enter Wrong otp");
+		} else {
+			boolean flag = this.userservice.resetPasswordEamil(subject, message, to);
+
+			if (flag) {
+				sessionOTP.setAttribute("myotp", otp);
+				sessionOTP.setAttribute("email", email);
 				mv = new ModelAndView("verifyotp");
-		 		return mv;
+				return mv;
+			} else {
+				m.addAttribute("message1", "Check your Email id");
+				mv = new ModelAndView("forgotemailform");
+				return mv;
 			}
-			
-			
-			
+
 		}
-		
-		//change password
-		@PostMapping("/change-password")
-		public ModelAndView changePassword(@RequestParam("newpassword") String newpassword,HttpSession session,ModelAndView mv,Model m)
-		{
-			String email=(String) session.getAttribute("email");
-			User user=this.userRepo.getUserByUserEmail(email);
-			user.setPassword(newpassword);
-			this.userRepo.save(user);
-			session.setAttribute("message3", "Change password succesfully..!!");
-			mv = new ModelAndView("userLogin");
-	 		return mv;
-			
+	}
+
+	// verify otp
+	@PostMapping("/verify-otp")
+	public ModelAndView verifyOtp(@RequestParam("otp") int otp, HttpSession sessionOTP, ModelAndView mv, Model m) {
+
+		int myOtp = (Integer) sessionOTP.getAttribute("myotp");
+		String email = (String) sessionOTP.getAttribute("email");
+		if (myOtp == otp) {
+			// Password change form
+
+			User user = this.userRepo.getUserByUserEmail(email);
+			if (user == null) {
+				// send error message
+				m.addAttribute("message2", "User Does Not Exits with this email..!!");
+				mv = new ModelAndView("forgotemailform");
+				return mv;
+			} else {
+				// send change password form
+			}
+			mv = new ModelAndView("passwordchangeform");
+			return mv;
+		} else {
+
+			m.addAttribute("message1", "YOU Have Enter Wrong otp");
+			mv = new ModelAndView("verifyotp");
+			return mv;
 		}
+
+	}
+
+	// change password
+	@PostMapping("/change-password")
+	public ModelAndView changePassword(@RequestParam("newpassword") String newpassword, HttpSession sessionOTP,
+			ModelAndView mv, Model m) {
+		String email = (String) sessionOTP.getAttribute("email");
+		User user = this.userRepo.getUserByUserEmail(email);
+		user.setPassword(newpassword);
+		this.userRepo.save(user);
+		m.addAttribute("message", "Change password succesfully..!!");
+		mv = new ModelAndView("userLogin");
+		return mv;
+
+	}
 }

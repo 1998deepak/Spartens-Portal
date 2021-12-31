@@ -293,7 +293,7 @@ public class UserServiceImpl implements UserService {
 		
 		boolean f=false;
 		
-		String from="ashudhikale389@gmail.com";
+		String from=hrUsername;
 		//Variable for gmail
 		String host="smtp.gmail.com";
 		
@@ -313,7 +313,7 @@ public class UserServiceImpl implements UserService {
 		Session session=Session.getInstance(properties, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {				
-				return new PasswordAuthentication("ashudhikale389@gmail.com","ashudhikale25");
+				return new PasswordAuthentication(hrUsername,hrpassword);
 			}
 			
 			
