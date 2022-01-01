@@ -45,7 +45,9 @@ body {
     color: #42B5F4;">
 			<li><a href="/hrHomepage"><span class="glyphicon glyphicon-home"></span> Home</a> <a href="/addUserForm"><span class="glyphicon glyphicon-plus-sign"></span> Add
 					Employee</a>
-			<a href="/employeeDetails"><span class="glyphicon glyphicon-th-list"></span> Show Employee</a></li>
+			<a href="/employeeDetails"><span class="glyphicon glyphicon-th-list"></span> Show Employee</a>
+			<a href="/policiesForm"><span class="glyphicon glyphicon-book"></span> Policies</a>
+			</li>
 			<!-- <li><a href="/reports">Reports</a></li> -->
 		</ul>
 		</div>

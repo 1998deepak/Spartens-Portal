@@ -170,102 +170,102 @@ button:hover {
 
 				<tr>
 					<th scope="row">2</th>
-					<td colspan="2">February</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">February</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 
 				<tr>
 					<th scope="row">3</th>
-					<td colspan="2">March</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">March</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">4</th>
-					<td colspan="2">April</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">April</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">5</th>
-					<td colspan="2">May</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">May</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">6</th>
-					<td colspan="2">June</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">June</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">7</th>
-					<td colspan="2">July</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">July</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 
 					<th scope="row">8</th>
-					<td colspan="2">August</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">August</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">9</th>
-					<td colspan="2">September</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">September</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">10</th>
-					<td colspan="2">October</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">October</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
@@ -273,23 +273,23 @@ button:hover {
 
 				<tr>
 					<th scope="row">11</th>
-					<td colspan="2">November</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">November</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 
 				<tr>
 					<th scope="row">12</th>
-					<td colspan="2">December</td>
-					<td><form id="uploadFiles" name="uploadFiles" method="post"
+					<td colspan="2" align="center">December</td>
+					<td align="center"><form id="uploadFiles" name="uploadFiles" method="post"
 							action="/uploadSheet" encType="multipart/form-data">
 							<input type="file" name="files" multiple required />
 							<p style="color: red;">(upload only Excel, xlsx type)</p></td>
-					<td><button type="submit">Upload</button>
+					<td align="center"><button type="submit">Upload</button>
 						</form></td>
 				</tr>
 			</tbody>

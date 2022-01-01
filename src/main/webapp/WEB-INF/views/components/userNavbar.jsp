@@ -62,6 +62,7 @@ body {
          <span class="glyphicon glyphicon-file"></span>
           Attendance Sheet
         </a>
+    	<a href="/viewPolicy"><span class="glyphicon glyphicon-book"></span> Policies</a>
         </c:if>
       </li>
   </ul>
