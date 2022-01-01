@@ -63,7 +63,7 @@ tr.header {
 	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 }
 
-button {
+.buttondown {
 	background-color: #34AB53;
 	color: white;
 	padding: 2px 6px;
@@ -73,7 +73,7 @@ button {
 	border-radius: 6px 6px 6px 6px;
 }
 
-button:hover {
+.buttondown:hover {
 	opacity: 0.8;
 }
 
@@ -86,6 +86,53 @@ button:hover {
 	padding: 1px ​0px 1px 35px;
 	border: 1px solid #ddd;
 	margin-bottom: 12px;
+}
+
+
+
+.height {
+    height: 100vh
+}
+
+.form {
+    position: relative
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #9ca3af
+}
+
+.form span {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db
+}
+
+.left-pan {
+    padding-left: 7px
+}
+
+.left-pan i {
+    padding-left: 10px
+}
+
+.form-input {
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border: none
+}
+.btn-tab:hover{
+background-color:white;
 }
 </style>
 <title>Employee Details</title>
@@ -105,18 +152,21 @@ button:hover {
 		id="mydiv">
 		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp&nbsp
 			EMPLOYEE PROFILES</font>
-		<div class=" container"
-			style="position: absolute; left: 803px; o; top: 4px;">
-			<input type="search" placeholder="Search for Name" id="myInput"
-				onkeyup="myFunction()"> 
-				
+		<div class="container "
+			style="position: absolute;  top: 2px;">
+			          <i class="glyphicon glyphicon-search" style="position:absolute;float:right;padding:2px;margin-left:83%;font-size:25px;color:gray"></i>
+			<input type="search" style="float:right;padding:2px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
+				onkeyup="myFunction()">
 		</div>
-		<div class=" container"
-			style="position: absolute; left: 565px; o; top: -1px;">
-<a href="/export"
-				style="margin: auto; text-align: center; display: block;">
-				<button><span class="glyphicon glyphicon-save-file"></span>Download</button>
-			</a></div>
+
+        <div  style="position:absolute;top: 1px;margin-left:90%">
+           <a href="/export" style=" float:right;text-align: center; display: block;">
+             <button class="buttondown" ><span  class="glyphicon glyphicon-save-file"></span>&nbsp;&nbsp;&nbsp;Download</button>
+           </a>
+
+        </div>
+
+
 	</div>
 	<div style="position: absolute; left: 70px; top: 97px;" id="mydiv"
 		class="table-responsive">
@@ -129,7 +179,7 @@ button:hover {
 					<th style="font-weight: bold;">Email-ID</th>
 					<th style="font-weight: bold;">Mobile</th>
 					<th style="font-weight: bold;">Position</th>
-					<th align="right" style="font-weight: bold;">Action</th>
+					<th align="center" style="font-weight: bold;float:right;margin-right:40%">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -143,16 +193,21 @@ button:hover {
 						<td>${user.getEmail()}</td>
 						<td>${user.getMobile()}</td>
 						<td></td>
-						<td><a href="/viewForm/${user.getUserid()}"><button
-									style="background-color: blue;">
-									<span class="glyphicon glyphicon-eye-open"></span>
-								</button></a>&nbsp&nbsp <a href="/updateForm/${user.getUserid()}"><button
-									style="background-color: orange;">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</button></a>&nbsp&nbsp <a href="/deleteEmployee/${user.getUserid()}"><button
-									style="background-color: red;">
-									<span class="glyphicon glyphicon-trash"></span>
-								</button></a></td>
+						<td align="center">
+						        <a href="/viewForm/${user.getUserid()}">
+						        <button class="btn btn-tab">
+									<i class="fa fa-eye"></i>
+								</button></a>&nbsp&nbsp
+								<a href="/updateForm/${user.getUserid()}">
+								<button class="btn  btn-tab">
+									<i class="fa fa-edit"></i>
+								</button></a>&nbsp&nbsp
+								<a href="/updateForm/${user.getUserid()}">
+                                	<button class="btn  btn-tab">
+                                		<i class="fa fa-trash-o"></i>
+                                    </button></a>&nbsp&nbsp
+
+						</td>
 					</tr>
 				</c:forEach>
 
