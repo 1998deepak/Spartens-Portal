@@ -54,7 +54,6 @@ body {
 	text-align: left;
 }
 
-
 button:hover {
 	opacity: 0.8;
 }
@@ -71,8 +70,6 @@ th, td {
 .panel-group .panel+.panel {
 	margin-top: -2px;
 }
-
-
 </style>
 <body>
 	<div>
@@ -93,7 +90,7 @@ th, td {
 					style="border-top: 1px solid white; background-color: #36C5F0;">
 					<th>Id</th>
 					<th>Name</th>
-					<th>Download Link</th>
+					<th>Download</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -103,10 +100,14 @@ th, td {
 						<td><c:set var="count" value="${count + 1}" scope="page" />
 							<c:out value="${count}" /></td>
 						<td>${policy.getPolicyName()}</td>
-						<td><a href="/downloadPolicy/${policy.getPolicyId()}"><button>Download</button></a></td>
+						<td><a href="/downloadPolicy/${policy.getPolicyId()}"><button
+									style="color: green; border: none; background-color: white">
+									<i class="material-icons "
+										style="font-size: 34px; float: left;">cloud_download</i>
+								</button></a></td>
 						<td><a href="/viewFile/${policy.getPolicyId()}"><button
 									class="btn btn-tab">
-									<i class="fa fa-eye"></i>
+									<span class="glyphicon glyphicon-eye-open"></span>
 								</button> </a></td>
 					</tr>
 				</c:forEach>

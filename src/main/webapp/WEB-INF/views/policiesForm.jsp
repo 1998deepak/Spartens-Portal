@@ -90,7 +90,7 @@ background-color:#E8E8E8;
 													style="border-top: 1px solid white; background-color: #36C5F0;">
 													<th>Id</th>
 													<th>Name</th>
-													<th>Download Link</th>
+													<th>Download</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -103,8 +103,8 @@ background-color:#E8E8E8;
 														<td><a href="/downloadPolicy/${policy.getPolicyId()}">
 														     <button     style=" color:green;border:none;background-color:white  "> <i class="material-icons " style="font-size: 34px;float:left;">cloud_download</i></button>
 														 </a></td>
-														<td><a class="btn sbtn"   href="/deletePolicy/${policy.getPolicyId()}"><i class="fa fa-trash-o"></i></a>&nbsp;&nbsp;&nbsp;
-																<a class="btn sbtn"   href="/viewPDF/${policy.getPolicyId()}"><i class="fa fa-eye"></i></a></td>
+														<td><a class="btn sbtn"   href="/deletePolicy/${policy.getPolicyId()}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;&nbsp;
+																<a class="btn sbtn"   href="/viewPDF/${policy.getPolicyId()}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>

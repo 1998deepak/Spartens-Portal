@@ -37,15 +37,6 @@ table:hover {
 	background-color: #E8E8E8;
 }
 
-button {
-	background-color: #34AB53;
-	color: white;
-	padding: 7px 12px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	border-radius: 10px 10px 10px 10px;
-}
 
 button:hover {
 	opacity: 0.8;
@@ -128,12 +119,18 @@ button:hover {
 														<td><c:set var="count" value="${count + 1}"
 																scope="page" /> <c:out value="${count}" /></td>
 														<td>${doc.getDocName() }</td>
-														<td><a href="/downloadFile/${doc.getDocId()}">Download</a></td>
-														<td><a href="/deleteDoc/${doc.getDocId()}"><span
-																class="glyphicon glyphicon-trash" style="color: red"></span></a>
-																<a href="/viewDoc/${doc.getDocId()}"><button class="btn  btn-tab">
-                                		<i class="fa fa-eye"></i>
-                                    </button></a>
+														<td><a href="/downloadFile/${doc.getDocId()}"><button
+									style="color: green; border: none; background-color: white">
+									<i class="material-icons "
+										style="font-size: 34px; float: left;">cloud_download</i>
+								</button></a></td>
+														<td><a href="/deleteDoc/${doc.getDocId()}"><button
+									class="btn btn-tab"><span
+																class="glyphicon glyphicon-trash"></span></button></a>
+																<a href="/viewDoc/${doc.getDocId()}"><button
+									class="btn btn-tab">
+									<span class="glyphicon glyphicon-eye-open"></span>
+								</button></a>
 																</td>
 													</tr>
 												</c:forEach>

@@ -171,7 +171,7 @@ background-color:white;
 					<tr>
 						<c:set var="count" value="${count + 1}" scope="page" />
 						<th scope="row"><c:out value="${count}" /></th>
-						<td>${user.getFirstName()}${user.getMiddleName()}
+						<td>${user.getFirstName()} ${user.getMiddleName()}
 							${user.getLastName()}</td>
 						<td>${user.getEmail()}</td>
 						<td>${user.getMobile()}</td>
@@ -179,15 +179,15 @@ background-color:white;
 						<td align="center">
 						        <a href="/viewForm/${user.getUserid()}">
 						        <button class="btn btn-tab">
-									<i class="fa fa-eye"></i>
+									<span class="glyphicon glyphicon-eye-open"></span>
 								</button></a>&nbsp&nbsp
 								<a href="/updateForm/${user.getUserid()}">
 								<button class="btn  btn-tab">
-									<i class="fa fa-edit"></i>
+									<span class="glyphicon glyphicon-edit"></span>
 								</button></a>&nbsp&nbsp
 								<a href="/updateForm/${user.getUserid()}">
                                 	<button class="btn  btn-tab">
-                                		<i class="fa fa-trash-o"></i>
+                                		<span class="glyphicon glyphicon-trash"></span>
                                     </button></a>&nbsp&nbsp
 
 						</td>
