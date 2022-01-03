@@ -31,27 +31,21 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 body {
 	background-color: #E8E8E8;
 }
 
-table:hover {
+table li:hover {
 	background-color: #E8E8E8;
 }
-
-button {
-	background-color: #34AB53;
-	color: white;
-	padding: 7px 12px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	border-radius: 10px 10px 10px 10px;
+.sbtn{
+background-color:#E8E8E8;
+}
+.sbtn:hover{
+	background-color:white;
 }
 
-button:hover {
-	opacity: 0.8;
-}
 
 #mydiv {
 	width: 1200px;
@@ -74,27 +68,23 @@ button:hover {
 <div>
 		<jsp:include page="./components/header2.jsp" />
 	</div>
-	<div
+	<div class="row"
 		style="position: absolute; left: 76px; top: 55px; padding-top: 6px; padding-bottom: 6px;"
 		id="mydiv">
-		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp;
+
+		<font class="col-md-6" color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp;
 			COMPANY POLICIES</font>
+		<div class="col-md-6"  >
+	        <form style="float:right"  class="row" method="post" action="/upload-File" encType="multipart/form-data">
+        		<input class="col-md-6"  type="file" name="file" style="border:1px solid gray; padding:7px;border-radius:3px;box-shadow: 0px 2px 2px gray;border-top-right-radius:0px;border-bottom-right-radius:0px;width:65%"  multiple required />
+         	     <button class="btn col-md-6" style="padding: 1px 4px;background-color:green;color:white;width:34%;border-radius:3px;box-shadow: 0px 2px 2px gray;border-top-left-radius:0px;border-bottom-left-radius:0px"> <span class="material-icons " style="font-size: 34px;float:left;">cloud_upload</span><span style="font-size:16px;top:7px;left:46px;position:absolute;">Upload</span></button>
+            </form>
+        </div>
 	</div>
-	<div class="container" align="center" id="mydiv"
-		style="position: absolute; left: 76px; top: 92px;">
-	<table>
-	<tbody>
-	<tr  >
-	<td style="float:left">Upload Policy</td>
-	<td align="center"><form method="post" action="/upload-File" encType="multipart/form-data">
-		<input type="file" name="file" multiple required />
-		<p style="color: red;">(upload only image, png type)</p></td>
-		<td style="float:right;"><button type="submit">Upload</button></td>
-	</form>
-	</tr>
-	</tbody>
-	</table>
-	<br><br>
+	<div class="container"  id="mydiv"
+		style="position: absolute; left: 76px; top: 109px;">
+
+
 	
 									<div>
 										<table class="table table-hover">
@@ -113,10 +103,11 @@ button:hover {
 														<td><c:set var="count" value="${count + 1}"
 																scope="page" /> <c:out value="${count}" /></td>
 														<td>${policy.getPolicyName()}</td>
-														<td><a href="/downloadPolicy/${policy.getPolicyId()}">Download</a></td>
-														<td><a href="/deletePolicy/${policy.getPolicyId()}"><span
-																class="glyphicon glyphicon-trash" style="color: red"></span></a>
-																<a href="/viewPDF/${policy.getPolicyId()}">View</a></td>
+														<td><a href="/downloadPolicy/${policy.getPolicyId()}">
+														     <button     style=" color:green;border:none;background-color:white  "> <i class="material-icons " style="font-size: 34px;float:left;">cloud_download</i></button>
+														 </a></td>
+														<td><a class="btn sbtn"   href="/deletePolicy/${policy.getPolicyId()}"><i class="fa fa-trash-o"></i></a>&nbsp;&nbsp;&nbsp;
+																<a class="btn sbtn"   href="/viewPDF/${policy.getPolicyId()}"><i class="fa fa-eye"></i></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>

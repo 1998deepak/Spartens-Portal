@@ -28,7 +28,7 @@ public class PoliciesServiceImpl implements PoliciesService {
 
 	@Override
 	public boolean uploadFile(MultipartFile file) {
-		String uploadDir = "E:\\Uploaded Documents";
+		String uploadDir = "A:\\Uploaded Documents";
 		uploadDir =uploadDir+File.separator+"Policies";
 		Policies policy = new Policies();
 		policy.setPolicyName(file.getOriginalFilename());
