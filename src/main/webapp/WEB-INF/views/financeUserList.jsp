@@ -95,7 +95,7 @@ tr.header {
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<td align="center">Show&nbsp;&nbsp; <select class="input100"
+					<!--  <td align="center">Show&nbsp;&nbsp; <select class="input100"
 						style="padding: 7px; border-radius: 5px;" name="role">
 							<option value="five">5</option>
 							<option value="ten">10</option>
@@ -103,7 +103,7 @@ tr.header {
 							<option value="twenty">20</option>
 							<option value="twentyfive">25</option>
 					</select> <span class="focus-input100"></span> &nbsp;&nbsp;&nbsp;Entries
-					</td>
+					</td>-->
 
 					<td align="center"><i class="fa fa-filter"
 						style="font-size: 25px"></i> Status &nbsp;&nbsp; <select

@@ -131,7 +131,7 @@ public class PoliciesController {
 				mv.addObject(p);
 				List<Policies> policyList = policiesService.getAllPolicies();
 				m.addAttribute("policyList", policyList);
-		mv = new ModelAndView("policiesForm");
+				mv = new ModelAndView("policiesForm");
 		return mv;
 	}
 }

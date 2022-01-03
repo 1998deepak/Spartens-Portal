@@ -62,7 +62,7 @@ tr.header {
 	background-color: #34AB53;
 	color: white;
 	padding: 7px 15px;
-	margin: 6px 0;
+	margin: 4px 0;
 	border: none;
 	cursor: pointer;
 	border-radius: 6px 6px 6px 6px;
@@ -117,6 +117,7 @@ tr.header {
 .btn-tab:hover{
 background-color:white;
 }
+.btn{padding:1px 6px !important}
 </style>
 <title>Employee Details</title>
 <link rel="icon" href="./images/Krios-icon-header.png"
@@ -137,7 +138,7 @@ background-color:white;
 			EMPLOYEE PROFILES</font>
 		<div class="container "
 			style="position: absolute;  top: 2px;">
-			          <i class="glyphicon glyphicon-search" style="position:absolute;top:1px;float:right;padding:2px;margin-left:83%;font-size:26px;color:gray"></i>
+			          <i class="glyphicon glyphicon-search" style="position:absolute;top:1px;float:right;padding: 5px;margin-left: 82%;font-size:26px;color:gray;"></i>
 			<input type="search" style="float:right;padding:6px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
 				onkeyup="myFunction()">
 		</div>
@@ -162,7 +163,7 @@ background-color:white;
 					<th style="font-weight: bold;">Email-ID</th>
 					<th style="font-weight: bold;">Mobile</th>
 					<th style="font-weight: bold;">Position</th>
-					<th align="center" style="font-weight: bold;float:right;margin-right:40%">Action</th>
+					<th style="font-weight: bold;text-align:center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -185,7 +186,7 @@ background-color:white;
 								<button class="btn  btn-tab">
 									<span class="glyphicon glyphicon-edit"></span>
 								</button></a>&nbsp&nbsp
-								<a href="/updateForm/${user.getUserid()}">
+								<a href="/deleteEmployee/${user.getUserid()}">
                                 	<button class="btn  btn-tab">
                                 		<span class="glyphicon glyphicon-trash"></span>
                                     </button></a>&nbsp&nbsp

@@ -128,7 +128,7 @@ button:hover {
 									class="btn btn-tab"><span
 																class="glyphicon glyphicon-trash"></span></button></a>
 																<a href="/viewDoc/${doc.getDocId()}"><button
-									class="btn btn-tab">
+									class="btn btn-tab" name="viewDoc" value="Vdoc">
 									<span class="glyphicon glyphicon-eye-open"></span>
 								</button></a>
 																</td>

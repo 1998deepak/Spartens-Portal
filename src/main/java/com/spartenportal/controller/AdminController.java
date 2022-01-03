@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.spartenportal.bean.UserBean;
 import com.spartenportal.entity.Docs;
 import com.spartenportal.entity.User;
@@ -34,11 +33,10 @@ public class AdminController {
 
 	@Autowired
 	RoleService roleService;
-	
+
 	@Autowired
 	private UserMapper userMapper;
-	
-	
+
 	// method to redirect to HR-dashboard
 	@RequestMapping(value = "/hrHomepage")
 	public ModelAndView adminHomePage(ModelAndView mv, Model m) {
@@ -47,9 +45,48 @@ public class AdminController {
 
 	// method to redirect to Update form
 	@RequestMapping(value = "/viewForm/{userId}")
-	public ModelAndView viewUserForm(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m) {
+	public ModelAndView viewUserForm(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m,
+			HttpServletRequest request) {
 		UserBean user = userservice.getById(userId);
 		List<Docs> docs = documentservice.getDocsByuserIdFk(userId);
+		HttpSession session = request.getSession();
+		session.setAttribute("viewUserId", userId);
+		m.addAttribute("user", user);
+		m.addAttribute("docs", docs);
+		mv = new ModelAndView("viewForm");
+		return mv;
+	}
+
+	@RequestMapping("/viewDocAdmin/{docId}")
+	public ModelAndView getPdfAdmin(@PathVariable Integer docId, ModelAndView mv, Model m, HttpServletRequest request)
+			throws Exception {
+		Docs docs1 = documentservice.getFile(docId).get();
+		Process p = Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + docs1.getDocPath());
+		p.waitFor();
+		mv.addObject(p);
+		int userIdfk = (int) request.getSession().getAttribute("viewUserId");
+		UserBean user = userservice.getById(userIdfk);
+		List<Docs> docs = documentservice.getDocsByuserIdFk(userIdfk);
+		m.addAttribute("user", user);
+		m.addAttribute("docs", docs);
+		mv = new ModelAndView("viewForm");
+		return mv;
+	}
+
+	// method to delete document
+	@RequestMapping(value = "/deleteDocAdmin/{docId}")
+	public ModelAndView deleteDoc(@PathVariable(name = "docId") int docId, ModelAndView mv, Model m,
+			HttpServletRequest request) throws IOException {
+		String message = "";
+		boolean flag = documentservice.deleteDocs(docId);
+		if (flag == true) {
+			message = "File Deleted Sucesfully";
+		} else {
+			message = "File Deleted Sucesfully";
+		}
+		int userIdfk = (int) request.getSession().getAttribute("viewUserId");
+		UserBean user = userservice.getById(userIdfk);
+		List<Docs> docs = documentservice.getDocsByuserIdFk(userIdfk);
 		m.addAttribute("user", user);
 		m.addAttribute("docs", docs);
 		mv = new ModelAndView("viewForm");
@@ -88,7 +125,8 @@ public class AdminController {
 
 	// get User for update
 	@RequestMapping(value = "/updateForm/{userId}")
-	public ModelAndView viewUpdateScreen(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m,HttpServletRequest request) {
+	public ModelAndView viewUpdateScreen(@PathVariable(name = "userId") int userId, ModelAndView mv, Model m,
+			HttpServletRequest request) {
 		UserBean user = userservice.getById(userId);
 		HttpSession session = request.getSession();
 		session.setAttribute("updateUserId", userId);
@@ -113,4 +151,4 @@ public class AdminController {
 		mv.addObject("message", message);
 		return mv;
 	}
-} 
+}

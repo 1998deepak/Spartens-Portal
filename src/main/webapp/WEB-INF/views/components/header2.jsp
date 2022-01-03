@@ -38,8 +38,7 @@ body {
 <body>
 	<div class="navbar">
 		<div style="position: absolute;left: 5px; top: -17px;">
-		<a href="#"><img src="../images/Krios-icon-bg.png" height="70px"
-			width="120px"></a></div>
+		<a href="#"><img src="../images/krios-icon.png" width="120px" style="padding-top:8px"></a></div>
 			<div style="position: absolute;left: 103px; top: 7px;">
 		<ul style="
     color: #42B5F4;">
@@ -51,7 +50,7 @@ body {
 			<!-- <li><a href="/reports">Reports</a></li> -->
 		</ul>
 		</div>
-		<div style="position: absolute; left: 1130px; top: 7px;">
+		<div style="position: absolute; right: 5px; top: 7px;">
 			<a href="#"> <span class="glyphicon glyphicon-user"></span>
 				${firstName}
 			</a> <a href="/logout"> <span class="glyphicon glyphicon-log-out"></span>&nbspLogout
