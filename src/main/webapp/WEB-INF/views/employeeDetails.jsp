@@ -66,7 +66,7 @@ tr.header {
 .buttondown {
 	background-color: #34AB53;
 	color: white;
-	padding: 2px 6px;
+	padding: 7px 15px;
 	margin: 6px 0;
 	border: none;
 	cursor: pointer;
@@ -148,27 +148,27 @@ background-color:white;
 		&nbsp&nbsp&nbsp&nbsp ${message1}</font>
 
 	<div
-		style="position: absolute; left: 70px; top: 60px; padding-top: 6px; padding-bottom: 6px;"
+		style="position: absolute; left: 70px; top: 60px; padding-top: 6px; padding-bottom: 16px;"
 		id="mydiv">
 		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp&nbsp
 			EMPLOYEE PROFILES</font>
 		<div class="container "
 			style="position: absolute;  top: 2px;">
-			          <i class="glyphicon glyphicon-search" style="position:absolute;float:right;padding:2px;margin-left:83%;font-size:25px;color:gray"></i>
-			<input type="search" style="float:right;padding:2px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
+			          <i class="glyphicon glyphicon-search" style="position:absolute;top:1px;float:right;padding:2px;margin-left:83%;font-size:26px;color:gray"></i>
+			<input type="search" style="float:right;padding:6px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
 				onkeyup="myFunction()">
 		</div>
 
-        <div  style="position:absolute;top: 1px;margin-left:90%">
+        <div  style="position:absolute;top: 1px;margin-left:89%">
            <a href="/export" style=" float:right;text-align: center; display: block;">
-             <button class="buttondown" ><span  class="glyphicon glyphicon-save-file"></span>&nbsp;&nbsp;&nbsp;Download</button>
+             <button class="  buttondown"  ><span  class="glyphicon glyphicon-save-file" style="font-size:15px"></span>&nbsp;&nbsp;&nbsp;Download</button>
            </a>
 
         </div>
 
 
 	</div>
-	<div style="position: absolute; left: 70px; top: 97px;" id="mydiv"
+	<div style="position: absolute; left: 70px; top: 109px;" id="mydiv"
 		class="table-responsive">
 		<table class="table table-hover"
 			style="background-color: white; size: 14px;" id="myTable">
