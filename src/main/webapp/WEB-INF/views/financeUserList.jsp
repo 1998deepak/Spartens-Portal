@@ -118,7 +118,7 @@ tr.header {
 						<div>
 							<i class="fa fa-calendar" style="font-size: 25px"></i> Date
 							&nbsp;&nbsp; <input style="border-radius: 5px;" type="month"
-								id="start" name="uploadDate"  value="${todaysDate}">
+								id="start" name="uploadDate"  value="${todaysDate}" required="required">
 						</div>
 					</td>
 					<td align="center">

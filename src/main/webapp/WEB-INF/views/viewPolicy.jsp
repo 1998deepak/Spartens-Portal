@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,12 +30,13 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="./css/downloadButton.css" type="text/javascript"></script>
 </head>
 <style>
-body
-{
-background-color: #E8E8E8;
+body {
+	background-color: #E8E8E8;
 }
+
 #mydiv {
 	width: 1200px;
 	padding: 10px;
@@ -43,24 +44,16 @@ background-color: #E8E8E8;
 	-webkit-box-shadow: 0 30px 60px 0;
 	margin: 20px;
 	-webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 4px 4px 4px 4px;;
-  background: #fff;
-  padding: 30px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  text-align: left;
+	border-radius: 4px 4px 4px 4px;;
+	background: #fff;
+	padding: 30px;
+	position: relative;
+	padding: 0px;
+	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+	text-align: left;
 }
-button {
-	background-color: #34AB53;
-	color: white;
-	padding: 7px 12px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	 border-radius: 10px 10px 10px 10px;
-}
+
 
 button:hover {
 	opacity: 0.8;
@@ -74,12 +67,15 @@ th, td {
 	padding: 7px;
 	text-align: left;
 }
+
 .panel-group .panel+.panel {
-    margin-top: -2px;
+	margin-top: -2px;
 }
+
+
 </style>
 <body>
-<div>
+	<div>
 		<jsp:include page="./components/userNavbar.jsp" />
 	</div>
 	<div
@@ -88,33 +84,34 @@ th, td {
 		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp;
 			COMPANY POLICIES</font>
 	</div>
-	
-									<div class="container" align="center" id="mydiv"
+
+	<div class="container" align="center" id="mydiv"
 		style="position: absolute; left: 76px; top: 92px;">
-										<table class="table table-hover" id="mydiv ">
-											<thead>
-												<tr class="table-active"
-													style="border-top: 1px solid white; background-color: #36C5F0;">
-													<th>Id</th>
-													<th>Name</th>
-													<th>Download Link</th>
-													<th>Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${policyList}" var="policy">
-													<tr class="table-danger">
-														<td><c:set var="count" value="${count + 1}"
-																scope="page" /> <c:out value="${count}" /></td>
-														<td>${policy.getPolicyName()}</td>
-														<td><a href="/downloadPolicy/${policy.getPolicyId()}">Download</a></td>
-														<td><a href="/viewFile/${policy.getPolicyId()}"><button type=submit class="btn btn-danger"> PDF </button>
-														</a>
-														</td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
+		<table class="table table-hover" id="mydiv ">
+			<thead>
+				<tr class="table-active"
+					style="border-top: 1px solid white; background-color: #36C5F0;">
+					<th>Id</th>
+					<th>Name</th>
+					<th>Download Link</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${policyList}" var="policy">
+					<tr class="table-danger">
+						<td><c:set var="count" value="${count + 1}" scope="page" />
+							<c:out value="${count}" /></td>
+						<td>${policy.getPolicyName()}</td>
+						<td><a href="/downloadPolicy/${policy.getPolicyId()}"><button>Download</button></a></td>
+						<td><a href="/viewFile/${policy.getPolicyId()}"><button
+									class="btn btn-tab">
+									<i class="fa fa-eye"></i>
+								</button> </a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

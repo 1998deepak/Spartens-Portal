@@ -15,7 +15,8 @@ public class DocsMapper {
 		docsBean.setDocId(docs.getDocId());
 		docsBean.setDocName(docs.getDocName());
 		docsBean.setDocType(docs.getDocType());
-		docsBean.setData(docs.getData());
+		docsBean.setDocPath(docs.getDocPath());
+		docsBean.setUploadDate(docs.getUploadDate());
 		docsBean.setUserid(docs.getUser().getUserid());
 		return docsBean;
 	}
@@ -25,7 +26,8 @@ public class DocsMapper {
 		docs.setDocId(docsBean.getDocId());
 		docs.setDocName(docsBean.getDocName());
 		docs.setDocType(docsBean.getDocType());
-		docs.setData(docsBean.getData());
+		docs.setDocPath(docsBean.getDocPath());
+		docs.setUploadDate(docsBean.getUploadDate());
 		docs.setUser(user);
 		return docs;
 	}

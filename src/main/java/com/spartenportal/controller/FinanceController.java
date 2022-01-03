@@ -1,8 +1,6 @@
 package com.spartenportal.controller;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,11 +83,18 @@ public class FinanceController {
 		int pendingCount = 0;
 		int completedCount = 0;
 		String todaysDate = findTodaysDate();
-		List<User> userList = new ArrayList<>();
-		userList = userservice.getUserList();
+		List<User> userList1 = new ArrayList<>();
+		userList1 = userservice.getUserList();
 		List<User> sortedUserList = new ArrayList<User>();
 		List<AttendanceSheet> financeUserList = new ArrayList<>();
 		financeUserList = attendanceSheetService.sortAttendanceSheet(uploadDate);
+		List<User> userList = new ArrayList<User>();
+		for (User user : userList1) {
+			if(user.getClientCompanyName() != null)
+			{
+				userList.add(user);
+			}
+		}
 		List<User> usersList = new ArrayList<User>();
 		for (User user : userList) {
 			usersList.add(user);

@@ -134,7 +134,7 @@ ${wrongmessage}
 					<span class="login100-form-title">LOGIN</span> 
 					
 					<div class="wrap-input100 validate-input m-b-16">
-						<select class="input100" name="roleName">
+						<select class="input100" name="roleName" required="required">
 							<option value="" selected="true" disabled="disabled">Login As</option>
 							<c:forEach items="${roles}" var="roles">
 							<c:if test="${roles.roleName ne 'Super Admin'}">		

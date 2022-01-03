@@ -1,5 +1,9 @@
 package com.spartenportal.bean;
 
+import java.util.Date;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 public class DocsBean {
 	private Integer docId;
@@ -8,7 +12,9 @@ public class DocsBean {
 	
 	private String docType;
 	
-	private byte[] data;
+	private String docPath;
+	
+	private Date uploadDate;
 	
 	private Integer userid;
 
@@ -37,12 +43,12 @@ public class DocsBean {
 		this.docType = docType;
 	}
 
-	public byte[] getData() {
-		return data;
+	public String getDocPath() {
+		return docPath;
 	}
 
-	public void setData(byte[] data) {
-		this.data = data;
+	public void setDocPath(String docPath) {
+		this.docPath = docPath;
 	}
 
 	public Integer getUserid() {
@@ -53,5 +59,12 @@ public class DocsBean {
 		this.userid = userid;
 	}
 
+	public Date getUploadDate() {
+		return uploadDate;
+	}
+
+	public void setUploadDate(Date uploadDate) {
+		this.uploadDate = uploadDate;
+	}
 	
 }

@@ -53,17 +53,16 @@ body {
           Employement Form
         </a>
         <a href="/doc">
-          <i class="fa fa-folder-open"></i>
-          Documents
+          <span class="glyphicon glyphicon-folder-open"></span>&nbsp;Documents
         </a>
+        <a href="/viewPolicy"><span class="glyphicon glyphicon-book"></span> Policies</a>
         <c:set var = "cname" scope="session" value = "${companyName}"/>
       <c:if test = "${not empty cname}">
         <a href="/AttendanceSheet">
          <span class="glyphicon glyphicon-file"></span>
           Attendance Sheet
-        </a>
-    	<a href="/viewPolicy"><span class="glyphicon glyphicon-book"></span> Policies</a>
-        </c:if>
+        </a>	
+        </c:if>  
       </li>
   </ul>
   </div>

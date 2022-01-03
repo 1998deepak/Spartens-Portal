@@ -134,9 +134,10 @@ tr.header {
 .btn-tab:hover{
 background-color:white;
 }
+
 </style>
 <title>Employee Details</title>
-<link rel="icon" href="./images/Krios-icon-header.png"
+<link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 </head>
 <body>
@@ -148,27 +149,27 @@ background-color:white;
 		&nbsp&nbsp&nbsp&nbsp ${message1}</font>
 
 	<div
-		style="position: absolute; left: 70px; top: 60px; padding-top: 6px; padding-bottom: 6px;"
+		style="position: absolute; left: 70px; top: 60px; padding-top: 11px; padding-bottom: 8px;"
 		id="mydiv">
 		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp&nbsp
 			EMPLOYEE PROFILES</font>
 		<div class="container "
-			style="position: absolute;  top: 2px;">
-			          <i class="glyphicon glyphicon-search" style="position:absolute;float:right;padding:2px;margin-left:83%;font-size:25px;color:gray"></i>
+			style="position: absolute;  top: 5px;">
+			          <i class="glyphicon glyphicon-search" style="position:absolute;float:right;padding:2px;margin-left:83%;font-size:23px;color:gray;"></i>
 			<input type="search" style="float:right;padding:2px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
 				onkeyup="myFunction()">
 		</div>
 
         <div  style="position:absolute;top: 1px;margin-left:90%">
            <a href="/export" style=" float:right;text-align: center; display: block;">
-             <button class="buttondown" ><span  class="glyphicon glyphicon-save-file"></span>&nbsp;&nbsp;&nbsp;Download</button>
+             <button class="buttondown" ><span  class="glyphicon glyphicon-save-file"></span>&nbsp;&nbsp;Download</button>
            </a>
 
         </div>
 
 
 	</div>
-	<div style="position: absolute; left: 70px; top: 97px;" id="mydiv"
+	<div style="position: absolute; left: 70px; top: 103px;" id="mydiv"
 		class="table-responsive">
 		<table class="table table-hover"
 			style="background-color: white; size: 14px;" id="myTable">
@@ -188,7 +189,7 @@ background-color:white;
 					<tr>
 						<c:set var="count" value="${count + 1}" scope="page" />
 						<th scope="row"><c:out value="${count}" /></th>
-						<td>${user.getFirstName()}${user.getMiddleName()}
+						<td>${user.getFirstName()} ${user.getMiddleName()}
 							${user.getLastName()}</td>
 						<td>${user.getEmail()}</td>
 						<td>${user.getMobile()}</td>
@@ -197,15 +198,15 @@ background-color:white;
 						        <a href="/viewForm/${user.getUserid()}">
 						        <button class="btn btn-tab">
 									<i class="fa fa-eye"></i>
-								</button></a>&nbsp&nbsp
+								</button></a>&nbsp;&nbsp;
 								<a href="/updateForm/${user.getUserid()}">
 								<button class="btn  btn-tab">
 									<i class="fa fa-edit"></i>
-								</button></a>&nbsp&nbsp
-								<a href="/updateForm/${user.getUserid()}">
+								</button></a>&nbsp;&nbsp;
+								<a href="/deleteEmployee/${user.getUserid()}">
                                 	<button class="btn  btn-tab">
                                 		<i class="fa fa-trash-o"></i>
-                                    </button></a>&nbsp&nbsp
+                                    </button></a>&nbsp;&nbsp;
 
 						</td>
 					</tr>

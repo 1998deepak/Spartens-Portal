@@ -130,7 +130,11 @@ button:hover {
 														<td>${doc.getDocName() }</td>
 														<td><a href="/downloadFile/${doc.getDocId()}">Download</a></td>
 														<td><a href="/deleteDoc/${doc.getDocId()}"><span
-																class="glyphicon glyphicon-trash" style="color: red"></span></a></td>
+																class="glyphicon glyphicon-trash" style="color: red"></span></a>
+																<a href="/viewDoc/${doc.getDocId()}"><button class="btn  btn-tab">
+                                		<i class="fa fa-eye"></i>
+                                    </button></a>
+																</td>
 													</tr>
 												</c:forEach>
 											</tbody>

@@ -22,7 +22,7 @@ public interface DocumentsService {
 
 	public List<Docs> getFiles();
 
-	public Docs saveFile(MultipartFile file ,DocsBean docsBean , User user);
+	public boolean saveFile(MultipartFile file ,DocsBean docsBean , User user);
 	
-	public void deleteDocs(int docId);
+	public boolean deleteDocs(int docId);
 }

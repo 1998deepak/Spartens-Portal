@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,16 +39,6 @@ table:hover {
 	background-color: #E8E8E8;
 }
 
-button {
-	background-color: #34AB53;
-	color: white;
-	padding: 7px 12px;
-	margin: 8px 0;
-	border: none;
-	cursor: pointer;
-	border-radius: 10px 10px 10px 10px;
-}
-
 button:hover {
 	opacity: 0.8;
 }
@@ -67,11 +57,10 @@ button:hover {
 	padding: 0px;
 	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-	
 }
 </style>
 <body>
-<div>
+	<div>
 		<jsp:include page="./components/header2.jsp" />
 	</div>
 	<div
@@ -82,46 +71,53 @@ button:hover {
 	</div>
 	<div class="container" align="center" id="mydiv"
 		style="position: absolute; left: 76px; top: 92px;">
-	<table>
-	<tbody>
-	<tr  >
-	<td style="float:left">Upload Policy</td>
-	<td align="center"><form method="post" action="/upload-File" encType="multipart/form-data">
-		<input type="file" name="file" multiple required />
-		<p style="color: red;">(upload only image, png type)</p></td>
-		<td style="float:right;"><button type="submit">Upload</button></td>
-	</form>
-	</tr>
-	</tbody>
-	</table>
-	<br><br>
-	
-									<div>
-										<table class="table table-hover">
-											<thead>
-												<tr class="table-active"
-													style="border-top: 1px solid white; background-color: #36C5F0;">
-													<th>Id</th>
-													<th>Name</th>
-													<th>Download Link</th>
-													<th>Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${policyList}" var="policy">
-													<tr class="table-danger">
-														<td><c:set var="count" value="${count + 1}"
-																scope="page" /> <c:out value="${count}" /></td>
-														<td>${policy.getPolicyName()}</td>
-														<td><a href="/downloadPolicy/${policy.getPolicyId()}">Download</a></td>
-														<td><a href="/deletePolicy/${policy.getPolicyId()}"><span
-																class="glyphicon glyphicon-trash" style="color: red"></span></a>
-																<a href="/viewPDF/${policy.getPolicyId()}">View</a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</div>
-									</div>
+		<table>
+			<tbody>
+				<tr>
+					<td style="float: left">Upload Policy</td>
+					<td align="center"><form method="post" action="/upload-File"
+							encType="multipart/form-data">
+							<input type="file" name="file" multiple required />
+							<p style="color: red;">(upload only image, png type)</p></td>
+					<td style="float: right;"><button type="submit">Upload</button></td>
+					</form>
+				</tr>
+			</tbody>
+		</table>
+		<br> <br>
+
+		<div>
+			<table class="table table-hover">
+				<thead>
+					<tr class="table-active"
+						style="border-top: 1px solid white; background-color: #36C5F0;">
+						<th>Id</th>
+						<th>Name</th>
+						<th>Download Link</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${policyList}" var="policy">
+						<tr class="table-danger">
+							<td><c:set var="count" value="${count + 1}" scope="page" />
+								<c:out value="${count}" /></td>
+							<td>${policy.getPolicyName()}</td>
+							<td><a href="/downloadPolicy/${policy.getPolicyId()}">Download</a></td>
+							<td><a href="/deletePolicy/${policy.getPolicyId()}"><button
+										class="btn  btn-tab">
+										<i class="fa fa-trash-o"></i></a>
+										
+										<a
+								href="/viewPDF/${policy.getPolicyId()}"><button
+										class="btn btn-tab">
+										<i class="fa fa-eye"></i>
+									</button></a></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
