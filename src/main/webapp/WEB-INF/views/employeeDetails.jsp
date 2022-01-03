@@ -32,21 +32,17 @@
 body {
 	background-color: #E8E8E8;
 }
-
 table {
 	width: 900px;
 	border-collapse: collapse;
 }
-
 th, td {
 	font-size: 13px;
 	padding: 4px;
 }
-
 tr.header {
 	background-color: #36C5F0;
 }
-
 #mydiv {
 	width: 1200px;
 	padding: 10px;
@@ -62,21 +58,18 @@ tr.header {
 	-webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 }
-
 .buttondown {
 	background-color: #34AB53;
 	color: white;
-	padding: 2px 6px;
+	padding: 7px 15px;
 	margin: 6px 0;
 	border: none;
 	cursor: pointer;
 	border-radius: 6px 6px 6px 6px;
 }
-
 .buttondown:hover {
 	opacity: 0.8;
 }
-
 #myInput {
 	background-image: url('./images/');
 	background-position: 5px 5px;
@@ -87,24 +80,18 @@ tr.header {
 	border: 1px solid #ddd;
 	margin-bottom: 12px;
 }
-
-
-
 .height {
     height: 100vh
 }
-
 .form {
     position: relative
 }
-
 .form .fa-search {
     position: absolute;
     top: 20px;
     left: 20px;
     color: #9ca3af
 }
-
 .form span {
     position: absolute;
     right: 17px;
@@ -112,21 +99,17 @@ tr.header {
     padding: 2px;
     border-left: 1px solid #d1d5db
 }
-
 .left-pan {
     padding-left: 7px
 }
-
 .left-pan i {
     padding-left: 10px
 }
-
 .form-input {
     height: 55px;
     text-indent: 33px;
     border-radius: 10px
 }
-
 .form-input:focus {
     box-shadow: none;
     border: none
@@ -134,10 +117,9 @@ tr.header {
 .btn-tab:hover{
 background-color:white;
 }
-
 </style>
 <title>Employee Details</title>
-<link rel="icon" href="../images/Krios-icon-header.png"
+<link rel="icon" href="./images/Krios-icon-header.png"
 	type="image/icon type">
 </head>
 <body>
@@ -149,27 +131,27 @@ background-color:white;
 		&nbsp&nbsp&nbsp&nbsp ${message1}</font>
 
 	<div
-		style="position: absolute; left: 70px; top: 60px; padding-top: 11px; padding-bottom: 8px;"
+		style="position: absolute; left: 70px; top: 60px; padding-top: 6px; padding-bottom: 16px;"
 		id="mydiv">
 		<font color="black" style="font-family: sans-serif; font-size: 15px;">&nbsp&nbsp
 			EMPLOYEE PROFILES</font>
 		<div class="container "
-			style="position: absolute;  top: 5px;">
-			          <i class="glyphicon glyphicon-search" style="position:absolute;float:right;padding:2px;margin-left:83%;font-size:23px;color:gray;"></i>
-			<input type="search" style="float:right;padding:2px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
+			style="position: absolute;  top: 2px;">
+			          <i class="glyphicon glyphicon-search" style="position:absolute;top:1px;float:right;padding:2px;margin-left:83%;font-size:26px;color:gray"></i>
+			<input type="search" style="float:right;padding:6px;margin-right:12%;border:2px solid gray;border-radius:4px;" placeholder=" Search for Employee" id="myInput"
 				onkeyup="myFunction()">
 		</div>
 
-        <div  style="position:absolute;top: 1px;margin-left:90%">
+        <div  style="position:absolute;top: 1px;margin-left:89%">
            <a href="/export" style=" float:right;text-align: center; display: block;">
-             <button class="buttondown" ><span  class="glyphicon glyphicon-save-file"></span>&nbsp;&nbsp;Download</button>
+             <button class="  buttondown"  ><span  class="glyphicon glyphicon-save-file" style="font-size:15px"></span>&nbsp;&nbsp;&nbsp;Download</button>
            </a>
 
         </div>
 
 
 	</div>
-	<div style="position: absolute; left: 70px; top: 103px;" id="mydiv"
+	<div style="position: absolute; left: 70px; top: 109px;" id="mydiv"
 		class="table-responsive">
 		<table class="table table-hover"
 			style="background-color: white; size: 14px;" id="myTable">
@@ -189,7 +171,7 @@ background-color:white;
 					<tr>
 						<c:set var="count" value="${count + 1}" scope="page" />
 						<th scope="row"><c:out value="${count}" /></th>
-						<td>${user.getFirstName()} ${user.getMiddleName()}
+						<td>${user.getFirstName()}${user.getMiddleName()}
 							${user.getLastName()}</td>
 						<td>${user.getEmail()}</td>
 						<td>${user.getMobile()}</td>
@@ -198,15 +180,15 @@ background-color:white;
 						        <a href="/viewForm/${user.getUserid()}">
 						        <button class="btn btn-tab">
 									<i class="fa fa-eye"></i>
-								</button></a>&nbsp;&nbsp;
+								</button></a>&nbsp&nbsp
 								<a href="/updateForm/${user.getUserid()}">
 								<button class="btn  btn-tab">
 									<i class="fa fa-edit"></i>
-								</button></a>&nbsp;&nbsp;
-								<a href="/deleteEmployee/${user.getUserid()}">
+								</button></a>&nbsp&nbsp
+								<a href="/updateForm/${user.getUserid()}">
                                 	<button class="btn  btn-tab">
                                 		<i class="fa fa-trash-o"></i>
-                                    </button></a>&nbsp;&nbsp;
+                                    </button></a>&nbsp&nbsp
 
 						</td>
 					</tr>
