@@ -11,12 +11,10 @@
 <link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 <meta charset="UTF-8">
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<!-- Bootstrap Styles-->
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
@@ -110,18 +108,7 @@ function TriggerAlertClose() {
 </script>
 
 <body>
-<c:set var = "message" scope="page" value = "${message}"/>
-      <c:if test = "${not empty message}">
-<div class="alert alert-success" role="alert" style="width: 300px">
-${message}
-</div>
-</c:if>
-<c:set var = "wrongmessage" scope="page" value = "${wrongmessage}"/>
-      <c:if test = "${not empty wrongmessage}">
-<div class="alert alert-danger" role="alert" style="width: 300px">
-${wrongmessage}
-</div>
-</c:if>
+
 	<div align="center" class="title"
 		style="position: absolute; left: 400px; top: 300px;">
 		<font size="45px" color="white"><b>Welcome to Krios Portal</b></font>
@@ -132,7 +119,18 @@ ${wrongmessage}
 				<form class="login100-form validate-form p-l-55 p-r-55 p-t-178"
 					action="checklogin" method="post">
 					<span class="login100-form-title">LOGIN</span> 
-					
+					<p style=" position: absolute !important; margin-top: -45px;"><c:set var = "message" scope="page" value = "${message}"/>
+      <c:if test = "${not empty message}">
+<div class="alert alert-success" role="alert" style="width: 300px;  position: absolute !important; margin-top: -36px;">
+${message}
+</div>
+</c:if>
+<c:set var = "wrongmessage" scope="page" value = "${wrongmessage}"/>
+      <c:if test = "${not empty wrongmessage}">
+<div class="alert alert-danger" role="alert" style="width: 300px;  position: absolute !important; margin-top: -36px;">
+${wrongmessage}
+</div>
+</c:if></p>
 					<div class="wrap-input100 validate-input m-b-16">
 						<select class="input100" name="roleName" required="required">
 							<option value="" selected="true" disabled="disabled">Login As</option>

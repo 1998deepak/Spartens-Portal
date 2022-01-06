@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="./images/Krios-icon-header.png"
+<link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"

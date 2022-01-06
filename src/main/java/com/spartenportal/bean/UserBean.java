@@ -360,45 +360,99 @@ public class UserBean {
 	private Date modifyDate;
 
 	private String clientCompanyName;
+
+	private String location;
+
+	private String yearlyPackage;
+
+	private String monthlySalary;
+
+	private String yearlyPackageKTP;
+
+	private String monthlySalaryKTP;
+
+	private String empStatus;
 	
 	private List<Roles> roles;
-	
+
 	private String roleName;
-	
+
 	// getters and setters
 	public Integer getUserid() {
 		return userid;
 	}
-	
+
 	public String getRoleName() {
 		return roleName;
 	}
-
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
 
-
 	public List<Roles> getRoles() {
 		return roles;
 	}
-
 
 	public void setRoles(List<Roles> roles) {
 		this.roles = roles;
 	}
 
+	public String getEmpStatus() {
+		return empStatus;
+	}
+
+	public void setEmpStatus(String empStatus) {
+		this.empStatus = empStatus;
+	}
 
 	public String getClientCompanyName() {
 		return clientCompanyName;
 	}
 
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getYearlyPackage() {
+		return yearlyPackage;
+	}
+
+	public void setYearlyPackage(String yearlyPackage) {
+		this.yearlyPackage = yearlyPackage;
+	}
+
+	public String getMonthlySalary() {
+		return monthlySalary;
+	}
+
+	public void setMonthlySalary(String monthlySalary) {
+		this.monthlySalary = monthlySalary;
+	}
+
+	public String getYearlyPackageKTP() {
+		return yearlyPackageKTP;
+	}
+
+	public void setYearlyPackageKTP(String yearlyPackageKTP) {
+		this.yearlyPackageKTP = yearlyPackageKTP;
+	}
+
+	public String getMonthlySalaryKTP() {
+		return monthlySalaryKTP;
+	}
+
+	public void setMonthlySalaryKTP(String monthlySalaryKTP) {
+		this.monthlySalaryKTP = monthlySalaryKTP;
+	}
 
 	public void setClientCompanyName(String clientCompanyName) {
 		this.clientCompanyName = clientCompanyName;
 	}
-
 
 	public void setUserid(Integer userid) {
 		this.userid = userid;

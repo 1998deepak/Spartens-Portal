@@ -142,6 +142,7 @@ public class UserServiceImpl implements UserService {
 	public ResponseEntity<?> saveUser(User user, RolesBean roleBean) {
 		Roles roles = rolesMapper.mapToEntity(roleBean);
 		List<Roles> role = rolesRepository.findByName(roles.getRoleName());
+		user.setEmpStatus("Working");
 		user.setRoles(role);
 		userRepo.save(user);
 		return new ResponseEntity<>("success", HttpStatus.OK);

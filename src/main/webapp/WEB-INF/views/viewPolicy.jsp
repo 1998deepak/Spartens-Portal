@@ -70,6 +70,10 @@ th, td {
 .panel-group .panel+.panel {
 	margin-top: -2px;
 }
+.btn-tab:hover{
+background-color:white;
+}
+.btn{padding:1px 6px !important}
 </style>
 <body>
 	<div>
@@ -103,7 +107,7 @@ th, td {
 						<td><a href="/downloadPolicy/${policy.getPolicyId()}"><button
 									style="color: green; border: none; background-color: white">
 									<i class="material-icons "
-										style="font-size: 34px; float: left;">cloud_download</i>
+										style="font-size: 28px; float: left;">cloud_download</i>
 								</button></a></td>
 						<td><a href="/viewFile/${policy.getPolicyId()}"><button
 									class="btn btn-tab">

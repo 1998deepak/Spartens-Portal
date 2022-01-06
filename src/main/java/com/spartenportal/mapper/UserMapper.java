@@ -166,6 +166,12 @@ public class UserMapper {
 		userBean.setCurrentDate(user.getCurrentDate());
 		userBean.setModifyDate(user.getModifyDate());
 		userBean.setClientCompanyName(user.getClientCompanyName());
+		userBean.setLocation(user.getLocation());
+		userBean.setYearlyPackage(user.getYearlyPackage());
+		userBean.setMonthlySalary(user.getMonthlySalary());
+		userBean.setYearlyPackageKTP(user.getYearlyPackageKTP());
+		userBean.setMonthlySalaryKTP(user.getMonthlySalaryKTP());
+		userBean.setEmpStatus(user.getEmpStatus());
 		userBean.setRoleName(getRole(user).getRoleName());	
 		return userBean;
 	}
@@ -325,6 +331,12 @@ public class UserMapper {
 		user.setCurrentDate(userBean.getCurrentDate());
 		user.setModifyDate(userBean.getModifyDate());
 		user.setClientCompanyName(userBean.getClientCompanyName());
+		user.setLocation(userBean.getLocation());
+		user.setYearlyPackage(userBean.getYearlyPackage());
+		user.setMonthlySalary(userBean.getMonthlySalary());
+		user.setYearlyPackageKTP(userBean.getYearlyPackageKTP());
+		user.setMonthlySalaryKTP(userBean.getMonthlySalaryKTP());
+		user.setEmpStatus(userBean.getEmpStatus());
 		return user; 
 	}
 	

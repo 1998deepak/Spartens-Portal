@@ -9,9 +9,9 @@
 </head>
 <link rel="icon" href="../images/Krios-icon-header.png"
 	type="image/icon type">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+
 <!-- Bootstrap Styles-->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <!-- FontAwesome Styles-->
@@ -31,7 +31,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 body {
 	background-color: #E8E8E8;
 }
@@ -60,6 +60,10 @@ background-color:#E8E8E8;
 	box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
 	
 }
+.btn-tab:hover{
+background-color:white;
+}
+.btn{padding:1px 6px !important}
 </style>
 <body>
 <div>
@@ -101,10 +105,12 @@ background-color:#E8E8E8;
 																scope="page" /> <c:out value="${count}" /></td>
 														<td>${policy.getPolicyName()}</td>
 														<td><a href="/downloadPolicy/${policy.getPolicyId()}">
-														     <button     style=" color:green;border:none;background-color:white  "> <i class="material-icons " style="font-size: 34px;float:left;">cloud_download</i></button>
+														     <button     style=" color:green;border:none;background-color:white  "> <i class="material-icons " style="font-size: 28px;float:left;">cloud_download</i></button>
 														 </a></td>
-														<td><a class="btn sbtn"   href="/deletePolicy/${policy.getPolicyId()}"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;&nbsp;
-																<a class="btn sbtn"   href="/viewPDF/${policy.getPolicyId()}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+														<td><a href="/deletePolicy/${policy.getPolicyId()}"><button class="btn btn-tab"><span class="glyphicon glyphicon-trash"></span></button></a>&nbsp;&nbsp;&nbsp;
+																<a href="/viewPDF/${policy.getPolicyId()}"><button class="btn btn-tab">
+									<span class="glyphicon glyphicon-eye-open"></span>
+								</button></a></td>
 													</tr>
 												</c:forEach>
 											</tbody>

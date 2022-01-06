@@ -39,7 +39,7 @@ body {
 	<div class="navbar">
 		<div style="position: absolute;left: 5px; top: -17px;">
 		<a href="#"><img src="../images/krios-icon.png" width="120px" style="padding-top:8px"></a></div>
-			<div style="position: absolute;left: 103px; top: 7px;">
+			<div style="position: absolute;left: 115px; top: 7px;">
 		<ul style="
     color: #42B5F4;">
 			<li><a href="/hrHomepage"><span class="glyphicon glyphicon-home"></span> Home</a> <a href="/addUserForm"><span class="glyphicon glyphicon-plus-sign"></span> Add

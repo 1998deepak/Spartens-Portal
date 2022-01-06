@@ -20,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 /*
  * Bean class for User
- * author Mahesh
+ * author Deepak
  * Date 23/11/2021
  * version 1.0
  */
@@ -532,6 +532,24 @@ public class User{
 	@Column(name = "clientCompanyName")
 	private String clientCompanyName;
 	
+	@Column(name = "location")
+	private String location;
+	
+	@Column(name = "yearlyPackage")
+	private String yearlyPackage;
+	
+	@Column(name = "monthlySalary")
+	private String monthlySalary;
+	
+	@Column(name = "yearlyPackageKTP")
+	private String yearlyPackageKTP;
+	
+	@Column(name = "monthlySalaryKTP")
+	private String monthlySalaryKTP;
+	
+	@Column(name = "empStatus")
+	private String empStatus;
+	
 	@ManyToMany(targetEntity = Roles.class , cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
 	@JoinTable(name = "userRole" ,
 			   joinColumns = @JoinColumn (name = "usersId" , referencedColumnName = "userid") ,
@@ -548,6 +566,54 @@ public class User{
 
 	public void setRoles(List<Roles> roles) {
 		this.roles = roles;
+	}
+
+	public String getEmpStatus() {
+		return empStatus;
+	}
+
+	public void setEmpStatus(String empStatus) {
+		this.empStatus = empStatus;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getYearlyPackage() {
+		return yearlyPackage;
+	}
+
+	public void setYearlyPackage(String yearlyPackage) {
+		this.yearlyPackage = yearlyPackage;
+	}
+
+	public String getMonthlySalary() {
+		return monthlySalary;
+	}
+
+	public void setMonthlySalary(String monthlySalary) {
+		this.monthlySalary = monthlySalary;
+	}
+
+	public String getYearlyPackageKTP() {
+		return yearlyPackageKTP;
+	}
+
+	public void setYearlyPackageKTP(String yearlyPackageKTP) {
+		this.yearlyPackageKTP = yearlyPackageKTP;
+	}
+
+	public String getMonthlySalaryKTP() {
+		return monthlySalaryKTP;
+	}
+
+	public void setMonthlySalaryKTP(String monthlySalaryKTP) {
+		this.monthlySalaryKTP = monthlySalaryKTP;
 	}
 
 	public String getClientCompanyName() {
@@ -1753,65 +1819,5 @@ public class User{
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", userName=" + userName + ", password=" + password + ", lastName=" + lastName
-				+ ", firstName=" + firstName + ", middleName=" + middleName + ", place=" + place + ", birthDate="
-				+ birthDate + ", maritalStatus=" + maritalStatus + ", gender=" + gender + ", bloodGroup=" + bloodGroup
-				+ ", presentAddress=" + presentAddress + ", telephone=" + telephone + ", mobile=" + mobile + ", email="
-				+ email + ", permanentAddress=" + permanentAddress + ", permanentTelephone=" + permanentTelephone
-				+ ", relativeName=" + relativeName + ", relativePosition=" + relativePosition
-				+ ", relativesRelationship=" + relativesRelationship + ", adharNumber=" + adharNumber + ", panNumber="
-				+ panNumber + ", holderName=" + holderName + ", bankName=" + bankName + ", accountNumber="
-				+ accountNumber + ", branchName=" + branchName + ", ifscCode=" + ifscCode + ", pfAccountNumber="
-				+ pfAccountNumber + ", uanNumber=" + uanNumber + ", fatherName=" + fatherName + ", fatherContactNumber="
-				+ fatherContactNumber + ", fatherEducation=" + fatherEducation + ", fatherOccupation="
-				+ fatherOccupation + ", motherName=" + motherName + ", motherContactNumber=" + motherContactNumber
-				+ ", motherEducation=" + motherEducation + ", motherOccupation=" + motherOccupation + ", wOrHName="
-				+ wOrHName + ", wOrHContactNumber=" + wOrHContactNumber + ", wOrHEducation=" + wOrHEducation
-				+ ", wOrHOccupation=" + wOrHOccupation + ", childrenName=" + childrenName + ", childrenContactNumber="
-				+ childrenContactNumber + ", childrenEducation=" + childrenEducation + ", childrenOccupation="
-				+ childrenOccupation + ", brotherName=" + brotherName + ", brotherContactNumber=" + brotherContactNumber
-				+ ", brotherEducation=" + brotherEducation + ", brotherOccupation=" + brotherOccupation
-				+ ", sisterName=" + sisterName + ", sisterNumber=" + sisterNumber + ", sisterEducation="
-				+ sisterEducation + ", sisterOccupation=" + sisterOccupation + ", schoolName=" + schoolName
-				+ ", periodFrom=" + periodFrom + ", periodTo=" + periodTo + ", degreeOrDiploma=" + degreeOrDiploma
-				+ ", specialization=" + specialization + ", percentage=" + percentage + ", classOrDiv=" + classOrDiv
-				+ ", collageName=" + collageName + ", hscPeriodFrom=" + hscPeriodFrom + ", hscPeriodTo=" + hscPeriodTo
-				+ ", hscDegreeOrDiploma=" + hscDegreeOrDiploma + ", hscSpecialization=" + hscSpecialization
-				+ ", hscPercentage=" + hscPercentage + ", hscclassOrDiv=" + hscclassOrDiv + ", universityName="
-				+ universityName + ", degreePeriodFrom=" + degreePeriodFrom + ", degreePeriodTo=" + degreePeriodTo
-				+ ", degreeDegreeOrDiploma=" + degreeDegreeOrDiploma + ", degreeSpecialization=" + degreeSpecialization
-				+ ", degreePercentage=" + degreePercentage + ", degreeClassOrDiv=" + degreeClassOrDiv
-				+ ", programingLanguages=" + programingLanguages + ", applicationSoftware=" + applicationSoftware
-				+ ", cert_Version=" + cert_Version + ", cert_Date=" + cert_Date + ", futureStudy=" + futureStudy
-				+ ", careerObjective=" + careerObjective + ", m_Read=" + m_Read + ", m_Write=" + m_Write + ", m_Speak="
-				+ m_Speak + ", m_Comprehend=" + m_Comprehend + ", m_MotherTongue=" + m_MotherTongue + ", h_Read="
-				+ h_Read + ", h_Write=" + h_Write + ", h_Speak=" + h_Speak + ", h_Comprehend=" + h_Comprehend
-				+ ", h_MotherTongue=" + h_MotherTongue + ", e_Read=" + e_Read + ", e_Write=" + e_Write + ", e_Speak="
-				+ e_Speak + ", e_Comprehend=" + e_Comprehend + ", e_MotherTongue=" + e_MotherTongue + ", otherLanguage="
-				+ otherLanguage + ", o_Read=" + o_Read + ", o_Write=" + o_Write + ", o_Speak=" + o_Speak
-				+ ", o_Comprehend=" + o_Comprehend + ", o_MotherTongue=" + o_MotherTongue + ", tech_Skill1="
-				+ tech_Skill1 + ", tech_Skill2=" + tech_Skill2 + ", otherSkill1=" + otherSkill1 + ", experience="
-				+ experience + ", relevantExperience=" + relevantExperience + ", employer=" + employer
-				+ ", businessType=" + businessType + ", emp_Address=" + emp_Address + ", reson_Change=" + reson_Change
-				+ ", serviceFrom=" + serviceFrom + ", serviceTo=" + serviceTo + ", drawnCTC=" + drawnCTC
-				+ ", emp_phone=" + emp_phone + ", designation=" + designation + ", seniorName=" + seniorName
-				+ ", seniorDesignation=" + seniorDesignation + ", currentCTC=" + currentCTC + ", expectedCTC="
-				+ expectedCTC + ", joinTime=" + joinTime + ", relocation=" + relocation + ", employerName1="
-				+ employerName1 + ", employerAddress1=" + employerAddress1 + ", employerFrom1=" + employerFrom1
-				+ ", employerTo1=" + employerTo1 + ", employerDesignation1=" + employerDesignation1 + ", lastSalary1="
-				+ lastSalary1 + ", employerName2=" + employerName2 + ", employerAddress2=" + employerAddress2
-				+ ", employerFrom2=" + employerFrom2 + ", employerTo2=" + employerTo2 + ", employerDesignation2="
-				+ employerDesignation2 + ", lastSalary2=" + lastSalary2 + ", hobbies=" + hobbies + ", passportNo="
-				+ passportNo + ", issuePlace=" + issuePlace + ", issueDate=" + issueDate + ", expiryDate=" + expiryDate
-				+ ", nationality=" + nationality + ", statusECNR=" + statusECNR + ", panNo=" + panNo + ", notPassport="
-				+ notPassport + ", app_Place=" + app_Place + ", app_Date=" + app_Date + ", travelledCountries="
-				+ travelledCountries + ", refuseVisa=" + refuseVisa + ", validVisa=" + validVisa + ", isActive="
-				+ isActive + ", currentDate=" + currentDate + ", modifyDate=" + modifyDate + ", clientCompanyName="
-				+ clientCompanyName + "]";
-	}
-	
 	
 }
